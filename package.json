@@ -1,0 +1,28 @@
+{
+  "name": "callsmusicremix",
+  "version": "1.0.0",
+  "description": "A Telegram bot to stream audio in calls using GramTGCalls",
+  "main": "dist",
+  "scripts": {
+    "start": "node dist",
+    "build": "tsc",
+    "prepare": "npm run build",
+    "test": "tsc --noEmit"
+  },
+  "author": "Roj Serbest <rojserbest@icloud.com>",
+  "dependencies": {
+    "@grammyjs/types": "^2.2.2",
+    "dotenv": "^8.2.0",
+    "envalid": "^7.1.1",
+    "gram-tgcalls": "^1.3.5",
+    "grammy": "^1.2.0",
+    "node-pre-gyp": "^0.17.0",
+    "telegram": "^1.7.15",
+    "tgcalls": "^0.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^16.3.0",
+    "html-escape": "^2.0.0",
+    "typescript": "^4.3.5"
+  }
+}
