@@ -8,7 +8,7 @@
          "description": "GramJS string session. You can generate one at https://rojserbest.github.io/bssg.",
          "required": true
       },
-      "BOT_TOKEN": {
+      "TOKEN": {
          "description": "Bot token from @BotFather.",
          "required": true
       },
