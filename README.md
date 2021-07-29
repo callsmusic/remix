@@ -4,12 +4,6 @@ Stream YouTube videos and audio files in Telegram calls using [GramTGCalls](http
 
 ---
 
-## Requirements
-
--  Telegram app ID and hash from [my.telegram.org](https://github.com/).
--  Telegram bot token from [@BotFather](https://t.me/BotFather).
--  FFmpeg
-
 ## Deployment
 
 ### Heroku
