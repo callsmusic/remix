@@ -13,14 +13,19 @@ composer.command(["pl", "playlist"], async (ctx) => {
   try {
     const playlist = await ytpl(url as string);
 
-    let i = 0;
-
     for (let i in playlist.items) {
-      await stream(ctx.chat.id, playlist.items[i].url);
-      i += 1;
+      const result = await stream(ctx.chat.id, playlist.items[i].url);
+
+      if (i == "0") {
+        await ctx.reply(
+          result == null
+            ? `▶️ | <b>Streaming and queuing ${playlist.items.length} items...</>`
+            : `🎶 | <b>Queuing ${playlist.items.length} items...</>`
+        );
+      }
     }
 
-    await ctx.reply(`🎶 | <b>Queued ${i} items.</>`);
+    await ctx.reply(`✅ | <b>Queued all items.</>`);
   } catch (err) {
     await ctx.reply(`❌ | <b>An error occurred.</>`);
   }
