@@ -1,8 +1,15 @@
 # Calls Music Remix
 
-Stream YouTube videos and audio files in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-tgcalls).
+Stream in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-tgcalls).
 
 ---
+
+## Features
+
+- Supports streaming audio files, voice messages and YouTube videos, even live ones!
+- Can stream in multiple chats simultaneously, with their own queues.
+- Friendly responses.
+- Doesn't create files.
 
 ## Deployment
 
