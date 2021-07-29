@@ -1,6 +1,8 @@
 import { Composer } from "grammy";
-import { stream } from "../../stream";
 import ytpl from "ytpl";
+
+import { stream } from "../../stream";
+import env from "../../../env";
 
 const composer = new Composer();
 
@@ -11,21 +13,22 @@ composer.command(["pl", "playlist"], async (ctx) => {
     ctx.message?.reply_to_message?.text || ctx.message?.text.split(/\s/)[1];
 
   try {
-    const playlist = await ytpl(url as string);
+    const items = (await ytpl(url as string)).items.slice(
+      0,
+      env.MAX_PLAYLIST_SIZE
+    );
 
-    for (let i in playlist.items) {
-      const result = await stream(ctx.chat.id, playlist.items[i].url);
+    for (let i in items) {
+      const result = await stream(ctx.chat.id, items[i].url);
 
       if (i == "0") {
         await ctx.reply(
           result == null
-            ? `▶️ | <b>Streaming and queuing ${playlist.items.length} items...</>`
-            : `🎶 | <b>Queuing ${playlist.items.length} items...</>`
+            ? `▶️ | <b>Streaming and queuing ${items.length} items...</>`
+            : `🎶 | <b>Queuing ${items.length} items...</>`
         );
       }
     }
-
-    await ctx.reply(`✅ | <b>Queued all items.</>`);
   } catch (err) {
     await ctx.reply(`❌ | <b>An error occurred.</>`);
   }

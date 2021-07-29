@@ -8,4 +8,5 @@ export default cleanEnv(process.env, {
   STRING_SESSION: str(),
   API_ID: num(),
   API_HASH: str(),
+  MAX_PLAYLIST_SIZE: num({ default: 10 }),
 });

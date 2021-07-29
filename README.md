@@ -62,6 +62,10 @@ Skips the current stream.
 
 Clears the queue and removes the userbot from the call.
 
+## Inspiration
+
+- [eritislami/evobot](https://github.com/eritislami/evobot)
+
 ## License
 
 ### GNU Affero General Public License v3.0
