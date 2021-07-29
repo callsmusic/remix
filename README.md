@@ -20,13 +20,7 @@ Stream in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-t
 ### Yourself
 
 1. Copy `example.env` to `.env` and fill it with your credentials.
-2. Build TS:
-
-```bash
-npm run build
-```
-
-3. Start:
+2. Start:
 
 ```bash
 npm start
