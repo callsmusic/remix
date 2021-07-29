@@ -1,6 +1,6 @@
 # Calls Music Remix
 
-Stream audio in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-tgcalls).
+Stream YouTube videos and audio files in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-tgcalls).
 
 ---
 
