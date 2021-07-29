@@ -1,7 +1,7 @@
 import { Bot } from "grammy";
 import env from "../env";
 
-const bot = new Bot(env.TOKEN);
+const bot = new Bot(env.BOT_TOKEN);
 
 bot.api.config.use((prev, method, payload) => {
   return prev(method, {

@@ -1,32 +1,32 @@
 {
-   "name": "Calls Music Remix",
-   "description": "Stream audio in Telegram group calls using GramJS and tgcallsjs",
-   "keywords": ["telegram", "music", "gram-tgcalls", "tgcallsjs", "gramjs"],
-   "repository": "https://github.com/callsmusic/CallsMusicRemix",
-   "env": {
-      "STRING_SESSION": {
-         "description": "GramJS string session. You can generate one at https://rojserbest.github.io/bssg.",
-         "required": true
-      },
-      "TOKEN": {
-         "description": "Bot token from @BotFather.",
-         "required": true
-      },
-      "API_ID": {
-         "description": "App ID from https://my.telegram.org/apps.",
-         "required": true
-      },
-      "API_HASH": {
-         "description": "App hash from https://my.telegram.org/apps.",
-         "required": true
-      }
-   },
-   "buildpacks": [
-      {
-         "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-      },
-      {
-         "url": "heroku/nodejs"
-      }
-   ]
+  "name": "Calls Music Remix",
+  "description": "Stream audio in Telegram group calls using GramJS and tgcallsjs",
+  "keywords": ["telegram", "music", "gram-tgcalls", "tgcallsjs", "gramjs"],
+  "repository": "https://github.com/callsmusic/CallsMusicRemix",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Bot token from @BotFather.",
+      "required": true
+    },
+    "STRING_SESSION": {
+      "description": "GramJS string session. You can generate one at https://rojserbest.github.io/bssg.",
+      "required": true
+    },
+    "API_ID": {
+      "description": "App ID from https://my.telegram.org/apps.",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "App hash from https://my.telegram.org/apps.",
+      "required": true
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
 }
