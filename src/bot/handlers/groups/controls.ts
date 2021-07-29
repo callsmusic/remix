@@ -11,7 +11,7 @@ export default composer;
 const notPlaying = "❌ | <b>Not playing.</>";
 const notInCall = "❌ | <b>Not in call.</>";
 
-composer.command("pause", (ctx) => {
+composer.command(["p", "pause"], (ctx) => {
   switch (gramtgcalls.pause(ctx.chat.id)) {
     case true:
       return ctx.reply("⏸ | <b>Paused.</>");
@@ -22,7 +22,7 @@ composer.command("pause", (ctx) => {
   }
 });
 
-composer.command("resume", (ctx) => {
+composer.command(["r", "resume"], (ctx) => {
   switch (gramtgcalls.resume(ctx.chat.id)) {
     case true:
       return ctx.reply("▶️ | <b>Resumed.</>");
@@ -33,7 +33,7 @@ composer.command("resume", (ctx) => {
   }
 });
 
-composer.command("skip", async (ctx) => {
+composer.command(["skip", "next"], async (ctx) => {
   switch (await getOnFinish(ctx.chat.id)()) {
     case true:
       return ctx.reply("⏩ | <b>Skipped.</>");

@@ -36,17 +36,25 @@ npm start
 
 ### stream
 
+#### _Aliases: s, p, play_
+
 Takes an audio file, voice message or YouTube video link/ID and streams/queues it.
 
 ### pause
+
+#### _Aliases: p_
 
 Pauses the stream.
 
 ### resume
 
+#### _Aliases: r_
+
 Resumes the stream.
 
 ### skip
+
+#### _Aliases: next_
 
 Skips the current stream.
 

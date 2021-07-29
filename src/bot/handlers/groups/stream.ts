@@ -5,7 +5,7 @@ const composer = new Composer();
 
 export default composer;
 
-composer.command("stream", async (ctx) => {
+composer.command(["s", "play", "stream"], async (ctx) => {
   const video =
     ctx.message?.reply_to_message?.text || ctx.message?.text.split(/\s/)[1];
   const file =
