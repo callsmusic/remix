@@ -11,7 +11,9 @@ import getOnFinish from "./getOnFinish";
 
 export async function getReadable(videoOrFile: string | Voice | Audio) {
   return typeof videoOrFile == "string"
-    ? ytdl.downloadFromInfo(await ytdl.getInfo(videoOrFile))
+    ? ytdl.downloadFromInfo(await ytdl.getInfo(videoOrFile), {
+        highWaterMark: 1 << 25,
+      })
     : (fluent(await getFile(videoOrFile.file_id))
         .format("s16le")
         .audioChannels(1)
