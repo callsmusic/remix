@@ -1,23 +1,18 @@
-import ffmpeg from "../ffmpeg";
 import queues from "../queues";
 import gramtgcalls from "../userbot/gramtgcalls";
-import getFile from "./getFile";
+import { getReadable } from "./stream";
 
 const getOnFinish = (chatId: number) => async () => {
-   const item = queues.get(chatId);
+  const item = queues.get(chatId);
 
-   if (item) {
-      await gramtgcalls.stream(
-         chatId,
-         await ffmpeg(await getFile(item.fileId), item.fileId),
-         {
-            onFinish: getOnFinish(chatId),
-         }
-      );
-      return true;
-   }
+  if (item) {
+    await gramtgcalls.stream(chatId, await getReadable(item), {
+      onFinish: getOnFinish(chatId),
+    });
+    return true;
+  }
 
-   return await gramtgcalls.stop(chatId);
+  return await gramtgcalls.stop(chatId);
 };
 
 export default getOnFinish;

@@ -8,40 +8,39 @@ const composer = new Composer();
 
 export default composer;
 
-const parse_mode = "HTML";
-const notPlaying = "\u274c | <b>Not playing</>";
-const notInCall = "\u274c | <b>Not in call</>";
+const notPlaying = "❌ | <b>Not playing.</>";
+const notInCall = "❌ | <b>Not in call.</>";
 
 composer.command("pause", (ctx) => {
   switch (gramtgcalls.pause(ctx.chat.id)) {
     case true:
-      return ctx.reply("\u23f8 | <b>Paused</>", { parse_mode });
+      return ctx.reply("⏸ | <b>Paused.</>");
     case false:
-      return ctx.reply(notPlaying, { parse_mode });
+      return ctx.reply(notPlaying);
     case null:
-      return ctx.reply(notInCall, { parse_mode });
+      return ctx.reply(notInCall);
   }
 });
 
 composer.command("resume", (ctx) => {
   switch (gramtgcalls.resume(ctx.chat.id)) {
     case true:
-      return ctx.reply("\u25b6\ufe0f | <b>Resumed</>", { parse_mode });
+      return ctx.reply("▶️ | <b>Resumed.</>");
     case false:
-      return ctx.reply("\u274c | <b>Not paused</>", { parse_mode });
+      return ctx.reply("❌ | <b>Not paused.</>");
     case null:
-      return ctx.reply(notInCall, { parse_mode });
+      return ctx.reply(notInCall);
   }
 });
 
 composer.command("skip", async (ctx) => {
   switch (await getOnFinish(ctx.chat.id)()) {
     case true:
-      return ctx.reply("\u23e9 | <b>Skipped</>", { parse_mode });
+      return ctx.reply("⏩ | <b>Skipped.</>");
     case false:
-      return ctx.reply(notPlaying, { parse_mode });
+      return ctx.reply(notPlaying);
     case null:
-      return ctx.reply(notInCall, { parse_mode });
+      return ctx.reply(notInCall);
   }
 });
 
@@ -49,10 +48,10 @@ composer.command("stop", async (ctx) => {
   switch (await gramtgcalls.stop(ctx.chat.id)) {
     case true:
       queues.clear(ctx.chat.id);
-      return ctx.reply("\u23f9 | <b>Stopped</>", { parse_mode });
+      return ctx.reply("⏹ | <b>Stopped.</>");
     case false:
-      return ctx.reply(notPlaying, { parse_mode });
+      return ctx.reply(notPlaying);
     case null:
-      return ctx.reply(notInCall, { parse_mode });
+      return ctx.reply(notInCall);
   }
 });
