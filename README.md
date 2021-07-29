@@ -25,6 +25,28 @@ npm run build
 npm start
 ```
 
+## Commands
+
+### stream
+
+Takes an audio file, voice message or YouTube video link/ID and streams/queues it.
+
+### pause
+
+Pauses the stream.
+
+### resume
+
+Resumes the stream.
+
+### skip
+
+Skips the current stream.
+
+### stop
+
+Clears the queue and removes the userbot from the call.
+
 ## License
 
 ### GNU Affero General Public License v3.0
