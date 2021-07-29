@@ -7,6 +7,7 @@ import ytdl from "ytdl-core-telegram";
 import gramtgcalls from "../userbot/gramtgcalls";
 import queues from "../queues";
 import getFile from "./getFile";
+import getOnFinish from "./getOnFinish";
 
 export async function getReadable(videoOrFile: string | Voice | Audio) {
   return typeof videoOrFile == "string"
@@ -30,7 +31,9 @@ export async function stream(
     try {
       const readable = await getReadable(videoOrFile);
 
-      await gramtgcalls.stream(ctx.chat.id, readable);
+      await gramtgcalls.stream(ctx.chat.id, readable, {
+        onFinish: getOnFinish(ctx.chat.id),
+      });
       await ctx.reply("▶️ | <b>Streaming...</>");
     } catch (err) {
       const message = (err as Error).message;
