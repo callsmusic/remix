@@ -2,7 +2,7 @@ import { Composer } from "grammy";
 
 import gramtgcalls from "../../../userbot/gramtgcalls";
 import queues from "../../../queues";
-import getOnFinish from "../../getOnFinish";
+import { getOnFinish } from "../../stream";
 
 const composer = new Composer();
 

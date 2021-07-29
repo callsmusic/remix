@@ -1,13 +1,24 @@
 import { PassThrough } from "stream";
-import { Context } from "grammy";
-import { Chat, Audio, Voice } from "@grammyjs/types";
+import { Audio, Voice } from "@grammyjs/types";
 import fluent from "fluent-ffmpeg";
 import ytdl from "ytdl-core-telegram";
 
 import gramtgcalls from "../userbot/gramtgcalls";
 import queues from "../queues";
 import getFile from "./getFile";
-import getOnFinish from "./getOnFinish";
+
+export const getOnFinish = (chatId: number) => async () => {
+  const item = queues.get(chatId);
+
+  if (item) {
+    await gramtgcalls.stream(chatId, await getReadable(item), {
+      onFinish: getOnFinish(chatId),
+    });
+    return true;
+  }
+
+  return await gramtgcalls.stop(chatId);
+};
 
 export async function getReadable(videoOrFile: string | Voice | Audio) {
   return typeof videoOrFile == "string"
@@ -22,42 +33,25 @@ export async function getReadable(videoOrFile: string | Voice | Audio) {
 }
 
 export async function stream(
-  ctx: Context & {
-    chat: Chat;
-  },
+  chatId: number,
   videoOrFile: string | Voice | Audio
 ) {
-  const finished = gramtgcalls.finished(ctx.chat.id) != false;
+  const finished = gramtgcalls.finished(chatId) != false;
 
   if (finished) {
-    try {
-      const readable = await getReadable(videoOrFile);
+    const readable = await getReadable(videoOrFile);
 
-      await gramtgcalls.stream(ctx.chat.id, readable, {
-        onFinish: getOnFinish(ctx.chat.id),
-      });
-      await ctx.reply("▶️ | <b>Streaming...</>");
-    } catch (err) {
-      const message = (err as Error).message;
+    await gramtgcalls.stream(chatId, readable, {
+      onFinish: getOnFinish(chatId),
+    });
 
-      if (message.startsWith("No video id found:")) {
-        await ctx.reply("❌ | <b>No video found.</>");
-        return;
-      }
-
-      await ctx.reply(`❌ | <b>An unexpected error occurred.</>`);
-    }
+    return null;
   } else {
     if (typeof videoOrFile === "string") {
-      try {
-        await ytdl.getBasicInfo(videoOrFile);
-      } catch (err) {
-        await ctx.reply(`❌ | <b>Could not fetch that video.</>`);
-        return;
-      }
+      await ytdl.getBasicInfo(videoOrFile);
     }
 
-    const position = queues.push(ctx.chat.id, videoOrFile);
-    await ctx.reply(`#️⃣ | <b>Queued at position ${position}.</>`);
+    const position = queues.push(chatId, videoOrFile);
+    return position;
   }
 }
