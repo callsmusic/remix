@@ -14,9 +14,10 @@ export const getOnFinish = (chatId: number) => async () => {
   return await gramtgcalls.stop(chatId);
 };
 
-export function stop(chatId: number) {
+export async function stop(chatId: number) {
+  const result = await gramtgcalls.stop(chatId);
   queues.clear(chatId);
-  return gramtgcalls.stop(chatId);
+  return result;
 }
 
 export async function stream(chatId: number, item: Item) {
