@@ -1,8 +1,5 @@
 import { Composer } from "grammy";
-
 import gramtgcalls from "../../userbot/gramtgcalls";
-import queues from "../../queues";
-
 import { stop, getOnFinish } from "../streamer";
 import i18n from "../i18n";
 
@@ -46,7 +43,6 @@ composer.command(["skip", "next"], async (ctx) => {
 composer.command("stop", async (ctx) => {
   switch (await stop(ctx.chat.id)) {
     case true:
-      queues.clear(ctx.chat.id);
       return ctx.reply(i18n("stopped"));
     case false:
       return ctx.reply(i18n("not_streaming"));
