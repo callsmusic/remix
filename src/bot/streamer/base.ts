@@ -7,6 +7,7 @@ export const getOnFinish = (chatId: number) => async () => {
 
   if (item) {
     await stream(chatId, item);
+    queues.setNow(chatId, item);
     return true;
   }
 
