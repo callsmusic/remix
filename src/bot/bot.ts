@@ -1,6 +1,6 @@
 import { Bot } from "grammy";
 import env from "../env";
-import _ from "./i18n";
+import i18n from "./i18n";
 
 const bot = new Bot(env.BOT_TOKEN);
 
@@ -18,9 +18,9 @@ bot.catch((ctxAndError) => {
     const message = error.message;
 
     if (message == "No active group call") {
-      return ctx.reply(_("no_call"));
+      return ctx.reply(i18n("no_call"));
     } else if (message.startsWith("No video id found:")) {
-      return ctx.reply(_("no_video_found"));
+      return ctx.reply(i18n("no_video_found"));
     }
   }
 });

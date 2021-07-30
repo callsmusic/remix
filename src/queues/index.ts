@@ -1,39 +1,75 @@
+import { Readable } from "stream";
+import { User } from "@grammyjs/types";
+
+export interface Item {
+  getReadable: () => Promise<Readable> | Readable;
+  url: string;
+  title: string;
+  requester: User;
+}
+
+export type NowHandler = (chatId: number, now: Item) => Promise<void>;
+
 export default new (class Queues {
-   queues: Map<number, Array<any>> = new Map();
+  queues: Map<number, Item[]> = new Map();
+  now: Map<number, Item> = new Map();
+  nowHandlers: NowHandler[] = [];
 
-   push(chatId: number, item: any): number {
-      const queue = this.queues.get(chatId);
+  addNowHandler(handler: NowHandler) {
+    this.nowHandlers.push(handler);
+  }
 
-      if (queue) {
-         queue.push(item);
-         return queue.length;
+  setNow(chatId: number, item: Item) {
+    this.now.set(chatId, item);
+    this.nowHandlers.forEach((handler) => handler(chatId, item));
+  }
+
+  getNow(chatId: number) {
+    return this.now.get(chatId);
+  }
+
+  push(chatId: number, item: Item) {
+    const queue = this.queues.get(chatId);
+
+    if (queue) {
+      queue.push(item);
+      return queue.length;
+    }
+
+    this.queues.set(chatId, [item]);
+    return 1;
+  }
+
+  get(chatId: number) {
+    const queue = this.queues.get(chatId);
+
+    if (queue) {
+      const item = queue.shift();
+
+      if (item) {
+        this.setNow(chatId, item);
       }
 
-      this.queues.set(chatId, [item]);
-      return 1;
-   }
+      return item;
+    }
+  }
 
-   get(chatId: number): any {
-      const queue = this.queues.get(chatId);
+  getAll(chatId: number) {
+    const queue = this.queues.get(chatId);
 
-      if (queue) {
-         return queue.shift();
-      }
+    if (queue) {
+      return queue;
+    }
 
-      return undefined;
-   }
+    return [];
+  }
 
-   getAll(chatId: number): Array<any> {
-      const queue = this.queues.get(chatId);
-
-      if (queue) {
-         return queue;
-      }
-
-      return [];
-   }
-
-   clear(chatId: number) {
+  clear(chatId: number) {
+    if (this.queues.get(chatId)) {
       this.queues.set(chatId, []);
-   }
+      return true;
+    }
+
+    return false;
+  }
 })();

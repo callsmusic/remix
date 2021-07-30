@@ -1,7 +1,7 @@
 import got from "got";
 
-import env from "../env";
-import bot from "./bot";
+import env from "../../env";
+import bot from "../bot";
 
 export default async (fileId: string) => {
   return got.stream(

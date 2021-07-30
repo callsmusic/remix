@@ -1,5 +1,7 @@
 import { Composer } from "grammy";
-import { stream } from "../../stream";
+import { User, Message } from "@grammyjs/types";
+
+import { audio, youtube } from "../../streamers";
 import _ from "../../i18n";
 
 const composer = new Composer();
@@ -18,7 +20,10 @@ composer.command(["s", "play", "stream"], async (ctx) => {
     return;
   }
 
-  const result = await stream(ctx.chat.id, videoOrFile);
+  const result =
+    typeof videoOrFile === "string"
+      ? await youtube(ctx.chat.id, ctx.from as User, videoOrFile)
+      : await audio(ctx.message?.reply_to_message as Message);
 
   if (result == null) {
     await ctx.reply(_("streaming"));

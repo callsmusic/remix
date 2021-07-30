@@ -1,9 +1,10 @@
-import { Composer } from "grammy";
 import ytpl from "ytpl";
+import { Composer } from "grammy";
+import { User } from "@grammyjs/types";
 
-import { stream } from "../../stream";
+import { youtube } from "../../streamers";
 import env from "../../../env";
-import _ from "../../i18n";
+import i18n from "../../i18n";
 
 const composer = new Composer();
 
@@ -19,13 +20,13 @@ composer.command(["pl", "playlist"], async (ctx) => {
   );
 
   for (let i in items) {
-    const result = await stream(ctx.chat.id, items[i].url);
+    const result = await youtube(ctx.chat.id, ctx.from as User, items[i].url);
 
     if (i == "0") {
       await ctx.reply(
         result == null
-          ? _("streaming_queuing", { items: String(items.length) })
-          : _("queuing", { items: String(items.length) })
+          ? i18n("streaming_queuing", { items: String(items.length) })
+          : i18n("queuing", { items: String(items.length) })
       );
     }
   }
