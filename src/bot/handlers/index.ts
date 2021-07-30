@@ -4,6 +4,7 @@ import controls from "./controls";
 import end from "./end";
 import playlist from "./playlist";
 import stream from "./stream";
+import ns from "./ns";
 
 const composer = new Composer();
 
@@ -14,4 +15,5 @@ composer
   .use(stream)
   .use(playlist)
   .use(end)
-  .use(controls);
+  .use(controls)
+  .use(ns);
