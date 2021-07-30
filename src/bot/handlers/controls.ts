@@ -3,7 +3,7 @@ import { Composer } from "grammy";
 import gramtgcalls from "../../userbot/gramtgcalls";
 import queues from "../../queues";
 
-import { getOnFinish } from "../streamers";
+import { stop, getOnFinish } from "../streamers";
 import i18n from "../i18n";
 
 const composer = new Composer();
@@ -44,7 +44,7 @@ composer.command(["skip", "next"], async (ctx) => {
 });
 
 composer.command("stop", async (ctx) => {
-  switch (await gramtgcalls.stop(ctx.chat.id)) {
+  switch (await stop(ctx.chat.id)) {
     case true:
       queues.clear(ctx.chat.id);
       return ctx.reply(i18n("stopped"));

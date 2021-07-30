@@ -71,6 +71,7 @@ export default new (class Queues {
   clear(chatId: number) {
     if (this.queues.get(chatId)) {
       this.queues.set(chatId, []);
+      this.rmNow(chatId);
       return true;
     }
 
