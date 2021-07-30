@@ -7,15 +7,20 @@ import { getFile, getMessageUrl } from "../helpers";
 import { stream } from "./base";
 
 export default async (message: Message) => {
-  const audio = (message.audio || message.voice) as Audio | Voice;
+  const chatId = message.chat.id,
+    file =
+      message.audio ||
+      message.voice ||
+      message.reply_to_message?.audio ||
+      message.reply_to_message?.voice,
+    fileId = String(file?.file_id);
 
-  return await stream(message.chat.id, {
+  return await stream(chatId, {
     url: getMessageUrl(message),
-    title:
-      audio instanceof Audio ? audio.title || "Audio file" : "Voice message",
+    title: file instanceof Audio ? file.title || "Audio file" : "Voice message",
     requester: message.from as User,
     getReadable: async () =>
-      fluent(await getFile(audio.file_id))
+      fluent(await getFile(fileId))
         .format("s16le")
         .audioChannels(1)
         .audioFrequency(65000)
