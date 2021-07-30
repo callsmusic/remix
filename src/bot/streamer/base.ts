@@ -10,9 +10,14 @@ export const getOnFinish = (chatId: number) => async () => {
     return true;
   }
 
-  queues.rmNow(chatId);
-  return await gramtgcalls.stop(chatId);
+  return await leave(chatId);
 };
+
+export async function leave(chatId: number) {
+  const result = await gramtgcalls.stop(chatId);
+  queues.rmNow(chatId);
+  return result;
+}
 
 export async function stop(chatId: number) {
   const result = await gramtgcalls.stop(chatId);
