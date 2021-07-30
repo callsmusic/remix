@@ -2,7 +2,7 @@ import ytpl from "ytpl";
 import { Composer } from "grammy";
 import { User } from "@grammyjs/types";
 
-import { youtube } from "../streamers";
+import { youtube } from "../streamer";
 import env from "../../env";
 import i18n from "../i18n";
 

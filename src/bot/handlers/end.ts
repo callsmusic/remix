@@ -1,5 +1,5 @@
 import { Composer } from "grammy";
-import { stop } from "../streamers";
+import { stop } from "../streamer";
 
 const composer = new Composer();
 
