@@ -10,6 +10,7 @@ export const getOnFinish = (chatId: number) => async () => {
     return true;
   }
 
+  queues.rmNow(chatId);
   return await gramtgcalls.stop(chatId);
 };
 

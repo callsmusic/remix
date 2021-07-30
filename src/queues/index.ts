@@ -24,6 +24,10 @@ export default new (class Queues {
     this.nowHandlers.forEach((handler) => handler(chatId, item));
   }
 
+  rmNow(chatId: number) {
+    return this.now.delete(chatId);
+  }
+
   getNow(chatId: number) {
     return this.now.get(chatId);
   }
