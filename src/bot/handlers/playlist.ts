@@ -2,9 +2,9 @@ import ytpl from "ytpl";
 import { Composer } from "grammy";
 import { User } from "@grammyjs/types";
 
-import { youtube } from "../../streamers";
-import env from "../../../env";
-import i18n from "../../i18n";
+import { youtube } from "../streamers";
+import env from "../../env";
+import i18n from "../i18n";
 
 const composer = new Composer();
 

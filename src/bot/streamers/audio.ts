@@ -1,7 +1,7 @@
 import { PassThrough } from "stream";
 
 import fluent from "fluent-ffmpeg";
-import { User, Message, Audio } from "@grammyjs/types";
+import { User, Message } from "@grammyjs/types";
 
 import { getFile, getMessageUrl } from "../helpers";
 import { stream } from "./base";

@@ -1,7 +1,7 @@
 import { Composer } from "grammy";
 
-import gramtgcalls from "../../../userbot/gramtgcalls";
-import queues from "../../../queues";
+import gramtgcalls from "../../userbot/gramtgcalls";
+import queues from "../../queues";
 
 const composer = new Composer();
 

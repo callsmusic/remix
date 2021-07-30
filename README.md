@@ -37,9 +37,15 @@ Takes an audio file, voice message or YouTube video link/ID and streams/queues i
 
 ### playlist
 
-#### Aliases: pl
+#### _Aliases: pl_
 
 Streams a YouTube playlist.
+
+### ns
+
+#### _Aliases: np, cs, cp_
+
+Displays the currently streamed item.
 
 ### pause
 

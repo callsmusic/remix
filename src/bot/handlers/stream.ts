@@ -1,8 +1,8 @@
 import { Composer } from "grammy";
 import { User, Message } from "@grammyjs/types";
 
-import { audio, youtube } from "../../streamers";
-import _ from "../../i18n";
+import { audio, youtube } from "../streamers";
+import i18n from "../i18n";
 
 const composer = new Composer();
 
@@ -16,7 +16,7 @@ composer.command(["s", "play", "stream"], async (ctx) => {
     ctx.message?.text.split(/\s/)[1];
 
   if (!videoOrFile) {
-    await ctx.reply(_("no_input"));
+    await ctx.reply(i18n("no_input"));
     return;
   }
 
@@ -26,9 +26,9 @@ composer.command(["s", "play", "stream"], async (ctx) => {
       : await audio(ctx.message?.reply_to_message as Message);
 
   if (result == null) {
-    await ctx.reply(_("streaming"));
+    await ctx.reply(i18n("streaming"));
     return;
   }
 
-  await ctx.reply(_("queued_at", { position: String(result) }));
+  await ctx.reply(i18n("queued_at", { position: String(result) }));
 });

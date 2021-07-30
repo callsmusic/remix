@@ -1,10 +1,10 @@
 import { Composer } from "grammy";
 
-import gramtgcalls from "../../../userbot/gramtgcalls";
-import queues from "../../../queues";
+import gramtgcalls from "../../userbot/gramtgcalls";
+import queues from "../../queues";
 
-import { getOnFinish } from "../../streamers";
-import i18n from "../../i18n";
+import { getOnFinish } from "../streamers";
+import i18n from "../i18n";
 
 const composer = new Composer();
 
