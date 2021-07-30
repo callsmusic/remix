@@ -1,0 +1,16 @@
+{
+  "paused": "⏸ | <b>Paused.</>",
+  "not_streaming": "❌ | <b>Not streaming.</>",
+  "not_in_call": "❌ | <b>Not in call.</>",
+  "resumed": "▶️ | <b>Resumed.</>",
+  "not_paused": "❌ | <b>Not paused.</>",
+  "skipped": "⏩ | <b>Skipped.</>",
+  "stopped": "⏹ | <b>Stopped.</>",
+  "streaming_queuing": "🎶 | <b>Streaming and queuing {item} items...</>",
+  "queuing": "🎶 | <b>Queuing {item} items...</>",
+  "no_input": "❔ | <b>What do you want to stream?</>",
+  "streaming": "▶️ | <b>Streaming...</>",
+  "queued_at": "#️⃣ | <b>Queued at position {position}.</>",
+  "no_call": "❌ | <b>There's no active call.</>",
+  "no_video_found": "❌ | <b>No video found.</>"
+}

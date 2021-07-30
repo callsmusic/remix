@@ -10,6 +10,7 @@ Stream in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-t
 - Can stream in multiple chats simultaneously, with their own queues.
 - Friendly responses.
 - Doesn't create files.
+- Multilingual.
 
 ## Deployment
 

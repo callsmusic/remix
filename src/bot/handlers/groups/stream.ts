@@ -1,5 +1,6 @@
 import { Composer } from "grammy";
 import { stream } from "../../stream";
+import _ from "../../i18n";
 
 const composer = new Composer();
 
@@ -13,27 +14,16 @@ composer.command(["s", "play", "stream"], async (ctx) => {
     ctx.message?.text.split(/\s/)[1];
 
   if (!videoOrFile) {
-    await ctx.reply("❔ | <b>What do you want to stream?</>");
+    await ctx.reply(_("no_input"));
     return;
   }
 
-  try {
-    const result = await stream(ctx.chat.id, videoOrFile);
+  const result = await stream(ctx.chat.id, videoOrFile);
 
-    if (result == null) {
-      await ctx.reply("▶️ | <b>Streaming...</>");
-      return;
-    }
-
-    await ctx.reply(`#️⃣ | <b>Queued at position ${result}.</>`);
-  } catch (err) {
-    const message = (err as Error).message;
-
-    if (message.startsWith("No video id found:")) {
-      await ctx.reply("❌ | <b>No video found.</>");
-      return;
-    }
-
-    await ctx.reply(`❌ | <b>An error occurred.</>`);
+  if (result == null) {
+    await ctx.reply(_("streaming"));
+    return;
   }
+
+  await ctx.reply(_("queued_at", { position: String(result) }));
 });
