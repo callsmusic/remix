@@ -2,18 +2,18 @@ import { Composer } from "grammy";
 
 import controls from "./controls";
 import end from "./end";
+import ns from "./ns";
 import playlist from "./playlist";
 import stream from "./stream";
-import ns from "./ns";
 
 const composer = new Composer();
 
 export default composer;
 
 composer
-  .filter((ctx) => Boolean(ctx.chat?.type.includes("group")))
-  .use(stream)
-  .use(playlist)
-  .use(end)
-  .use(controls)
-  .use(ns);
+    .filter((ctx) => Boolean(ctx.chat?.type.includes("group")))
+    .use(controls)
+    .use(end)
+    .use(ns)
+    .use(playlist)
+    .use(stream);
