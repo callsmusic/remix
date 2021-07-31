@@ -12,20 +12,32 @@ Stream in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-t
 -   Doesn't create files.
 -   Multilingual.
 
-## Deployment
-
-### Heroku
-
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/callsmusic/CallsMusicRemix)
-
-### Yourself
+## Running
 
 1. Copy `example.env` to `.env` and fill it with your credentials.
-2. Start:
+2. Install dependencies and build:
+
+```bash
+npm install
+```
+
+3. Start:
 
 ```bash
 npm start
 ```
+
+## Deploying to the cloud
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/callsmusic/CallsMusicRemix)
+
+## Configuring
+- `BOT_TOKEN`: Telegram bot token.
+- `STRING_SESSION`: A GramJS/Telethon string session.
+- `API_ID`: Telegram app ID.
+- `API_HASH`: Telegram app hash.
+- `LOCALE`: An [available](./locales) bot language. Default: `en`.
+- `MAX_PLAYLIST_SIZE`: Max YouTube playlist size. Default: `10`.
 
 ## Commands
 
