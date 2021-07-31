@@ -13,5 +13,6 @@
   "queued_at": "#️⃣ | <b>Queued at position {{position}}.</>",
   "no_call": "❌ | <b>There's no active call.</>",
   "no_video_found": "❌ | <b>No video found.</>",
-  "ns": "🎵 Currently streaming <b>{{{title}}}</> by <b>{{{requester}}}</>..."
+  "ns": "🎵 | Currently streaming <b>{{{title}}}</> by <b>{{{requester}}}</>...",
+  "error": "❌ | <b>An error occurred.</>"
 }

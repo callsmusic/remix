@@ -11,18 +11,4 @@ bot.api.config.use((prev, method, payload) => {
   });
 });
 
-bot.catch((ctxAndError) => {
-  const { ctx, error } = ctxAndError;
-
-  if (error instanceof Error) {
-    const message = error.message;
-
-    if (message == "No active group call") {
-      return ctx.reply(i18n("no_call"));
-    } else if (message.startsWith("No video id found:")) {
-      return ctx.reply(i18n("no_video_found"));
-    }
-  }
-});
-
 export default bot;
