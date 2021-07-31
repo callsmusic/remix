@@ -47,6 +47,8 @@ export default new (class Queues {
   get(chatId: number) {
     const queue = this.queues.get(chatId);
 
+    this.rmNow(chatId);
+
     if (queue) {
       const item = queue.shift();
 

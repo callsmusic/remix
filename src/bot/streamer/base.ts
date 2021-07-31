@@ -7,18 +7,11 @@ export const getOnFinish = (chatId: number) => async () => {
 
   if (item) {
     await stream(chatId, item);
-    queues.setNow(chatId, item);
     return true;
   }
 
-  return await leave(chatId);
+  return await gramtgcalls.stop(chatId);
 };
-
-export async function leave(chatId: number) {
-  const result = await gramtgcalls.stop(chatId);
-  queues.rmNow(chatId);
-  return result;
-}
 
 export async function stop(chatId: number) {
   const result = await gramtgcalls.stop(chatId);
