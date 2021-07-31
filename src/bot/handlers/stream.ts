@@ -1,9 +1,8 @@
 import { Composer } from "grammy";
 import { User, Message } from "@grammyjs/types";
-
+import i18n from "../i18n";
 import { audio, youtube } from "../streamer";
 import { replyError } from "../helpers";
-import i18n from "../i18n";
 
 const composer = new Composer();
 

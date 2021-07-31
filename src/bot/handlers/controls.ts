@@ -1,7 +1,7 @@
 import { Composer } from "grammy";
 import gramtgcalls from "../../userbot/gramtgcalls";
-import { stop, getOnFinish } from "../streamer";
 import i18n from "../i18n";
+import { stop, getOnFinish } from "../streamer";
 
 const composer = new Composer();
 

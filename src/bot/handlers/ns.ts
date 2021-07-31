@@ -1,9 +1,7 @@
 import { Composer } from "grammy";
-import { User, Message } from "@grammyjs/types";
 import { escape } from "html-escaper";
-
-import queues from "../../queues";
 import i18n from "../i18n";
+import queues from "../../queues";
 
 const composer = new Composer();
 
