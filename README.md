@@ -6,11 +6,11 @@ Stream in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-t
 
 ## Features
 
-- Supports streaming audio files, voice messages, YouTube playlists and YouTube videos, even live ones!
-- Can stream in multiple chats simultaneously, with their own queues.
-- Friendly responses.
-- Doesn't create files.
-- Multilingual.
+-   Supports streaming audio files, voice messages, YouTube playlists and YouTube videos, even live ones!
+-   Can stream in multiple chats simultaneously, with their own queues.
+-   Friendly responses.
+-   Doesn't create files.
+-   Multilingual.
 
 ## Deployment
 
@@ -71,7 +71,7 @@ Clears the queue and removes the userbot from the call.
 
 ## Inspiration
 
-- [eritislami/evobot](https://github.com/eritislami/evobot)
+-   [eritislami/evobot](https://github.com/eritislami/evobot)
 
 ## License
 

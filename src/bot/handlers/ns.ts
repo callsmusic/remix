@@ -8,18 +8,18 @@ const composer = new Composer();
 export default composer;
 
 composer.command(["ns", "np", "cs", "cp"], (ctx) => {
-  const now = queues.getNow(ctx.chat.id);
+    const now = queues.getNow(ctx.chat.id);
 
-  if (now) {
-    const { title, url, requester } = now;
+    if (now) {
+        const { title, url, requester } = now;
 
-    return ctx.reply(
-      i18n("ns", {
-        title: `<a href="${url}">${escape(title)}</>`,
-        requester: `<a href="tg://user?id=${requester.id}">${requester.first_name}</>`,
-      })
-    );
-  }
+        return ctx.reply(
+            i18n("ns", {
+                title: `<a href="${url}">${escape(title)}</>`,
+                requester: `<a href="tg://user?id=${requester.id}">${requester.first_name}</>`,
+            }),
+        );
+    }
 
-  return ctx.reply(i18n("not_streaming"));
+    return ctx.reply(i18n("not_streaming"));
 });

@@ -11,9 +11,9 @@ const composer = new Composer();
 export default composer;
 
 composer
-  .filter((ctx) => Boolean(ctx.chat?.type.includes("group")))
-  .use(controls)
-  .use(end)
-  .use(ns)
-  .use(playlist)
-  .use(stream);
+    .filter((ctx) => Boolean(ctx.chat?.type.includes("group")))
+    .use(controls)
+    .use(end)
+    .use(ns)
+    .use(playlist)
+    .use(stream);
