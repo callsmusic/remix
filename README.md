@@ -31,6 +31,15 @@ npm start
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/callsmusic/CallsMusicRemix)
 
+## Deployin with Dockerfile
+- Go cloned repo directory
+- Install docker
+- Then build and run image
+```bash
+ docker build . -t callsmusicremix
+ docker run callsmusicremix
+```
+
 ## Configuring
 
 - `BOT_TOKEN`: Telegram bot token.
