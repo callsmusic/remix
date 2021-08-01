@@ -13,6 +13,7 @@ Stream in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-t
 -   Multilingual.
 
 ## Running
+
 1. Copy `example.env` to `.env` and fill it with your credentials.
 2. Install dependencies and build:
 
@@ -31,8 +32,9 @@ npm start
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/callsmusic/CallsMusicRemix)
 
 ## Configuring
+
 - `BOT_TOKEN`: Telegram bot token.
-- `STRING_SESSION`: A GramJS/Telethon string session. For generate session go [here](https://rojserbest.github.io/bssg)
+- `STRING_SESSION`: A GramJS/Telethon string session. You can generate one [here](https://rojserbest.github.io/bssg).
 - `API_ID`: Telegram app ID.
 - `API_HASH`: Telegram app hash.
 - `LOCALE`: An [available](./locales) bot language. Default: `en`.
