@@ -7,13 +7,13 @@
     "not_paused": "❌ | <b>Durdurulmadı.</>",
     "skipped": "⏩ | <b>Geçildi.</>",
     "stopped": "⏹ | <b>Durduruldu.</>",
-    "streaming_queuing": "🎶 | <b>Oynatılan and sırada ki parça {{X}} items...</>",
-    "queuing": "🎶 | <b>Sıradaki {{X}} items...</>",
+    "streaming_queuing": "🎶 | <b>Oynatılan ve sırada ki parça {{X}} items...</>",
+    "queuing": "🎶 | <b>Sıradaki parçalar {{X}}...</>",
     "no_input": "❔ | <b>Ne oynatmak istersin?</>",
     "streaming": "▶️ | <b>Oynatılıyor...</>",
-    "queued_at": "#️⃣ | <b>Kuyrukta şu sırada {{position}}.</>",
+    "queued_at": "#️⃣ | <b>Kuyrukta ki sırası {{position}}.</>",
     "no_call": "❌ | <b>Aktif bir sesli çağrı yok.</>",
     "no_video_found": "❌ | <b>Video bulunamadı.</>",
-    "ns": "🎵 | Şuanda oynatılan <b>{{{title}}}</> Şu kişi trafından oynatıldı <b>{{{requester}}}</>...",
+    "ns": "🎵 | Şuanda oynatılan <b>{{{title}}}</> <b>{{{requester}}} trafından çalınıyor.</>...",
     "error": "❌ | <b>Bir hata meydana geldi.</>"
 }
