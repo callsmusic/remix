@@ -1,0 +1,19 @@
+{
+    "authors": ["ashenzar"],
+    "paused": "⏸ | <b>Pausado.</>",
+    "not_streaming": "❌ | <b>No estoy transmitiendo.</>",
+    "not_in_call": "❌ | <b>No estoy en la llamada.</>",
+    "resumed": "▶️ | <b>Resumido.</>",
+    "not_paused": "❌ | <b>No está pausado.</>",
+    "skipped": "⏩ | <b>Saltado.</>",
+    "stopped": "⏹ | <b>Detenido.</>",
+    "streaming_queuing": "🎶 | <b>Transmitiendo y agregando {{item}} elementos a la lista...</>",
+    "queuing": "🎶 | <b>Agregando {{item}} elementos...</>",
+    "no_input": "❔ | <b>¿Qué quieres transmitir?</>",
+    "streaming": "▶️ | <b>Transmitiendo...</>",
+    "queued_at": "#️⃣ | <b>Agregado a la lista en posición {{position}}.</>",
+    "no_call": "❌ | <b>No hay llamada activa.</>",
+    "no_video_found": "❌ | <b>No se encontró el video.</>",
+    "ns": "🎵 | Actualmente transmitiendo <b>{{{title}}}</> de <b>{{{requester}}}</>...",
+    "error": "❌ | <b>Ocurrió un error.</>"
+}
