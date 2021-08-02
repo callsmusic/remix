@@ -32,8 +32,8 @@ composer.command(["pl", "playlist"], async (ctx) => {
         if (i == "0") {
             await ctx.reply(
                 result == null
-                    ? i18n("streaming_queuing", { items: String(items.length) })
-                    : i18n("queuing", { items: String(items.length) }),
+                    ? i18n("streaming_queuing", { X: String(items.length) })
+                    : i18n("queuing", { X: String(items.length) }),
             );
         }
     }
