@@ -92,6 +92,7 @@ Clears the queue and removes the userbot from the call.
 - `pt_BR` Brazilian Portuguese
 - `si` Sinhalese
 - `tr` Turkish
+- `id` Indonesian
 
 Don't see your language here? Pull requests to add new languages are welcomed!
 
