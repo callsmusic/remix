@@ -14,6 +14,6 @@
     "queued_at": "#️⃣ | <b>Antri di posisi {{position}}.</>",
     "no_call": "❌ | <b>Tidak ada panggilan aktif.</>",
     "no_video_found": "❌ | <b>Tidak ada video yang ditemukan.</>",
-    "ns": "🎵 | Sedanf streaming <b>{{{title}}}</> oleh <b>{{{requester}}}</>...",
+    "ns": "🎵 | Sedang streaming <b>{{{title}}}</> oleh <b>{{{requester}}}</>...",
     "error": "❌ | <b>Terjadi kesalahan.</>"
 }
