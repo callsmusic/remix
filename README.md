@@ -88,6 +88,7 @@ Clears the queue and removes the userbot from the call.
 - `en` English
 - `es` Spanish
 - `fa` Farsi
+- `id` Indonesian
 - `ml` Malayalam
 - `pt_BR` Brazilian Portuguese
 - `si` Sinhalese

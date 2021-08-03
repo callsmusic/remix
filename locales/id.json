@@ -1,0 +1,19 @@
+{
+    "authors": ["breakdowns"],
+    "paused": "⏸ | <b>Dijeda.</>",
+    "not_streaming": "❌ | <b>Tidak streaming.</>",
+    "not_in_call": "❌ | <b>Tidak dalam panggilan.</>",
+    "resumed": "▶️ | <b>Dilanjutkan.</>",
+    "not_paused": "❌ | <b>Tidak dijeda.</>",
+    "skipped": "⏩ | <b>Dilewati.</>",
+    "stopped": "⏹ | <b>Berhenti.</>",
+    "streaming_queuing": "🎶 | <b>Streaming dan antrian {{X}} item...</>",
+    "queuing": "🎶 | <b>Mengantri {{X}} item...</>",
+    "no_input": "❔ | <b>Streaming apa yang Anda inginkan?</>",
+    "streaming": "▶️ | <b>Streaming...</>",
+    "queued_at": "#️⃣ | <b>Antri di posisi {{position}}.</>",
+    "no_call": "❌ | <b>Tidak ada panggilan aktif.</>",
+    "no_video_found": "❌ | <b>Tidak ada video yang ditemukan.</>",
+    "ns": "🎵 | Sedang streaming <b>{{{title}}}</> oleh <b>{{{requester}}}</>...",
+    "error": "❌ | <b>Terjadi kesalahan.</>"
+}
