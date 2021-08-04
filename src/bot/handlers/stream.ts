@@ -2,7 +2,6 @@ import { Composer } from "grammy";
 import { User, Message } from "@grammyjs/types";
 import i18n from "../i18n";
 import { audio, youtube } from "../streamer";
-import { replyError } from "../helpers";
 
 const composer = new Composer();
 
@@ -20,17 +19,10 @@ composer.command(["s", "play", "stream"], async (ctx) => {
         return;
     }
 
-    let result;
-
-    try {
-        result =
-            typeof videoOrFile === "string"
-                ? await youtube(ctx.chat.id, ctx.from as User, videoOrFile)
-                : await audio(ctx.message?.reply_to_message as Message);
-    } catch (error) {
-        await replyError(error, ctx);
-        return;
-    }
+    const result =
+        typeof videoOrFile === "string"
+            ? await youtube(ctx.chat.id, ctx.from as User, videoOrFile)
+            : await audio(ctx.message?.reply_to_message as Message);
 
     if (result == null) {
         await ctx.reply(i18n("streaming"));

@@ -3,7 +3,6 @@ import { Composer } from "grammy";
 import { User } from "@grammyjs/types";
 import env from "../../env";
 import i18n from "../i18n";
-import { replyError } from "../helpers";
 import { youtube } from "../streamer";
 
 const composer = new Composer();
@@ -24,20 +23,13 @@ composer.command(["pl", "playlist"], async (ctx) => {
     );
 
     for (let i in items) {
-        let result;
-
-        try {
-            result = await youtube(
-                ctx.chat.id,
-                ctx.from as User,
-                items[i].url,
-                items[i].title,
-                items[i].url,
-            );
-        } catch (error) {
-            await replyError(error, ctx);
-            return;
-        }
+        const result = await youtube(
+            ctx.chat.id,
+            ctx.from as User,
+            items[i].url,
+            items[i].title,
+            items[i].url,
+        );
 
         if (i == "0") {
             await ctx.reply(
