@@ -26,7 +26,7 @@
         "node-pre-gyp": "^0.17.0",
         "telegram": "^1.7.23",
         "tgcalls": "^0.1.4",
-        "ytdl-core-telegram": "^2.0.2",
+        "ytdl-core-telegram": "^2.0.4",
         "ytpl": "^2.2.1"
     },
     "devDependencies": {
