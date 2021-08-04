@@ -44,31 +44,29 @@ npm start
 
 ### stream
 
-#### _Aliases: s, p, play_
+#### _Aliases: s, play, p_
 
 Takes an audio file, voice message or YouTube video link/ID and streams/queues it.
 
 ### playlist
 
-#### _Aliases: pl_
+#### _Aliases: pl, list_
 
 Streams a YouTube playlist.
 
-### ns
+### now
 
-#### _Aliases: np, cs, cp_
+#### _Aliases: ns, cs, np, cp_
 
 Displays the currently streamed item.
 
 ### pause
 
-#### _Aliases: p_
-
 Pauses the stream.
 
 ### resume
 
-#### _Aliases: r_
+#### _Aliases: re, res, continue_
 
 Resumes the stream.
 
@@ -78,9 +76,11 @@ Resumes the stream.
 
 Skips the current stream.
 
-### stop
+### leave
 
-Clears the queue and removes the userbot from the call.
+#### _Aliases: stop_
+
+Clears the queue and removes the bot from the call.
 
 ## Available languages
 

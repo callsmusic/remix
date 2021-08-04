@@ -7,7 +7,7 @@ const composer = new Composer();
 
 export default composer;
 
-composer.command(["p", "pause"], (ctx) => {
+composer.command("pause", (ctx) => {
     switch (gramtgcalls.pause(ctx.chat.id)) {
         case true:
             return ctx.reply(i18n("paused"));
@@ -18,7 +18,7 @@ composer.command(["p", "pause"], (ctx) => {
     }
 });
 
-composer.command(["r", "resume"], (ctx) => {
+composer.command(["resume", "re", "res", "continue"], (ctx) => {
     switch (gramtgcalls.resume(ctx.chat.id)) {
         case true:
             return ctx.reply(i18n("resumed"));
@@ -40,7 +40,7 @@ composer.command(["skip", "next"], async (ctx) => {
     }
 });
 
-composer.command("stop", async (ctx) => {
+composer.command(["leave", "stop"], async (ctx) => {
     switch (await stop(ctx.chat.id)) {
         case true:
             return ctx.reply(i18n("stopped"));

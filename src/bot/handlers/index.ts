@@ -2,7 +2,7 @@ import { Composer } from "grammy";
 
 import controls from "./controls";
 import end from "./end";
-import ns from "./ns";
+import now from "./now";
 import playlist from "./playlist";
 import stream from "./stream";
 
@@ -14,6 +14,6 @@ composer
     .filter((ctx) => Boolean(ctx.chat?.type.includes("group")))
     .use(controls)
     .use(end)
-    .use(ns)
+    .use(now)
     .use(playlist)
     .use(stream);

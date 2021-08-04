@@ -7,7 +7,7 @@ const composer = new Composer();
 
 export default composer;
 
-composer.command(["ns", "np", "cs", "cp"], (ctx) => {
+composer.command(["now", "ns", "cs", "np", "cp"], (ctx) => {
     const now = queues.getNow(ctx.chat.id);
 
     if (now) {
