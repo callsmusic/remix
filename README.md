@@ -33,12 +33,12 @@ npm start
 
 ## Configuring
 
-- `BOT_TOKEN`: Telegram bot token.
-- `STRING_SESSION`: A GramJS/Telethon string session. You can generate one [here](https://rojserbest.github.io/bssg).
-- `API_ID`: Telegram app ID.
-- `API_HASH`: Telegram app hash.
-- `LOCALE`: An [available](#available-languages) bot language. Default: `en`.
-- `MAX_PLAYLIST_SIZE`: Max YouTube playlist size. Default: `10`.
+-   `BOT_TOKEN`: Telegram bot token.
+-   `STRING_SESSION`: A GramJS/Telethon string session. You can generate one [here](https://rojserbest.github.io/bssg).
+-   `API_ID`: Telegram app ID.
+-   `API_HASH`: Telegram app hash.
+-   `LOCALE`: An [available](#available-languages) bot language. Default: `en`.
+-   `MAX_PLAYLIST_SIZE`: Max YouTube playlist size. Default: `10`.
 
 ## Commands
 
