@@ -16,7 +16,7 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
 
-    - name: Prettify code
+    - name: Format files
       uses: creyD/prettier_action@v3.3
       with:
         prettier_options: --write **
