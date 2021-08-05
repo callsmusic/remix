@@ -91,6 +91,7 @@ en    English
 es    Spanish
 fa    Farsi
 id    Indonesian
+it    Italian
 ml    Malayalam
 pt_BR Brazilian Portuguese
 si    Sinhalese
