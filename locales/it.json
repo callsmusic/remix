@@ -1,0 +1,20 @@
+{
+    "authors": ["AchuBiju", "dadadani"],
+    "paused": "⏸ | <b>In pausa.</>",
+    "not_streaming": "❌ | <b>Non in streaming.</>",
+    "not_in_call": "❌ | <b>Non in chiamata.</>",
+    "resumed": "▶️ | <b>Ripreso.</>",
+    "not_paused": "❌ | <b>Non in pausa.</>",
+    "skipped": "⏩ | <b>Saltata.</>",
+    "stopped": "⏹ | <b>Fermato.</>",
+    "streaming_queuing": "🎶 | <b>Streaming e code {{X}} oggetti...</>",
+    "queuing": "🎶 | <b>Sto mettendo in coda {{X}} oggetti...</>",
+    "no_input": "❔ | <b>Cosa vuoi trasmettere in streaming?</>",
+    "streaming": "▶️ | <b>Streaming...</>",
+    "queued_at": "#️⃣ | <b>In coda alla posizione {{position}}.</>",
+    "no_call": "❌ | <b>Nessuna chiamata attiva.</>",
+    "no_video_found": "❌ | <b>Nessun video trovato.</>",
+    "ns": "🎵 | Attualmente in streaming <b>{{{title}}}</> richiesto da <b>{{{requester}}}</>...",
+    "error": "❌ | <b>Si è verificato un errore.</>",
+    "file_too_big": "❌ | <b>Questo file è troppo grande.</>"
+}
