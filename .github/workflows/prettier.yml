@@ -20,5 +20,6 @@ jobs:
       uses: creyD/prettier_action@v3.3
       with:
         prettier_options: --write **
+        commit_message: "Format files"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
