@@ -84,15 +84,18 @@ Clears the queue and removes the bot from the call.
 
 ## Available languages
 
-- `ckb` Central Kurdish
-- `en` English
-- `es` Spanish
-- `fa` Farsi
-- `id` Indonesian
-- `ml` Malayalam
-- `pt_BR` Brazilian Portuguese
-- `si` Sinhalese
-- `tr` Turkish
+```text
+ckb   Central Kurdish
+bn    Bengali
+en    English
+es    Spanish
+fa    Farsi
+id    Indonesian
+ml    Malayalam
+pt_BR Brazilian Portuguese
+si    Sinhalese
+tr    Turkish
+```
 
 Don't see your language here? Pull requests to add new languages are welcomed!
 
