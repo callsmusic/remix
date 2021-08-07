@@ -34,7 +34,7 @@ npm start
 ## Configuring
 
 -   `BOT_TOKEN`: Telegram bot token.
--   `STRING_SESSION`: A GramJS/Telethon string session. You can generate one [here](https://rojserbest.github.io/bssg).
+-   `STRING_SESSION`: A GramJS/Telethon string session. You can generate one [here](https://rojserbest.github.io/ssg).
 -   `API_ID`: Telegram app ID.
 -   `API_HASH`: Telegram app hash.
 -   `LOCALE`: An [available](#available-languages) bot language. Default: `en`.
