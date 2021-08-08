@@ -39,6 +39,7 @@ npm start
 -   `API_HASH`: Telegram app hash.
 -   `LOCALE`: An [available](#available-languages) bot language. Default: `en`.
 -   `MAX_PLAYLIST_SIZE`: Max YouTube playlist size. Default: `10`.
+-   `COOKIES`: Cookies for YouTube requests. Default: none.
 
 ## Commands
 

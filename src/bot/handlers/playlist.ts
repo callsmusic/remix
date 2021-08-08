@@ -17,10 +17,11 @@ composer.command(["playlist", "pl", "list"], async (ctx) => {
         return;
     }
 
-    const items = (await ytpl(url as string)).items.slice(
-        0,
-        env.MAX_PLAYLIST_SIZE,
-    );
+    const items = (
+        await ytpl(url as string, {
+            requestOptions: { headers: { Cookie: env.COOKIES } },
+        })
+    ).items.slice(0, env.MAX_PLAYLIST_SIZE);
 
     for (let i in items) {
         const result = await youtube(
