@@ -4,6 +4,8 @@ import { User } from "@grammyjs/types";
 import env from "../../env";
 import { stream } from "./base";
 
+export const requestOptions = { Headers: { Cookie: env.COOKIES } };
+
 export default async (
     chatId: number,
     requester: User,
@@ -15,7 +17,7 @@ export default async (
 
     if (!title || !url) {
         info = await ytdl.getInfo(id, {
-            requestOptions: { Headers: { Cookie: env.COOKIES } },
+            requestOptions,
         });
         title = info.videoDetails.title;
         url = info.videoDetails.video_url;
@@ -25,6 +27,9 @@ export default async (
         url,
         title,
         requester,
-        getReadable: () => (info ? ytdl.downloadFromInfo(info) : ytdl(id)),
+        getReadable: () =>
+            info
+                ? ytdl.downloadFromInfo(info, { requestOptions })
+                : ytdl(id, { requestOptions }),
     });
 };
