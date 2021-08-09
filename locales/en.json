@@ -16,5 +16,6 @@
     "no_video_found": "❌ | <b>No video found.</>",
     "ns": "🎵 | Currently streaming <b>{{{title}}}</> by <b>{{{requester}}}</>...",
     "error": "❌ | <b>An error occurred.</>",
-    "file_too_big": "❌ | <b>This file is too big.</>"
+    "file_too_big": "❌ | <b>This file is too big.</>",
+    "error_with_message": "❌ | <b>An error occurred:</> {{message}}"
 }

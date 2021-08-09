@@ -5,6 +5,10 @@ import i18n from "./i18n";
 
 const bot = new Bot(env.BOT_TOKEN);
 
+const isSafe = (s: string) => {
+    return !s.includes(bot.token);
+};
+
 bot.api.config.use((prev, method, payload) => {
     return prev(method, {
         parse_mode: "HTML",
@@ -26,6 +30,12 @@ bot.catch((errorAndContext) => {
             if (message.includes(toInclude)) {
                 return ctx.reply(toReply);
             }
+        }
+
+        if (isSafe(error.message)) {
+            return ctx.reply(
+                i18n("error_with_message", { message: error.message }),
+            );
         }
     }
 
