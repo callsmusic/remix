@@ -4,6 +4,7 @@ import { User } from "@grammyjs/types";
 import env from "../../env";
 import { stream } from "./base";
 
+const filter = "audioonly";
 export const requestOptions = { Headers: { Cookie: env.COOKIES } };
 
 export default async (
@@ -29,7 +30,13 @@ export default async (
         requester,
         getReadable: () =>
             info
-                ? ytdl.downloadFromInfo(info, { requestOptions })
-                : ytdl(id, { requestOptions }),
+                ? ytdl.downloadFromInfo(info, {
+                      filter:
+                          info.videoDetails.lengthSeconds != "0"
+                              ? filter
+                              : undefined,
+                      requestOptions,
+                  })
+                : ytdl(id, { filter, requestOptions }),
     });
 };
