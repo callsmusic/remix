@@ -97,6 +97,7 @@ ml    Malayalam
 pt_BR Brazilian Portuguese
 si    Sinhalese
 tr    Turkish
+bn    Bengali
 ```
 
 Don't see your language here? Pull requests to add new languages are welcomed!
