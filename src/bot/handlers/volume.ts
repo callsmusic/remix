@@ -7,17 +7,17 @@ const composer = new Composer();
 export default composer;
 
 composer.command(["volume", "vol", "v"], async (ctx) => {
-    let number = Number(ctx.message?.text.split(/\s/)[1]);
-    const valid = number > 0 && number < 200;
+    const number = Number(ctx.message?.text.split(/\s/)[1]);
+    const valid = number >= 0 && number <= 200;
 
     if (!number || !valid) {
         await ctx.reply(i18n("invalid_volume"));
         return;
     }
 
-    number = Number(String(number) + "00");
+    const volume = Number(String(number) + "00");
 
-    if (await gramtgcalls.setVolume(ctx.chat.id, number)) {
+    if (await gramtgcalls.setVolume(ctx.chat.id, volume)) {
         await ctx.reply(i18n("volume_set", { amount: String(number) }));
         return;
     }
