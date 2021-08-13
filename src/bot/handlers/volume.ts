@@ -10,7 +10,7 @@ composer.command(["volume", "vol", "v"], async (ctx) => {
     const number = Number(ctx.message?.text.split(/\s/)[1]);
     const valid = number >= 0 && number <= 200;
 
-    if (!number || !valid) {
+    if (!valid) {
         await ctx.reply(i18n("invalid_volume"));
         return;
     }
