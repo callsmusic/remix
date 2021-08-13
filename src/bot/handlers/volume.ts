@@ -15,7 +15,7 @@ composer.command(["volume", "vol", "v"], async (ctx) => {
         return;
     }
 
-    const volume = Number(String(number) + "00");
+    const volume = Math.round(number * 100);
 
     if (await gramtgcalls.setVolume(ctx.chat.id, volume)) {
         await ctx.reply(i18n("volume_set", { amount: String(number) }));
