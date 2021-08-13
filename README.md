@@ -61,6 +61,12 @@ Streams a YouTube playlist.
 
 Displays the currently streamed item.
 
+### volume
+
+#### _Aliases: vol, v_
+
+Sets the volume.
+
 ### pause
 
 Pauses the stream.
