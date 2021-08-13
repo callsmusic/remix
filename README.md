@@ -107,7 +107,7 @@ tr    Turkish
 bn    Bengali
 ```
 
-Don't see your language here? Pull requests to add new languages are welcomed!
+Don't see your language here? Pull requests to the `translations` branch are welcomed!
 
 ## Inspiration
 
