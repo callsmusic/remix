@@ -5,6 +5,7 @@ import end from "./end";
 import now from "./now";
 import playlist from "./playlist";
 import stream from "./stream";
+import volume from "./volume";
 
 const composer = new Composer();
 
@@ -16,4 +17,5 @@ composer
     .use(end)
     .use(now)
     .use(playlist)
-    .use(stream);
+    .use(stream)
+    .use(volume);
