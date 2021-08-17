@@ -6,7 +6,7 @@ Stream in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-t
 
 ## Features
 
--   Supports streaming audio files, voice messages, YouTube playlists and YouTube videos, even live ones!
+-   Supports streaming radios, audio files, voice messages, YouTube playlists and YouTube videos, even live ones!
 -   Can stream in multiple chats simultaneously, with their own queues.
 -   Volume control.
 -   Friendly responses.
