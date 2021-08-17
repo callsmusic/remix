@@ -48,7 +48,7 @@ npm start
 
 #### _Aliases: s, play, p_
 
-Takes an audio file, voice message or YouTube video link/ID and streams/queues it.
+Takes a custom input, audio file, voice message or YouTube video/playlist link/ID and streams/queues it.
 
 ### playlist
 
