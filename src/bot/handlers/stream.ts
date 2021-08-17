@@ -1,27 +1,32 @@
 import { Composer } from "grammy";
 import { User, Message } from "@grammyjs/types";
 import i18n from "../i18n";
-import { audio, youtube } from "../streamer";
+import { audio, custom, youtube } from "../streamer";
 
 const composer = new Composer();
 
 export default composer;
 
 composer.command(["stream", "s", "play", "p"], async (ctx) => {
-    const videoOrFile =
+    const input =
         ctx.message?.reply_to_message?.audio ||
         ctx.message?.reply_to_message?.voice ||
         ctx.message?.reply_to_message?.text ||
         ctx.message?.text.split(/\s/)[1];
 
-    if (!videoOrFile) {
+    const isCustomInput = typeof input === "string" && "custom".includes(input);
+    const customInput = ctx.message?.text.split(/\s/)[2];
+
+    if (!input || (isCustomInput && !customInput)) {
         await ctx.reply(i18n("no_input"));
         return;
     }
 
     const result =
-        typeof videoOrFile === "string"
-            ? await youtube(ctx.chat.id, ctx.from as User, videoOrFile)
+        typeof input === "string"
+            ? isCustomInput
+                ? await custom(customInput as string, ctx.message as Message)
+                : await youtube(ctx.chat.id, ctx.from as User, input)
             : await audio(ctx.message?.reply_to_message as Message);
 
     if (result == null) {
