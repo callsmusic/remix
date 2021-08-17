@@ -9,7 +9,7 @@ Stream in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-t
 -   Various sources to stream from:
     -   Custom URLs.
     -   YouTube playlists.
-    -   Small Audio files and voice messages.
+    -   Small audio files and voice messages.
     -   YouTube videos (no duration limit, even live videos).
 -   Stream in multiple chats simultaneously, with their own queues.
 -   Control volume.
