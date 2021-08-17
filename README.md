@@ -6,9 +6,13 @@ Stream in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-t
 
 ## Features
 
--   Supports streaming radios, audio files, voice messages, YouTube playlists and YouTube videos, even live ones!
--   Can stream in multiple chats simultaneously, with their own queues.
--   Volume control.
+-   Various sources to stream from:
+    -   Custom URLs.
+    -   YouTube playlists.
+    -   Small Audio files and voice messages.
+    -   YouTube videos (no duration limit, even live videos).
+-   Stream in multiple chats simultaneously, with their own queues.
+-   Control volume.
 -   Friendly responses.
 -   Doesn't create files.
 -   Multilingual.
@@ -49,6 +53,12 @@ npm start
 #### _Aliases: s, play, p_
 
 Takes a custom input, audio file, voice message or YouTube video/playlist link/ID and streams/queues it.
+
+Custom inputs should be passed like this:
+
+```text
+/stream custom your_custom_input
+```
 
 ### playlist
 
@@ -103,7 +113,6 @@ ml    Malayalam
 pt_BR Brazilian Portuguese
 si    Sinhalese
 tr    Turkish
-bn    Bengali
 ```
 
 Don't see your language here? Pull requests to the `translations` branch are welcomed!
