@@ -1,0 +1,23 @@
+{
+    "authors": ["BlackStoneReborn"],
+    "paused": "⏸ | <b>Pausiert.</>",
+    "not_streaming": "❌ | <b>Ich spiele aktuell nichts.</>",
+    "not_in_call": "❌ | <b>Ich bin nicht im Anruf.</>",
+    "resumed": "▶️ | <b>Weiter.</>",
+    "not_paused": "❌ | <b>Nichts ist pausiert.</>",
+    "skipped": "⏩ | <b>Übersprungen.</>",
+    "stopped": "⏹ | <b>Gestoppt.</>",
+    "streaming_queuing": "🎶 | <b>Ich spiele und setze {{X}} Videos auf die Warteliste...</>",
+    "queuing": "🎶 | <b>Ich setze {{X}} Videos auf die Warteliste...</>",
+    "no_input": "❔ | <b>Was soll ich abspielen?</>",
+    "streaming": "▶️ | <b>Spiele ich...</>",
+    "queued_at": "#️⃣ | <b>In Position {{position}} auf die Warteliste gesetzt.</>",
+    "no_call": "❌ | <b>Hier ist kein Anruf aktiv.</>",
+    "no_video_found": "❌ | <b>Kein Video gefunden.</>",
+    "ns": "🎵 | Ich spiele aktuell <b>{{{title}}}</> von <b>{{{requester}}}</>...",
+    "error": "❌ | <b>Ein Fehler ist aufgetreten.</>",
+    "file_too_big": "❌ | <b>Die Datei ist zu groß.</>",
+    "error_with_message": "❌ | <b>Ein Fehler ist aufgetreten:</> {{message}}",
+    "invalid_volume": "❌ | <b>Gebe eine Nummer zwischen 0 und 200 an.</>",
+    "volume_set": "🔈 | <b>Lautstärke gesetzt auf {{amount}}.</>"
+}
