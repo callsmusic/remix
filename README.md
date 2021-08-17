@@ -103,8 +103,9 @@ Clears the queue and removes the bot from the call.
 ## Available languages
 
 ```text
-ckb   Central Kurdish
 bn    Bengali
+ckb   Central Kurdish
+de    German
 en    English
 es    Spanish
 fa    Farsi
