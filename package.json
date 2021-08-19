@@ -25,7 +25,7 @@
         "i18n": "^0.13.3",
         "node-pre-gyp": "^0.17.0",
         "telegram": "^1.8.5",
-        "tgcalls": "^0.1.4",
+        "tgcalls": "github:rojserbest/tgcalls",
         "ytdl-core": "^4.9.1",
         "ytdl-core-telegram": "^2.0.6",
         "ytpl": "^2.2.3"
