@@ -23,6 +23,7 @@ git checkout translations
 -   Copy translations of another language (one which you are comfortable translating from).
 -   Translate all of the strings to that language.
 -   Set "authors" to ["your name"].
+-   Commit with a message like "Add [language name] translations".
 
 # Other contributions
 
