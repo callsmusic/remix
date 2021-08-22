@@ -17,6 +17,7 @@ export const getOnFinish = (chatId: number) => async () => {
 export async function stop(chatId: number) {
     let result;
 
+    queues.rmNow(chatId);
     queues.clear(chatId);
 
     try {
