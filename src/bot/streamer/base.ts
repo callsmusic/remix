@@ -15,14 +15,10 @@ export const getOnFinish = (chatId: number) => async () => {
 };
 
 export async function stop(chatId: number) {
-    let result;
-
-    queues.rmNow(chatId);
     queues.clear(chatId);
 
     try {
-        result = await gramtgcalls.stop(chatId);
-        return result;
+        return await gramtgcalls.stop(chatId);
     } catch (err) {
         if (err instanceof Api.RpcError) {
             if (err.errorMessage == "GROUPCALL_FORBIDDEN") {
