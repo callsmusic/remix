@@ -20,5 +20,9 @@
     "error_with_message": "❌ | <b>An error occurred:</> {{message}}",
     "invalid_volume": "❌ | <b>Pass a number between 0 and 200.</>",
     "volume_set": "🔈 | <b>Volume set to {{amount}}.</>",
-    "custom_input": "Custom Input"
+    "custom_input": "Custom Input",
+    "muted": "🔇 | <b>Muted.</>",
+    "unmute": "🔈 | <b>Unmuted.</>",
+    "already_muted": "❌ | <b>Already muted.</>",
+    "not_muted": "❌ | <b>Not muted.</>"
 }
