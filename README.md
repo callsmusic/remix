@@ -94,7 +94,7 @@ Resumes the stream.
 
 Mutes the stream.
 
-### mute
+### unmute
 
 #### _Aliases: um_
 
