@@ -19,7 +19,7 @@
         "envalid": "^7.1.1",
         "fluent-ffmpeg": "^2.1.2",
         "got": "^11.8.2",
-        "gram-tgcalls": "^1.4.0",
+        "gram-tgcalls": "^2.0.1",
         "grammy": "^1.2.0",
         "html-escaper": "^3.0.3",
         "i18n": "^0.13.3",
