@@ -41,12 +41,6 @@ export async function stream(chatId: number, item: Item, force?: boolean) {
                 ? await getReadableResult
                 : getReadableResult;
 
-        readable.on("error", async () => {
-            try {
-                await gramtgcalls(chatId).stop();
-            } catch (err) {}
-        });
-
         await gramtgcalls(chatId).stream(readable, {
             media: { onFinish: getOnFinish(chatId) },
         });
