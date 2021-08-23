@@ -22,7 +22,7 @@
     "volume_set": "🔈 | <b>Volume set to {{amount}}.</>",
     "custom_input": "Custom Input",
     "muted": "🔇 | <b>Muted.</>",
-    "unmute": "🔈 | <b>Unmuted.</>",
+    "unmuted": "🔈 | <b>Unmuted.</>",
     "already_muted": "❌ | <b>Already muted.</>",
     "not_muted": "❌ | <b>Not muted.</>"
 }
