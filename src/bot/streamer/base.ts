@@ -11,14 +11,14 @@ export const getOnFinish = (chatId: number) => async () => {
         return true;
     }
 
-    return await gramtgcalls.stop(chatId);
+    return await gramtgcalls(chatId).stop();
 };
 
 export async function stop(chatId: number) {
     queues.clear(chatId);
 
     try {
-        return await gramtgcalls.stop(chatId);
+        return await gramtgcalls(chatId).stop();
     } catch (err) {
         if (err instanceof Api.RpcError) {
             if (err.errorMessage == "GROUPCALL_FORBIDDEN") {
@@ -31,7 +31,7 @@ export async function stop(chatId: number) {
 }
 
 export async function stream(chatId: number, item: Item, force?: boolean) {
-    const finished = gramtgcalls.finished(chatId) != false;
+    const finished = gramtgcalls(chatId).finished() != false;
 
     if (finished || force) {
         const getReadableResult = item.getReadable();
@@ -41,8 +41,8 @@ export async function stream(chatId: number, item: Item, force?: boolean) {
                 ? await getReadableResult
                 : getReadableResult;
 
-        await gramtgcalls.stream(chatId, readable, {
-            onFinish: getOnFinish(chatId),
+        await gramtgcalls(chatId).stream(readable, {
+            media: { onFinish: getOnFinish(chatId) },
         });
 
         queues.setNow(chatId, item);

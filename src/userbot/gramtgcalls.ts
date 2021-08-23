@@ -1,4 +1,13 @@
-import { GramTGCalls } from "gram-tgcalls";
+import GramTGCalls from "gram-tgcalls";
 import { client } from ".";
 
-export default new GramTGCalls(client);
+const instances = new Map<number, GramTGCalls>();
+
+export default (chatId: number) => {
+    if (instances.has(chatId)) {
+        return instances.get(chatId)!;
+    }
+
+    instances.set(chatId, new GramTGCalls(client, chatId));
+    return instances.get(chatId)!;
+};

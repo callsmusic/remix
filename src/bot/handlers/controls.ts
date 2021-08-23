@@ -8,7 +8,7 @@ const composer = new Composer();
 export default composer;
 
 composer.command("pause", (ctx) => {
-    switch (gramtgcalls.pause(ctx.chat.id)) {
+    switch (gramtgcalls(ctx.chat.id).pause()) {
         case true:
             return ctx.reply(i18n("paused"));
         case false:
@@ -19,7 +19,7 @@ composer.command("pause", (ctx) => {
 });
 
 composer.command(["resume", "re", "res", "continue"], (ctx) => {
-    switch (gramtgcalls.resume(ctx.chat.id)) {
+    switch (gramtgcalls(ctx.chat.id).resume()) {
         case true:
             return ctx.reply(i18n("resumed"));
         case false:
