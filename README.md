@@ -1,4 +1,4 @@
-# Calls Music Remix [![Mentioned in Awesome Telegram Calls](https://awesome.re/mentioned-badge-flat.svg)](https://github.com/tgcalls/awesome-tgcalls)
+# Calls Music Remix [![Mentioned in Awesome Telegram Calls](https://awesome.re/mentioned-badge-flat.svg)](https://github.com/tgcalls/awesome-tgcalls) [![Mentioned in Awesome grammY](https://awesome.re/mentioned-badge-flat.svg)](https://github.com/grammyjs/awesome-grammY)
 
 Stream in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-tgcalls).
 
