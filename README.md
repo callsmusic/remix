@@ -66,6 +66,13 @@ Custom inputs should be passed like this:
 
 Streams a YouTube playlist.
 
+
+### shuffle
+
+#### _Aliases: sh, mix_
+
+Shuffles the items in the queue.
+
 ### now
 
 #### _Aliases: ns, cs, np, cp_

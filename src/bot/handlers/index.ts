@@ -4,6 +4,7 @@ import controls from "./controls";
 import end from "./end";
 import now from "./now";
 import playlist from "./playlist";
+import shuffle from "./shuffle";
 import stream from "./stream";
 
 const composer = new Composer();
@@ -16,4 +17,5 @@ composer
     .use(end)
     .use(now)
     .use(playlist)
+    .use(shuffle)
     .use(stream);
