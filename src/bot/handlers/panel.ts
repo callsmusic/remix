@@ -48,11 +48,17 @@ const getDecrement = (current?: number) => {
 };
 
 composer.command(["menu", "m", "controls", "panel"], (ctx) =>
-    ctx.reply(getPanelText(ctx.chat.id), panelOther),
+    ctx.reply(getPanelText(ctx.chat.id), {
+        ...panelOther,
+        reply_to_message_id: ctx.message?.message_id,
+    }),
 );
 
 composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
-    if (!ctx.chat?.id) {
+    if (
+        !ctx.chat?.id ||
+        ctx.from.id != ctx.message?.reply_to_message?.from?.id
+    ) {
         return;
     }
 
