@@ -212,7 +212,7 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
             ) {
                 await ctx.answerCallbackQuery({
                     text: i18n("panel_volume_set", {
-                        amount: String(increment),
+                        amount: String(Math.round(increment / 100)),
                     }),
                     show_alert: true,
                 });
@@ -231,7 +231,7 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
             ) {
                 await ctx.answerCallbackQuery({
                     text: i18n("panel_volume_set", {
-                        amount: String(decrement),
+                        amount: String(Math.round(decrement / 100)),
                     }),
                     show_alert: true,
                 });
