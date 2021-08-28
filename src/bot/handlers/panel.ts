@@ -21,7 +21,7 @@ const panelOther = {
         .text("🔉", "panel_voldec")
         .text("🔊", "panel_volinc")
         .row()
-        .text("🔄", "update"),
+        .text("🔄", "panel_update"),
 };
 
 const getPanelText = (chatId: number) => {
