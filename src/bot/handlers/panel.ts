@@ -57,7 +57,7 @@ composer.command(["menu", "m", "controls", "panel"], (ctx) =>
 composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
     if (
         !ctx.chat?.id ||
-        ctx.from.id != ctx.message?.reply_to_message?.from?.id
+        ctx.from.id != ctx.callbackQuery.message?.reply_to_message?.from?.id
     ) {
         return;
     }
