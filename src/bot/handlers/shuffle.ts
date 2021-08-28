@@ -23,4 +23,5 @@ composer.command(["shuffle", "sh", "mix"], async (ctx) => {
 
     await ctx.reply(i18n("shuffling"));
     await stream(ctx.chat.id, result, true);
+    gramtgcalls(ctx.chat.id).resume();
 });
