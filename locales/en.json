@@ -24,5 +24,7 @@
     "muted": "🔇 | <b>Muted.</>",
     "unmuted": "🔈 | <b>Unmuted.</>",
     "already_muted": "❌ | <b>Already muted.</>",
-    "not_muted": "❌ | <b>Not muted.</>"
+    "not_muted": "❌ | <b>Not muted.</>",
+    "shuffling": "🔀 | <b>Shuffling...</>",
+    "no_enough_items": "❌ | <b>No enough items to shuffle.</>"
 }
