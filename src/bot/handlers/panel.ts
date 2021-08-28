@@ -44,7 +44,7 @@ const getIncrement = (current?: number) => {
 
 const getDecrement = (current?: number) => {
     const toReturn = current ? current - 1000 : 5000;
-    return toReturn < 0 ? 1 : toReturn;
+    return toReturn < 1 ? 1 : toReturn;
 };
 
 composer.command(["menu", "m", "controls", "panel"], (ctx) =>
