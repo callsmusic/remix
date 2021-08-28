@@ -1,4 +1,4 @@
-import { Composer, InlineKeyboard } from "grammy";
+import { Composer, Context, InlineKeyboard } from "grammy";
 import gramtgcalls from "../../userbot/gramtgcalls";
 import queues from "../../queues";
 import { stream, stop, getOnFinish } from "../streamer";
@@ -47,6 +47,17 @@ const getDecrement = (current?: number) => {
     return toReturn < 1 ? 1 : toReturn;
 };
 
+const updatePanel = async (ctx: Context, answer?: boolean) => {
+    try {
+        await ctx.editMessageText(getPanelText(ctx.chat!.id), panelOther);
+    } catch (err) {
+    } finally {
+        if (answer) {
+            await ctx.answerCallbackQuery({ text: i18n("panel_updated") });
+        }
+    }
+};
+
 composer.command(["menu", "m", "controls", "panel"], (ctx) =>
     ctx.reply(getPanelText(ctx.chat.id), {
         ...panelOther,
@@ -67,15 +78,7 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
 
     switch (command) {
         case "update":
-            try {
-                await ctx.editMessageText(
-                    getPanelText(ctx.chat.id),
-                    panelOther,
-                );
-            } catch (err) {
-            } finally {
-                await ctx.answerCallbackQuery({ text: "Updated" });
-            }
+            await updatePanel(ctx, true);
             break;
         case "shuffle":
             const result = queues.suffle(ctx.chat.id);
@@ -93,6 +96,7 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                 show_alert: true,
             });
             await stream(ctx.chat.id, result, true);
+            await updatePanel(ctx);
             break;
         case "skip":
             switch (await getOnFinish(ctx.chat.id)()) {
@@ -101,11 +105,14 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                         text: i18n("panel_skipped"),
                         show_alert: true,
                     });
+                    await updatePanel(ctx);
+                    break;
                 case false:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_streaming"),
                         show_alert: true,
                     });
+                    break;
                 case null:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_in_call"),
@@ -120,11 +127,13 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                         text: i18n("panel_paused"),
                         show_alert: true,
                     });
+                    break;
                 case false:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_streaming"),
                         show_alert: true,
                     });
+                    break;
                 case null:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_in_call"),
@@ -139,11 +148,13 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                         text: i18n("panel_resumed"),
                         show_alert: true,
                     });
+                    break;
                 case false:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_paused"),
                         show_alert: true,
                     });
+                    break;
                 case null:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_in_call"),
@@ -158,11 +169,13 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                         text: i18n("panel_muted"),
                         show_alert: true,
                     });
+                    break;
                 case false:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_already_muted"),
                         show_alert: true,
                     });
+                    break;
                 case null:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_in_call"),
@@ -177,11 +190,13 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                         text: i18n("panel_unmuted"),
                         show_alert: true,
                     });
+                    break;
                 case false:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_muted"),
                         show_alert: true,
                     });
+                    break;
                 case null:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_in_call"),
