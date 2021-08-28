@@ -14,7 +14,7 @@
     "queued_at": "#️⃣ | <b>Agregado a la lista en posición {{position}}.</>",
     "no_call": "❌ | <b>No hay llamada activa.</>",
     "no_video_found": "❌ | <b>No se encontró el video.</>",
-    "ns": "🎵 | Actualmente transmitiendo <b>{{{title}}}</> de <b>{{{requester}}}</>...",
+    "ns": "🎵 | Actualmente transmitiendo <b><a href=\"{{titleUrl}}\">{{title}}</></> de <b><a href=\"{{requesterUrl}}\">{{requester}}</></>...",
     "error": "❌ | <b>Ocurrió un error.</>",
     "file_too_big": "❌ | <b>Este archivo es muy grande.</>",
     "error_with_message": "❌ | <b>Ocurrió un error:</> {{message}}",

@@ -15,8 +15,10 @@ composer.command(["now", "ns", "cs", "np", "cp"], (ctx) => {
 
         return ctx.reply(
             i18n("ns", {
-                title: `<a href="${url}">${escape(title)}</>`,
-                requester: `<a href="tg://user?id=${requester.id}">${requester.first_name}</>`,
+                title,
+                titleUrl: url,
+                requester: requester.first_name,
+                requesterUrl: "tg://user?id=${requester.id}",
             }),
         );
     }

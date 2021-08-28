@@ -32,6 +32,10 @@ export default new (class Queues {
         return this.now.get(chatId);
     }
 
+    getNext(chatId: number) {
+        return this.queues.get(chatId)?.[0];
+    }
+
     push(chatId: number, item: Item) {
         const queue = this.queues.get(chatId);
 

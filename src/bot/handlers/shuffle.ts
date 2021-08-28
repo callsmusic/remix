@@ -9,11 +9,6 @@ const composer = new Composer();
 export default composer;
 
 composer.command(["shuffle", "sh", "mix"], async (ctx) => {
-    if (gramtgcalls(ctx.chat.id).pause() == null) {
-        await ctx.reply(i18n("not_in_call"));
-        return;
-    }
-
     const result = queues.suffle(ctx.chat.id);
 
     if (result == false) {
@@ -23,5 +18,4 @@ composer.command(["shuffle", "sh", "mix"], async (ctx) => {
 
     await ctx.reply(i18n("shuffling"));
     await stream(ctx.chat.id, result, true);
-    gramtgcalls(ctx.chat.id).resume();
 });
