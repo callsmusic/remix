@@ -86,14 +86,12 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
             if (result == false) {
                 await ctx.answerCallbackQuery({
                     text: i18n("panel_no_enough_items"),
-                    show_alert: true,
                 });
                 return;
             }
 
             await ctx.answerCallbackQuery({
                 text: i18n("panel_shuffling"),
-                show_alert: true,
             });
             await stream(ctx.chat.id, result, true);
             await updatePanel(ctx);
@@ -103,20 +101,17 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_skipped"),
-                        show_alert: true,
                     });
                     await updatePanel(ctx);
                     break;
                 case false:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_streaming"),
-                        show_alert: true,
                     });
                     break;
                 case null:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_in_call"),
-                        show_alert: true,
                     });
             }
             break;
@@ -125,19 +120,16 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_paused"),
-                        show_alert: true,
                     });
                     break;
                 case false:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_streaming"),
-                        show_alert: true,
                     });
                     break;
                 case null:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_in_call"),
-                        show_alert: true,
                     });
             }
             break;
@@ -146,19 +138,16 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_resumed"),
-                        show_alert: true,
                     });
                     break;
                 case false:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_paused"),
-                        show_alert: true,
                     });
                     break;
                 case null:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_in_call"),
-                        show_alert: true,
                     });
             }
             break;
@@ -167,19 +156,16 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_muted"),
-                        show_alert: true,
                     });
                     break;
                 case false:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_already_muted"),
-                        show_alert: true,
                     });
                     break;
                 case null:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_in_call"),
-                        show_alert: true,
                     });
             }
             break;
@@ -188,19 +174,16 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_unmuted"),
-                        show_alert: true,
                     });
                     break;
                 case false:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_muted"),
-                        show_alert: true,
                     });
                     break;
                 case null:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_not_in_call"),
-                        show_alert: true,
                     });
             }
             break;
@@ -214,12 +197,10 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                     text: i18n("panel_volume_set", {
                         amount: String(Math.round(increment / 100)),
                     }),
-                    show_alert: true,
                 });
             } else {
                 await ctx.answerCallbackQuery({
                     text: i18n("panel_not_in_call"),
-                    show_alert: true,
                 });
             }
             break;
@@ -233,12 +214,10 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                     text: i18n("panel_volume_set", {
                         amount: String(Math.round(decrement / 100)),
                     }),
-                    show_alert: true,
                 });
             } else {
                 await ctx.answerCallbackQuery({
                     text: i18n("panel_not_in_call"),
-                    show_alert: true,
                 });
             }
     }
