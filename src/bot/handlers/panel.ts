@@ -72,14 +72,6 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
             }
             break;
         case "shuffle":
-            if (gramtgcalls(ctx.chat.id).pause() == null) {
-                await ctx.answerCallbackQuery({
-                    text: i18n("panel_not_in_call"),
-                    show_alert: true,
-                });
-                return;
-            }
-
             const result = queues.suffle(ctx.chat.id);
 
             if (result == false) {
@@ -95,7 +87,6 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
                 show_alert: true,
             });
             await stream(ctx.chat.id, result, true);
-            gramtgcalls(ctx.chat.id).resume();
             break;
         case "skip":
             switch (await getOnFinish(ctx.chat.id)()) {
