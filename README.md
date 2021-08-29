@@ -80,7 +80,7 @@ Custom inputs should be passed like this:
 
 ### 🎛 Panel
 
-#### _Aliases: m, menu, controls_
+#### _Aliases: menu, control, controls_
 
 Opens the controls panel.
 

@@ -58,7 +58,7 @@ const updatePanel = async (ctx: Context, answer?: boolean) => {
     }
 };
 
-composer.command(["menu", "m", "controls", "panel"], (ctx) =>
+composer.command(["menu", "control", "controls", "panel"], (ctx) =>
     ctx.reply(getPanelText(ctx.chat.id), {
         ...panelOther,
         reply_to_message_id: ctx.message?.message_id,
