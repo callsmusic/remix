@@ -14,7 +14,7 @@
     "queued_at": "#️⃣ | <b>In Position {{position}} auf die Warteliste gesetzt.</>",
     "no_call": "❌ | <b>Hier ist kein Anruf aktiv.</>",
     "no_video_found": "❌ | <b>Kein Video gefunden.</>",
-    "ns": "🎵 | Ich spiele aktuell <b>{{{title}}}</> von <b>{{{requester}}}</>...",
+    "ns": "🎵 | Ich spiele aktuell <b><a href=\"{{titleUrl}}\">{{title}}</></> von <b><a href=\"{{requesterUrl}}\">{{requester}}</></>...",
     "error": "❌ | <b>Ein Fehler ist aufgetreten.</>",
     "file_too_big": "❌ | <b>Die Datei ist zu groß.</>",
     "error_with_message": "❌ | <b>Ein Fehler ist aufgetreten:</> {{message}}",

@@ -14,7 +14,7 @@
     "queued_at": "#️⃣ | <b>Antri di posisi {{position}}.</>",
     "no_call": "❌ | <b>Tidak ada panggilan aktif.</>",
     "no_video_found": "❌ | <b>Tidak ada video yang ditemukan.</>",
-    "ns": "🎵 | Sedang memutar <b>{{{title}}}</> oleh <b>{{{requester}}}</>...",
+    "ns": "🎵 | Sedang memutar <b><a href=\"{{titleUrl}}\">{{title}}</></> oleh <b><a href=\"{{requesterUrl}}\">{{requester}}</></>...",
     "error": "❌ | <b>Terjadi kesalahan.</>",
     "file_too_big": "❌ | <b>Ukuran file terlalu besar.</>",
     "error_with_message": "❌ | <b>Sebuah kesalahan terjadi:</> {{message}}",

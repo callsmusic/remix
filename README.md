@@ -1,23 +1,41 @@
-# Calls Music Remix [![Mentioned in Awesome Telegram Calls](https://awesome.re/mentioned-badge-flat.svg)](https://github.com/tgcalls/awesome-tgcalls)
+# 🎵 [Calls Music](https://github.com/callsmusic) Remix
 
-Stream in Telegram calls using [GramTGCalls](https://github.com/tgcallsjs/gram-tgcalls).
+An operational and exprimental Telegram music bot.
 
 ---
 
-## Features
+## 🎖 Achievements
 
--   Various sources to stream from:
-    -   Custom URLs.
-    -   YouTube playlists.
-    -   Small Audio files and voice messages.
-    -   YouTube videos (no duration limit, even live videos).
--   Stream in multiple chats simultaneously, with their own queues.
--   Control volume.
--   Friendly responses.
--   Doesn't create files.
--   Multilingual.
+-   [Mentioned in Awesome grammY](https://github.com/grammyjs/awesome-grammY)
+-   [Mentioned in Awesome tgcalls](https://github.com/tgcalls/awesome-tgcalls)
 
-## Running
+## ✨ Features
+
+### 😉 Streams whatever you like
+
+You can stream audio files, voice messages, YouTube videos with any duration, YouTube lives, YouTube playlists and even custom inputs like radios or files in the place it is hosted!
+
+### 📊 Streams in multiple places
+
+Remix allows you to stream different things in multiple chats simultaneously. Each chat will have its own song queue.
+
+### ⚡️ Fast & Light
+
+Remix starts streaming your inputs while downloading and converting them. Also, it doesn't make produce files.
+
+### 😎 Has cool conotrols
+
+Remix lets you adjust volume, pause, resume, mute, unmute. Also, it has a control panel.
+
+### 🗣 Speaks different languages
+
+Remix is multilingual and speaks [various languages](#available-languages), thanks to the translators.
+
+### 🗑 Clean
+
+Remix commands and its source don't say anything referring to Calls Music. Except some places like [`package.json`](./package.json).
+
+## 🚀 Running
 
 1. Copy `example.env` to `.env` and fill it with your credentials.
 2. Install dependencies and build:
@@ -32,11 +50,11 @@ npm install
 npm start
 ```
 
-## Deploying to the cloud
+## ☁️ Cloud platforms
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/callsmusic/CallsMusicRemix)
 
-## Configuring
+## ⚒ Configuring
 
 -   `BOT_TOKEN`: Telegram bot token.
 -   `STRING_SESSION`: A GramJS/Telethon string session. You can generate one [here](https://ssg.rojser.best/).
@@ -46,7 +64,7 @@ npm start
 -   `MAX_PLAYLIST_SIZE`: Max YouTube playlist size. Default: `10`.
 -   `COOKIES`: Cookies for YouTube requests. Default: none.
 
-## Commands
+## 📄 Commands
 
 ### stream
 
@@ -65,6 +83,12 @@ Custom inputs should be passed like this:
 #### _Aliases: pl, list_
 
 Streams a YouTube playlist.
+
+### shuffle
+
+#### _Aliases: sh, mix_
+
+Shuffles the items in the queue.
 
 ### now
 
@@ -88,6 +112,18 @@ Pauses the stream.
 
 Resumes the stream.
 
+### mute
+
+#### _Aliases: m_
+
+Mutes the stream.
+
+### unmute
+
+#### _Aliases: um_
+
+Unmutes the stream.
+
 ### skip
 
 #### _Aliases: next_
@@ -100,7 +136,7 @@ Skips the current stream.
 
 Clears the queue and removes the bot from the call.
 
-## Available languages
+## 🗣 Available languages
 
 ```text
 bn    Bengali
@@ -116,14 +152,18 @@ si    Sinhalese
 tr    Turkish
 ```
 
-Don't see your language here? Pull requests to the `translations` branch are welcomed!
+## 🛫 Support
 
-## Inspiration
+Join [our chats](https://callsmusic.me).
+
+## 💜 Contributing
+
+New languages, bug fixes and improvements following [our contribution guidelines](./CONTRIBUTING.md) are warmly welcomed!
+
+## ✨ Inspiration
 
 -   [eritislami/evobot](https://github.com/eritislami/evobot)
 
-## License
+## 📃 License
 
-### GNU Affero General Public License v3.0
-
-[Read more](./LICENSE)
+Remix is licenced under the GNU Affero General Public License v3.0. Read more [here](./LICENSE).

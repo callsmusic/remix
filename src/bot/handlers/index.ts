@@ -3,9 +3,10 @@ import { Composer } from "grammy";
 import controls from "./controls";
 import end from "./end";
 import now from "./now";
+import panel from "./panel";
 import playlist from "./playlist";
+import shuffle from "./shuffle";
 import stream from "./stream";
-import volume from "./volume";
 
 const composer = new Composer();
 
@@ -16,6 +17,7 @@ composer
     .use(controls)
     .use(end)
     .use(now)
+    .use(panel)
     .use(playlist)
-    .use(stream)
-    .use(volume);
+    .use(shuffle)
+    .use(stream);

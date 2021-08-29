@@ -1,5 +1,5 @@
+import ytdl from "ytdl-core";
 import { Composer } from "grammy";
-import { User, Message } from "@grammyjs/types";
 import i18n from "../i18n";
 import { audio, custom, youtube } from "../streamer";
 
@@ -25,9 +25,9 @@ composer.command(["stream", "s", "play", "p"], async (ctx) => {
     const result =
         typeof input === "string"
             ? isCustomInput
-                ? await custom(customInput as string, ctx.message as Message)
-                : await youtube(ctx.chat.id, ctx.from as User, input)
-            : await audio(ctx.message?.reply_to_message as Message);
+                ? await custom(input, ctx.message!)
+                : await youtube(ctx.chat.id, ctx.from!, input)
+            : await audio(ctx.message?.reply_to_message!);
 
     if (result == null) {
         await ctx.reply(i18n("streaming"));

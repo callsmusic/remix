@@ -1,6 +1,6 @@
 {
     "name": "Calls Music Remix",
-    "description": "Stream audio in Telegram group calls using GramJS and tgcallsjs",
+    "description": "Stream in Telegram calls using GramTGCalls.",
     "keywords": ["telegram", "music", "gram-tgcalls", "tgcallsjs", "gramjs"],
     "repository": "https://github.com/callsmusic/CallsMusicRemix",
     "env": {
@@ -9,7 +9,7 @@
             "required": true
         },
         "STRING_SESSION": {
-            "description": "GramJS string session. You can generate one at https://rojserbest.github.io/bssg.",
+            "description": "GramJS string session. You can generate one at https://ssg.rojser.best.",
             "required": true
         },
         "API_ID": {

@@ -32,6 +32,10 @@ export default new (class Queues {
         return this.now.get(chatId);
     }
 
+    getNext(chatId: number) {
+        return this.queues.get(chatId)?.[0];
+    }
+
     push(chatId: number, item: Item) {
         const queue = this.queues.get(chatId);
 
@@ -79,5 +83,33 @@ export default new (class Queues {
         }
 
         return false;
+    }
+
+    suffle(chatId: number) {
+        const now = this.getNow(chatId);
+
+        if (!now || this.getAll(chatId).length == 0) {
+            return false;
+        }
+
+        this.push(chatId, now);
+
+        const items = this.getAll(chatId);
+
+        let currentIndex = items.length,
+            randomIndex;
+
+        while (currentIndex != 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            [items[currentIndex], items[randomIndex]] = [
+                items[randomIndex],
+                items[currentIndex],
+            ];
+        }
+
+        this.queues.set(chatId, items);
+        return this.get(chatId)!;
     }
 })();
