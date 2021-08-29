@@ -66,7 +66,7 @@ npm start
 
 ## 📄 Commands
 
-### stream
+### 🎶 stream
 
 #### _Aliases: s, play, p_
 
@@ -78,59 +78,65 @@ Custom inputs should be passed like this:
 /stream custom your_custom_input
 ```
 
-### playlist
+### 🎛 Panel
+
+#### _Aliases: m, menu, controls_
+
+Opens the controls panel.
+
+### 🔢 playlist
 
 #### _Aliases: pl, list_
 
 Streams a YouTube playlist.
 
-### shuffle
+### 🔀 shuffle
 
 #### _Aliases: sh, mix_
 
 Shuffles the items in the queue.
 
-### now
+### 🎵 now
 
 #### _Aliases: ns, cs, np, cp_
 
 Displays the currently streamed item.
 
-### volume
+### 🔉 volume
 
 #### _Aliases: vol, v_
 
 Sets the volume.
 
-### pause
+### ⏸ pause
 
 Pauses the stream.
 
-### resume
+### ▶️ resume
 
 #### _Aliases: re, res, continue_
 
 Resumes the stream.
 
-### mute
+### 🔇 mute
 
 #### _Aliases: m_
 
 Mutes the stream.
 
-### unmute
+### 🔈 unmute
 
 #### _Aliases: um_
 
 Unmutes the stream.
 
-### skip
+### ⏩ skip
 
 #### _Aliases: next_
 
 Skips the current stream.
 
-### leave
+### ⏹ leave
 
 #### _Aliases: stop_
 
