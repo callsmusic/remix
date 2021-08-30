@@ -78,6 +78,16 @@ Custom inputs should be passed like this:
 /stream custom your_custom_input
 ```
 
+### 🔍 Search
+
+#### _Aliases: find_
+
+Search for a YouTube video.
+
+### ✅ cancel
+
+Cancel the active YouTube video search.
+
 ### 🎛 Panel
 
 #### _Aliases: menu, control, controls_

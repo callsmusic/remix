@@ -12,7 +12,6 @@
     },
     "author": "Roj Serbest <rojserbest@icloud.com>",
     "dependencies": {
-        "@grammyjs/types": "^2.2.3",
         "@types/html-escaper": "^3.0.0",
         "@types/i18n": "^0.13.1",
         "dotenv": "^8.2.0",
@@ -28,9 +27,11 @@
         "tgcalls": "github:rojserbest/tgcalls",
         "ytdl-core": "^4.9.1",
         "ytdl-core-telegram": "^2.0.6",
-        "ytpl": "^2.2.3"
+        "ytpl": "^2.2.3",
+        "ytsr": "^3.5.3"
     },
     "devDependencies": {
+        "@grammyjs/types": "^2.2.6",
         "@types/fluent-ffmpeg": "^2.1.18",
         "@types/node": "^16.3.0",
         "prettier": "^2.3.2",
