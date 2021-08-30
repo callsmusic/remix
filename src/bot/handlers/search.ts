@@ -77,7 +77,7 @@ composer.command(["search", "find"], async (ctx) => {
 
     text += i18n("search_footer");
     searches.set(ctx.chat.id, results);
-    await ctx.reply(text);
+    await ctx.reply(text, { disable_web_page_preview: true });
 });
 
 composer.command("cancel", (ctx) => {
