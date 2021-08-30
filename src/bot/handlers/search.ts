@@ -2,6 +2,7 @@ import { Composer } from "grammy";
 import ytsr from "ytsr";
 import { Item } from "ytsr";
 import env from "../../env";
+import { youtube } from "../streamer";
 import { humanize } from "../helpers";
 import i18n from "../i18n";
 
@@ -88,3 +89,41 @@ composer.command("cancel", (ctx) => {
 
     return ctx.reply(i18n("search_not_active"));
 });
+
+composer.filter(
+    (ctx) => {
+        if (!ctx.chat || !ctx.message?.text) {
+            return false;
+        }
+
+        if (searches.get(ctx.chat.id) && Number(ctx.message.text)) {
+            return true;
+        }
+
+        return false;
+    },
+    async (ctx) => {
+        const item = searches.get(ctx.chat!.id)?.[
+            Number(ctx.message!.text) - 1
+        ];
+
+        if (item) {
+            const result = await youtube(
+                ctx.chat!.id,
+                ctx.from!,
+                item.id,
+                item.title,
+                item.url,
+            );
+
+            searches.delete(ctx.chat!.id);
+
+            if (result == null) {
+                await ctx.reply(i18n("streaming"));
+                return;
+            }
+
+            await ctx.reply(i18n("queued_at", { position: String(result) }));
+        }
+    },
+);
