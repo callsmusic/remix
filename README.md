@@ -1,4 +1,4 @@
-# 🎵 [Calls Music](https://github.com/callsmusic) Remix
+# 🎵 [Calls Music](https://gitlab.com/callsmusic) Remix
 
 An operational and exprimental Telegram music bot.
 
