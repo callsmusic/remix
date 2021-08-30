@@ -6,6 +6,7 @@ import now from "./now";
 import panel from "./panel";
 import playlist from "./playlist";
 import shuffle from "./shuffle";
+import search from "./search";
 import stream from "./stream";
 
 const composer = new Composer();
@@ -20,4 +21,5 @@ composer
     .use(panel)
     .use(playlist)
     .use(shuffle)
+    .use(search)
     .use(stream);

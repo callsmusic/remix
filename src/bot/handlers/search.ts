@@ -1,13 +1,14 @@
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from "constants";
 import { Composer } from "grammy";
 import ytsr from "ytsr";
-import { Result, Item } from "ytsr";
+import { Item } from "ytsr";
 import env from "../../env";
 import i18n from "../i18n";
 
 const composer = new Composer();
-const searches = new Map<number, (Item & { type: "video" })[]>();
 
+export default composer;
+
+const searches = new Map<number, (Item & { type: "video" })[]>();
 const emojis = new Map([
     [1, "1️⃣"],
     [2, "2️⃣"],
@@ -22,7 +23,7 @@ const emojis = new Map([
 ]);
 
 const truncate = (string: string, number = 70) => {
-    string.substr(0, number - 1) + (string.length > number ? "..." : "");
+    return string.substr(0, number - 1) + (string.length > number ? "..." : "");
 };
 
 composer.command(["search", "find"], async (ctx) => {
@@ -61,7 +62,7 @@ composer.command(["search", "find"], async (ctx) => {
         text +=
             i18n("search_item", {
                 numberEmoji: emojis.get(i + 1)!,
-                title: results[i].title,
+                title: truncate(results[i].title),
                 durationEmoji: results[i].isLive ? "🔴" : "🕓",
                 duration: results[i].isLive
                     ? "Live"
