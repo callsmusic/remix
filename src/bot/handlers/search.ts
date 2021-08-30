@@ -56,11 +56,11 @@ composer.command(["search", "find"], async (ctx) => {
 
     let text = "";
 
-    text += i18n("search_title", { query }) + "\n\n";
+    text += i18n("search_header", { query }) + "\n\n";
 
     for (let i = 0; i < results.length; i++) {
         text +=
-            i18n("search_item", {
+            i18n("search_result", {
                 numberEmoji: emojis.get(i + 1)!,
                 title: truncate(results[i].title),
                 durationEmoji: results[i].isLive ? "🔴" : "🕓",
