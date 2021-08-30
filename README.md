@@ -78,7 +78,7 @@ Custom inputs should be passed like this:
 /stream custom your_custom_input
 ```
 
-### 🔍 Search
+### 🔍 search
 
 #### _Aliases: find_
 
