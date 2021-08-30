@@ -63,6 +63,7 @@ composer.command(["search", "find"], async (ctx) => {
             i18n("search_result", {
                 numberEmoji: emojis.get(i + 1)!,
                 title: truncate(results[i].title),
+                url: results[i].url,
                 durationEmoji: results[i].isLive ? "🔴" : "🕓",
                 duration: results[i].isLive
                     ? "Live"
@@ -70,10 +71,10 @@ composer.command(["search", "find"], async (ctx) => {
                 views: String(results[i].views) || "N/A",
                 uploadTime: results[i].uploadedAt || "N/A",
                 uploader: results[i].author?.name || "N/A",
-            }) + "\n";
+            }) + "\n\n";
     }
 
-    text += "\n" + i18n("search_footer");
+    text += i18n("search_footer");
     searches.set(ctx.chat.id, results);
     await ctx.reply(text);
 });
