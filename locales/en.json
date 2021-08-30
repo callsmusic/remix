@@ -51,6 +51,6 @@
     "search_not_active": "❌ | <b>There is no search active.</>",
     "search_header": "<b>🔍 | Search results for {{query}}...</>",
     "search_footer": "<i>Reply the number of the result you want to stream or /cancel.</>",
-    "search_result": "{{numberEmoji}} <b><a href=\"{{url}}\"><{{title}}</></>\n  ├ {{durationEmoji}} {{duration}}\n  ├ 👁 {{views}}\n  ├ 📅 {{uploadTime}}\n  └ 👤 {{uploader}}",
+    "search_result": "{{numberEmoji}} <b><a href=\"{{url}}\">{{title}}</></>\n  ├ {{durationEmoji}} {{duration}}\n  ├ 👁 {{views}}\n  ├ 📅 {{uploadTime}}\n  └ 👤 {{uploader}}",
     "search_canceled": "✅ | <b>Search canceled.</>"
 }
