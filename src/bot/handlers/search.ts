@@ -2,6 +2,7 @@ import { Composer } from "grammy";
 import ytsr from "ytsr";
 import { Item } from "ytsr";
 import env from "../../env";
+import { humanize } from "../helpers";
 import i18n from "../i18n";
 
 const composer = new Composer();
@@ -59,18 +60,18 @@ composer.command(["search", "find"], async (ctx) => {
     text += i18n("search_header", { query }) + "\n\n";
 
     for (let i = 0; i < results.length; i++) {
+        const result = results[i];
+
         text +=
             i18n("search_result", {
                 numberEmoji: emojis.get(i + 1)!,
-                title: truncate(results[i].title),
-                url: results[i].url,
-                durationEmoji: results[i].isLive ? "🔴" : "🕓",
-                duration: results[i].isLive
-                    ? "Live"
-                    : results[i].duration || "N/A",
-                views: String(results[i].views) || "N/A",
-                uploadTime: results[i].uploadedAt || "N/A",
-                uploader: results[i].author?.name || "N/A",
+                title: truncate(result.title),
+                url: result.url,
+                durationEmoji: result.isLive ? "🔴" : "🕓",
+                duration: result.isLive ? "Live" : result.duration || "N/A",
+                views: result.views ? humanize(result.views) : "N/A",
+                uploadTime: result.uploadedAt || "N/A",
+                uploader: result.author?.name || "N/A",
             }) + "\n\n";
     }
 
