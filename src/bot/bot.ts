@@ -1,4 +1,5 @@
 import { Bot } from "grammy";
+import { limit } from "@grammyjs/ratelimiter";
 import env from "../env";
 import errors from "./errors";
 import i18n from "./i18n";
@@ -8,6 +9,8 @@ const bot = new Bot(env.BOT_TOKEN);
 const isSafe = (s: string) => {
     return !s.includes(bot.token);
 };
+
+bot.use(limit({ timeFrame: 5000 }));
 
 bot.api.config.use((prev, method, payload) => {
     return prev(method, {
