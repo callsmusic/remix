@@ -25,7 +25,7 @@ composer.command(["stream", "s", "play", "p"], async (ctx) => {
     const result =
         typeof input === "string"
             ? isCustomInput
-                ? await custom(input, ctx.message!)
+                ? await custom(customInput!, ctx.message!)
                 : await youtube(ctx.chat.id, ctx.from!, input)
             : await audio(ctx.message?.reply_to_message!);
 

@@ -41,7 +41,7 @@
     "panel_shuffling": "Shuffling...",
     "no_enough_items": "❌ | <b>No enough items to shuffle.</>",
     "panel_no_enough_items": "No enough items to shuffle.",
-    "panel": "🎵 | <b><a href=\"{{nowUrl}}\">{{now}}</></>\n➡️ | <b><a href=\"{{nextUrl}}\">{{next}}</></>",
+    "panel": "{{nowEmoji}} | <b><a href=\"{{nowUrl}}\">{{now}}</></>\n➡️ | <b><a href=\"{{nextUrl}}\">{{next}}</></>",
     "nothing_now": "Nothing streaming now",
     "nothing_next": "Nothing streaming next",
     "panel_updated": "Updated.",

@@ -1,7 +1,8 @@
 import { Composer, Context, InlineKeyboard } from "grammy";
 import gramtgcalls from "../../userbot/gramtgcalls";
 import queues from "../../queues";
-import { stream, stop, getOnFinish } from "../streamer";
+import { stream, getOnFinish } from "../streamer";
+import { loop } from "../cache";
 import i18n from "../i18n";
 
 const composer = new Composer();
@@ -27,6 +28,7 @@ const panelOther = {
 const getPanelText = (chatId: number) => {
     const nowItem = queues.getNow(chatId);
     const nextItem = queues.getNext(chatId);
+    const isLooping = loop.get(chatId);
 
     const now = nowItem?.title || i18n("nothing_now");
     const next = nextItem?.title || i18n("nothing_next");
@@ -34,7 +36,13 @@ const getPanelText = (chatId: number) => {
     const nowUrl = nowItem?.url || "";
     const nextUrl = nextItem?.url || "";
 
-    return i18n("panel", { now, next, nowUrl, nextUrl });
+    return i18n("panel", {
+        now,
+        nowEmoji: isLooping ? "🔁" : "🎵",
+        next,
+        nowUrl,
+        nextUrl,
+    });
 };
 
 const getIncrement = (current?: number) => {
