@@ -22,5 +22,8 @@ composer.on("chat_member:new_chat_member", (ctx) => {
         if (!admins.get(chat)!.includes(member.user.id)) {
             admins.get(chat)!.push(member.user.id);
         }
+    } else if (admins.get(chat)!.includes(member.user.id)) {
+        const currentState = admins.get(chat)!;
+        delete admins.get(chat)![currentState.indexOf(member.user.id)];
     }
 });
