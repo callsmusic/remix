@@ -18,7 +18,7 @@ composer.command(["now", "ns", "cs", "np", "cp"], (ctx) => {
                 title,
                 titleUrl: url,
                 requester: requester.first_name,
-                requesterUrl: "tg://user?id=${requester.id}",
+                requesterUrl: `tg://user?id=${requester.id}`,
             }),
         );
     }
