@@ -1,4 +1,4 @@
-# 🎵 [Calls Music](https://github.com/callsmusic) Remix
+# 🎵 [Calls Music](https://gitlab.com/callsmusic) Remix
 
 An operational and exprimental Telegram music bot.
 
@@ -52,7 +52,7 @@ npm start
 
 ## ☁️ Cloud platforms
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/callsmusic/CallsMusicRemix)
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rojserbest/remix)
 
 ## ⚒ Configuring
 

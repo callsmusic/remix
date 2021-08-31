@@ -1,8 +1,9 @@
 {
     "name": "Calls Music Remix",
-    "description": "Stream in Telegram calls using GramTGCalls.",
+    "logo": "https://i.ibb.co/BzB2GsS/Git-Lab-2.png",
+    "description": "An operational and exprimental Telegram music bot.",
     "keywords": ["telegram", "music", "gram-tgcalls", "tgcallsjs", "gramjs"],
-    "repository": "https://github.com/callsmusic/CallsMusicRemix",
+    "repository": "https://gitlab.com/callsmusic/remix",
     "env": {
         "BOT_TOKEN": {
             "description": "Bot token from @BotFather.",
