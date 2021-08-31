@@ -10,6 +10,7 @@ import search from "./search";
 import stream from "./stream";
 import update from "./update";
 import cache from "./cache";
+import loop from "./loop";
 
 const composer = new Composer();
 
@@ -22,7 +23,9 @@ composer
     .use(now)
     .use(search)
     .use(end)
-    .use(update)
+    .use(update);
+
+composer
     .filter(async (ctx) => {
         if (!ctx.chat || !ctx.from) {
             return false;
@@ -31,7 +34,15 @@ composer
         const chatId = ctx.chat.id;
 
         if (admins.get(chatId) == undefined) {
-            const members = await ctx.api.getChatAdministrators(chatId);
+            const members = (
+                await ctx.api.getChatAdministrators(chatId)
+            ).filter(
+                (member) =>
+                    (member.status == "creator" ||
+                        (member.status == "administrator" &&
+                            member.can_manage_voice_chats)) &&
+                    !member.is_anonymous,
+            );
             admins.set(chatId, []);
 
             for (const member of members) {
@@ -44,4 +55,5 @@ composer
     .use(controls)
     .use(panel)
     .use(shuffle)
-    .use(cache);
+    .use(cache)
+    .use(loop);

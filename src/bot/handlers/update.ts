@@ -14,13 +14,11 @@ composer.on("chat_member:new_chat_member", (ctx) => {
     }
 
     if (
-        member.status == "creator" ||
-        (member.status == "administrator" && member.can_manage_voice_chats)
+        (member.status == "creator" ||
+            (member.status == "administrator" &&
+                member.can_manage_voice_chats)) &&
+        !member.is_anonymous
     ) {
-        if (member.is_anonymous) {
-            return;
-        }
-
         if (!admins.get(chat)!.includes(member.user.id)) {
             admins.get(chat)!.push(member.user.id);
         }
