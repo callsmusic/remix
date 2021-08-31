@@ -1,5 +1,6 @@
 {
     "name": "Calls Music Remix",
+    "logo": "https://i.ibb.co/BzB2GsS/Git-Lab-2.png",
     "description": "An operational and exprimental Telegram music bot.",
     "keywords": ["telegram", "music", "gram-tgcalls", "tgcallsjs", "gramjs"],
     "repository": "https://gitlab.com/callsmusic/remix",
