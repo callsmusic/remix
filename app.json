@@ -20,6 +20,18 @@
         "API_HASH": {
             "description": "App hash from https://my.telegram.org/apps.",
             "required": true
+        },
+        "LOCALE": {
+            "description": "An available bot language. Default: en.",
+            "required": false
+        },
+        "MAX_PLAYLIST_SIZE": {
+            "description": "Max YouTube playlist size. Default: 10.",
+            "required": false
+        },
+        "COOKIES": {
+            "description": "Cookies for YouTube requests. Default: none.",
+            "required": false
         }
     },
     "buildpacks": [
