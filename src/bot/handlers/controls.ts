@@ -30,7 +30,7 @@ composer.command(["resume", "re", "res", "continue"], (ctx) => {
 });
 
 composer.command(["skip", "next"], async (ctx) => {
-    switch (await getOnFinish(ctx.chat.id)()) {
+    switch (await getOnFinish(ctx.chat.id, true)()) {
         case true:
             return ctx.reply(i18n("skipped"));
         case false:

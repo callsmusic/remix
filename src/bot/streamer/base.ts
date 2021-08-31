@@ -1,9 +1,19 @@
+import { Api } from "telegram";
 import gramtgcalls from "../../userbot/gramtgcalls";
 import queues from "../../queues";
 import { Item } from "../../queues";
-import { Api } from "telegram";
+import { loop, searches } from "../cache";
 
-export const getOnFinish = (chatId: number) => async () => {
+export const getOnFinish = (chatId: number, force?: boolean) => async () => {
+    if (loop.get(chatId) && !force) {
+        const now = queues.getNow(chatId);
+
+        if (now) {
+            await stream(chatId, now);
+            return true;
+        }
+    }
+
     const item = queues.get(chatId);
 
     if (item) {

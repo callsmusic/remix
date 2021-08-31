@@ -41,7 +41,7 @@
     "panel_shuffling": "تێکدەدرێت...",
     "no_enough_items": "❌ | <b>ناتوانرێت سەرەکە تێکبدرێت.</>",
     "panel_no_enough_items": "ناتوانرێت سەرەکە تێکبدرێت.",
-    "panel": "🎵 | <b><a href=\"{{nowUrl}}\">{{now}}</></>\n➡️ | <b><a href=\"{{nextUrl}}\">{{next}}</></>",
+    "panel": "{{nowEmoji}} | <b><a href=\"{{nowUrl}}\">{{now}}</></>\n➡️ | <b><a href=\"{{nextUrl}}\">{{next}}</></>",
     "nothing_now": "هیچ لێنادرێت",
     "nothing_next": "هیچ دواتر لێنادرێت",
     "panel_updated": "نوێکرایەوە."

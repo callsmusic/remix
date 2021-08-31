@@ -1,0 +1,28 @@
+import { Composer } from "grammy";
+import { admins } from "../cache";
+
+const composer = new Composer();
+
+export default composer;
+
+composer.on("chat_member:new_chat_member", (ctx) => {
+    const chat = ctx.chatMember.chat.id;
+    const member = ctx.chatMember.new_chat_member;
+
+    if (admins.get(chat) == undefined) {
+        return;
+    }
+
+    if (
+        member.status == "creator" ||
+        (member.status == "administrator" && member.can_manage_voice_chats)
+    ) {
+        if (member.is_anonymous) {
+            return;
+        }
+
+        if (!admins.get(chat)!.includes(member.user.id)) {
+            admins.get(chat)!.push(member.user.id);
+        }
+    }
+});
