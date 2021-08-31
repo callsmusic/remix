@@ -17,15 +17,19 @@ You can stream audio files, voice messages, YouTube videos with any duration, Yo
 
 ### 📊 Streams in multiple places
 
-Remix allows you to stream different things in multiple chats simultaneously. Each chat will have its own song queue.
+Allows you to stream different things in multiple chats simultaneously. Each chat will have its own song queue.
 
 ### ⚡️ Fast & Light
 
-Remix starts streaming your inputs while downloading and converting them. Also, it doesn't make produce files.
+Starts streaming your inputs while downloading and converting them. Also, it doesn't make produce files.
 
-### 😎 Has cool conotrols
+### 😎 Has cool controls
 
-Remix lets you adjust volume, pause, resume, mute, unmute. Also, it has a control panel.
+Lets you adjust volume, loop, pause, resume, mute, unmute. Also, it has a control panel.
+
+### 👮🏻‍♀️ Safe
+
+Accepts a command in 5 seconds, restricts control and sensitive commands to admins.
 
 ### 🗣 Speaks different languages
 
@@ -33,7 +37,7 @@ Remix is multilingual and speaks [various languages](#available-languages), than
 
 ### 🗑 Clean
 
-Remix commands and its source don't say anything referring to Calls Music. Except some places like [`package.json`](./package.json).
+Its responses and source code don't say anything referring to Calls Music. Except some places like [`package.json`](./package.json).
 
 ## 🚀 Running
 
@@ -88,23 +92,11 @@ Search for a YouTube video.
 
 Cancel the active YouTube video search.
 
-### 🎛 Panel
-
-#### _Aliases: menu, control, controls_
-
-Opens the controls panel.
-
 ### 🔢 playlist
 
 #### _Aliases: pl, list_
 
 Streams a YouTube playlist.
-
-### 🔀 shuffle
-
-#### _Aliases: sh, mix_
-
-Shuffles the items in the queue.
 
 ### 🎵 now
 
@@ -112,45 +104,67 @@ Shuffles the items in the queue.
 
 Displays the currently streamed item.
 
-### 🔉 volume
+### 🎛 panel [👮🏻‍♀️]
+
+#### _Aliases: menu, control, controls_
+
+Opens the controls panel.
+
+### 🔁 loop [👮🏻‍♀️]
+
+#### _Aliases: repeat_
+
+Toggles loop.
+
+### 🔀 shuffle [👮🏻‍♀️]
+
+#### _Aliases: sh, mix_
+
+Shuffles the items in the queue.
+
+### 🔉 volume [👮🏻‍♀️]
 
 #### _Aliases: vol, v_
 
 Sets the volume.
 
-### ⏸ pause
+### ⏸ pause [👮🏻‍♀️]
 
 Pauses the stream.
 
-### ▶️ resume
+### ▶️ resume [👮🏻‍♀️]
 
 #### _Aliases: re, res, continue_
 
 Resumes the stream.
 
-### 🔇 mute
+### 🔇 mute [👮🏻‍♀️]
 
 #### _Aliases: m_
 
 Mutes the stream.
 
-### 🔈 unmute
+### 🔈 unmute [👮🏻‍♀️]
 
 #### _Aliases: um_
 
 Unmutes the stream.
 
-### ⏩ skip
+### ⏩ skip [👮🏻‍♀️]
 
 #### _Aliases: next_
 
 Skips the current stream.
 
-### ⏹ leave
+### ⏹ leave [👮🏻‍♀️]
 
 #### _Aliases: stop_
 
 Clears the queue and removes the bot from the call.
+
+### 🗑 cache [👮🏻‍♀️]
+
+Deletes caches.
 
 ## 🗣 Available languages
 
