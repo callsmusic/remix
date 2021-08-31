@@ -17,7 +17,9 @@ const composer = new Composer();
 export default composer;
 
 composer
-    .filter((ctx) => Boolean(ctx.chat?.type.includes("group")))
+    .filter((ctx) =>
+        Boolean((ctx.chat || ctx.chatMember?.chat)?.type.includes("group")),
+    )
     .use(stream)
     .use(playlist)
     .use(now)
