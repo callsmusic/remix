@@ -29,7 +29,7 @@ composer
 
 composer
     .filter(async (ctx) => {
-        if (!ctx.chat || !ctx.from) {
+        if (!ctx.chat?.type.includes("group") || !ctx.from) {
             return false;
         }
 
