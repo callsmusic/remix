@@ -105,7 +105,7 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
             await updatePanel(ctx);
             break;
         case "skip":
-            switch (await getOnFinish(ctx.chat.id)()) {
+            switch (await getOnFinish(ctx.chat.id, true)()) {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_skipped"),
