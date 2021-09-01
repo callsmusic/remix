@@ -1,7 +1,7 @@
 {
     "name": "callsmusicremix",
     "version": "1.0.0",
-    "description": "A Telegram bot to stream audio in calls using GramTGCalls",
+    "description": "An operational and exprimental Telegram music bot.",
     "main": "dist",
     "scripts": {
         "start": "node dist",
