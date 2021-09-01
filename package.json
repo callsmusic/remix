@@ -13,7 +13,6 @@
     "author": "Roj Serbest <rojserbest@icloud.com>",
     "dependencies": {
         "@grammyjs/ratelimiter": "^1.1.4",
-        "@types/html-escaper": "^3.0.0",
         "@types/i18n": "^0.13.1",
         "dotenv": "^8.2.0",
         "envalid": "^7.1.1",
