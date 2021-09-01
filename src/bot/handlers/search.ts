@@ -3,30 +3,14 @@ import ytsr from "ytsr";
 import { Item } from "ytsr";
 import env from "../../env";
 import { youtube } from "../streamer";
-import { humanize } from "../helpers";
+import { numberEmojis } from "../constants";
+import { humanize, truncate } from "../helpers";
+import { searches } from "../cache";
 import i18n from "../i18n";
 
 const composer = new Composer();
 
 export default composer;
-
-const searches = new Map<number, (Item & { type: "video" })[]>();
-const emojis = new Map([
-    [1, "1️⃣"],
-    [2, "2️⃣"],
-    [3, "3️⃣"],
-    [4, "4️⃣"],
-    [5, "5️⃣"],
-    [6, "6️⃣"],
-    [7, "7️⃣"],
-    [8, "8️⃣"],
-    [9, "9️⃣"],
-    [10, "🔟"],
-]);
-
-const truncate = (string: string, number = 70) => {
-    return string.substr(0, number - 1) + (string.length > number ? "..." : "");
-};
 
 composer.command(["search", "find"], async (ctx) => {
     if (searches.has(ctx.chat.id)) {
@@ -53,9 +37,6 @@ composer.command(["search", "find"], async (ctx) => {
         return;
     }
 
-    const footer =
-        "\n\n<i>Reply the number of the result you want to stream or /cancel.</>";
-
     let text = "";
 
     text += i18n("search_header", { query }) + "\n\n";
@@ -65,7 +46,7 @@ composer.command(["search", "find"], async (ctx) => {
 
         text +=
             i18n("search_result", {
-                numberEmoji: emojis.get(i + 1)!,
+                numberEmoji: numberEmojis.get(i + 1)!,
                 title: truncate(result.title),
                 url: result.url,
                 durationEmoji: result.isLive ? "🔴" : "🕓",
@@ -77,17 +58,27 @@ composer.command(["search", "find"], async (ctx) => {
     }
 
     text += i18n("search_footer");
-    searches.set(ctx.chat.id, results);
-    await ctx.reply(text, { disable_web_page_preview: true });
+    const message = await ctx.reply(text, { disable_web_page_preview: true });
+    searches.set(ctx.chat.id, { results, message });
 });
 
-composer.command("cancel", (ctx) => {
-    if (searches.get(ctx.chat.id)) {
+composer.command("cancel", async (ctx) => {
+    const search = searches.get(ctx.chat.id);
+
+    if (search) {
+        try {
+            await ctx.api.deleteMessage(
+                ctx.chat!.id,
+                search.message.message_id,
+            );
+        } catch (err) {}
+
         searches.delete(ctx.chat.id);
-        return ctx.reply(i18n("search_canceled"));
+        await ctx.reply(i18n("search_canceled"));
+        return;
     }
 
-    return ctx.reply(i18n("search_not_active"));
+    await ctx.reply(i18n("search_not_active"));
 });
 
 composer.filter(
@@ -103,9 +94,17 @@ composer.filter(
         return false;
     },
     async (ctx) => {
-        const item = searches.get(ctx.chat!.id)?.[
-            Number(ctx.message!.text) - 1
-        ];
+        if (!ctx.chat) {
+            return;
+        }
+
+        const search = searches.get(ctx.chat!.id);
+
+        if (!search) {
+            return;
+        }
+
+        const item = search.results[Number(ctx.message!.text) - 1];
 
         if (item) {
             const result = await youtube(
@@ -115,6 +114,13 @@ composer.filter(
                 item.title,
                 item.url,
             );
+
+            try {
+                await ctx.api.deleteMessage(
+                    ctx.chat!.id,
+                    search.message.message_id,
+                );
+            } catch (err) {}
 
             searches.delete(ctx.chat!.id);
 
