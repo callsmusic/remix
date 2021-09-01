@@ -3,7 +3,7 @@
     "logo": "https://i.ibb.co/BzB2GsS/Git-Lab-2.png",
     "description": "An operational and exprimental Telegram music bot.",
     "keywords": ["telegram", "music", "gram-tgcalls", "tgcallsjs", "gramjs"],
-    "repository": "https://gitlab.com/callsmusic/remix",
+    "repository": "https://github.com/callsmusic/remix",
     "env": {
         "BOT_TOKEN": {
             "description": "Bot token from @BotFather.",
