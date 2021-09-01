@@ -86,11 +86,11 @@ Custom inputs should be passed like this:
 
 #### _Aliases: find_
 
-Search for a YouTube video.
+Searches for a YouTube video.
 
 ### ✅ cancel
 
-Cancel the active YouTube video search.
+Cancels the active YouTube video search.
 
 ### 🔢 playlist
 
