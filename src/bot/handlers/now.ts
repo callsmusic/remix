@@ -1,5 +1,4 @@
 import { Composer } from "grammy";
-import { escape } from "html-escaper";
 import i18n from "../i18n";
 import queues from "../../queues";
 
