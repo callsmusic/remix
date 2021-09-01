@@ -154,13 +154,13 @@ Unmutes the stream.
 
 #### _Aliases: next_
 
-Skips the current stream.
+Skips the current item.
 
 ### ⏹ leave [👮🏻‍♀️]
 
 #### _Aliases: stop_
 
-Clears the queue and removes the bot from the call.
+Clears the queue and stops streaming.
 
 ### 🗑 cache [👮🏻‍♀️]
 
@@ -190,9 +190,14 @@ Join [our chats](https://callsmusic.me).
 
 New languages, bug fixes and improvements following [our contribution guidelines](./CONTRIBUTING.md) are warmly welcomed!
 
-## ✨ Inspiration
+## ✨ Credits
 
--   [eritislami/evobot](https://github.com/eritislami/evobot)
+-   [Andrew](https://github.com/AndrewLaneX), creator of [tgcallsjs](https://github.com/tgcallsjs) — a Node.js library for connecting to Telegram calls.
+-   [Painor](https://github.com/painor), creator of [GramJS](https://github.com/gram-js/gramjs) — a super cool MTProto client.
+-   [Knorpel Senf](https://github.com/KnorpelSenf), creator of [grammY](https://github.com/grammyjs) — a framework for Telegram bot API.
+-   [Tobias Kutscha](https://github.com/TimeForANinja), creator of [ytsr](https://github.com/TimeForANinja/node-ytsr) for searching YouTube and [ytpl](https://github.com/TimeForANinja/node-ytpl) for fetching YouTube playlists.
+-   Me, [Roj](https://github.com/rojserbest), for creating [gram-tgcalls](https://github.com/tgcalls/gram-tgcalls) which connects GramJS to tgcallsjs and [ytdl-core-telegram](https://github.com/rojserbest/ytdl-core-telegram) — a [ytdl-core](https://github.com/fent/node-ytdl-core) wrapper dedicated to Telegram calls.
+-   A bunch of other special people which which can't be listed here.
 
 ## 📃 License
 
