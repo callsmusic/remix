@@ -21,7 +21,7 @@
     "invalid_volume": "❌ | <b>Gebe eine Nummer zwischen 0 und 200 an.</>",
     "volume_set": "🔈 | <b>Lautstärke gesetzt auf {{amount}}.</>",
     "custom_input": "Benutzerdefinierte Eingabe",
-     "muted": "🔇 | <b>Stummgeschaltet.</>",
+    "muted": "🔇 | <b>Stummgeschaltet.</>",
     "panel_muted": "Stummgeschaltet.",
     "unmuted": "🔈 | <b>An gestellt.</>",
     "panel_unmuted": "An gestellt.",
