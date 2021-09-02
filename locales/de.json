@@ -20,7 +20,7 @@
     "error_with_message": "❌ | <b>Ein Fehler ist aufgetreten:</> {{message}}",
     "invalid_volume": "❌ | <b>Gebe eine Nummer zwischen 0 und 200 an.</>",
     "volume_set": "🔈 | <b>Lautstärke gesetzt auf {{amount}}.</>",
-    "custom_input": "Benutzerdefinierte Eingabe"
+    "custom_input": "Benutzerdefinierte Eingabe",
      "muted": "🔇 | <b>Stummgeschaltet.</>",
     "panel_muted": "Stummgeschaltet.",
     "unmuted": "🔈 | <b>An gestellt.</>",
