@@ -58,6 +58,8 @@ npm start
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/callsmusic/remix)
 
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2Fcallsmusic%2Fremix&envs=API_HASH%2CAPI_ID%2CBOT_TOKEN%2CCOOKIES%2CLOCALE%2CMAX_PLAYLIST_SIZE%2CSTRING_SESSION&optionalEnvs=COOKIES%2CLOCALE%2CMAX_PLAYLIST_SIZE&API_HASHDesc=Get+from+https%3A%2F%2Fmy.telegram.org%2Fapps&API_IDDesc=Get+from+https%3A%2F%2Fmy.telegram.org%2F&BOT_TOKENDesc=Get+from+%40Botfather&COOKIESDesc=Cookies+for+YouTube+requests.&LOCALEDesc=Add+an+available+bot+language+from+https%3A%2F%2Fgithub.com%2Fcallsmusic%2Fremix%23%3A%7E%3Atext%3D%25F0%259F%2597%25A3%2520Available%2520languages.&MAX_PLAYLIST_SIZEDesc=Max+YouTube+playlist+size&STRING_SESSIONDesc=GramJS+string+session.+You+can+generate+one+at+https%3A%2F%2Fssg.rojser.best&referralCode=teletips)
+
 ## ⚒ Configuring
 
 -   `BOT_TOKEN`: Telegram bot token.
