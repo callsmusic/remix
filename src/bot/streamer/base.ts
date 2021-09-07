@@ -2,7 +2,7 @@ import { Api } from "telegram";
 import gramtgcalls from "../../userbot/gramtgcalls";
 import queues from "../../queues";
 import { Item } from "../../queues";
-import { loop, searches } from "../cache";
+import { loop } from "../cache";
 
 export const getOnFinish = (chatId: number, force?: boolean) => async () => {
     if (loop.get(chatId) && !force) {

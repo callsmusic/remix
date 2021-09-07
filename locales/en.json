@@ -19,7 +19,7 @@
     "no_input": "❔ | <b>What do you want to stream?</>",
     "streaming": "▶️ | <b>Streaming...</>",
     "queued_at": "#️⃣ | <b>Queued at position {{position}}.</>",
-    "no_call": "❌ | <b>There's no active call.</>",
+    "no_call": "❌ | <b>There is no active call.</>",
     "no_video_found": "❌ | <b>No video found.</>",
     "ns": "🎵 | Currently streaming <b><a href=\"{{titleUrl}}\">{{title}}</></> by <b><a href=\"{{requesterUrl}}\">{{requester}}</></>...",
     "error": "❌ | <b>An error occurred.</>",
@@ -55,5 +55,6 @@
     "search_canceled": "✅ | <b>Search canceled.</>",
     "loop_on": "🔁 | <b>Turned loop on.</>",
     "loop_off": "🔁 | <b>Turned loop off.</>",
-    "caches_deleted": "🗑 | <b>Caches deleted.</>"
+    "caches_deleted": "🗑 | <b>Caches deleted.</>",
+    "assistant_not_in_group": "❌ | <b>My assistant is not here.</>"
 }
