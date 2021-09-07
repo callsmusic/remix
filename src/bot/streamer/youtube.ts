@@ -5,6 +5,7 @@ import env from "../../env";
 import { stream } from "./base";
 
 const filter = "audioonly";
+const highWaterMark = 1 << 25;
 export const requestOptions = { Headers: { Cookie: env.COOKIES } };
 
 export default async (
@@ -35,8 +36,9 @@ export default async (
                           info.videoDetails.lengthSeconds != "0"
                               ? filter
                               : undefined,
+                      highWaterMark,
                       requestOptions,
                   })
-                : ytdl(id, { filter, requestOptions }),
+                : ytdl(id, { filter, highWaterMark, requestOptions }),
     });
 };
