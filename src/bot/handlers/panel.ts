@@ -124,7 +124,7 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
             }
             break;
         case "pause":
-            switch (gramtgcalls(ctx.chat.id).pause()) {
+            switch (gramtgcalls(ctx.chat.id).pauseAudio()) {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_paused"),
@@ -142,7 +142,7 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
             }
             break;
         case "resume":
-            switch (gramtgcalls(ctx.chat.id).resume()) {
+            switch (gramtgcalls(ctx.chat.id).resumeAudio()) {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_resumed"),
@@ -160,7 +160,7 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
             }
             break;
         case "mute":
-            switch (gramtgcalls(ctx.chat.id).mute()) {
+            switch (gramtgcalls(ctx.chat.id).muteAudio()) {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_muted"),
@@ -178,7 +178,7 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
             }
             break;
         case "unmute":
-            switch (gramtgcalls(ctx.chat.id).unmute()) {
+            switch (gramtgcalls(ctx.chat.id).unmuteAudio()) {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_unmuted"),
