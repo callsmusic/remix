@@ -29,7 +29,7 @@ Lets you adjust volume, loop, pause, resume, mute, unmute. Also, it has a contro
 
 ### 👮🏻‍♀️ Safe
 
-Accepts a command in 5 seconds, restricts control and sensitive commands to admins.
+Restricts control and sensitive commands to admins.
 
 ### 🗣 Speaks different languages
 
