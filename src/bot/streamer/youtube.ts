@@ -1,12 +1,21 @@
 import { videoInfo } from "ytdl-core";
-import ytdl from "ytdl-core-telegram";
+import ytdl from "ytdl-core";
+import fluent from "fluent-ffmpeg";
 import { User } from "@grammyjs/types";
 import env from "../../env";
 import { stream } from "./base";
+import { PassThrough, Readable } from "stream";
 
 const filter = "audioonly";
 const highWaterMark = 1 << 25;
 export const requestOptions = { Headers: { Cookie: env.COOKIES } };
+
+const convert = (input: Readable) =>
+    fluent(input)
+        .format("s16le")
+        .audioChannels(1)
+        .audioFrequency(65000)
+        .pipe() as PassThrough;
 
 export default async (
     chatId: number,
@@ -30,15 +39,17 @@ export default async (
         title,
         requester,
         getReadable: () =>
-            info
-                ? ytdl.downloadFromInfo(info, {
-                      filter:
-                          info.videoDetails.lengthSeconds != "0"
-                              ? filter
-                              : undefined,
-                      highWaterMark,
-                      requestOptions,
-                  })
-                : ytdl(id, { filter, highWaterMark, requestOptions }),
+            convert(
+                info
+                    ? ytdl.downloadFromInfo(info, {
+                          filter:
+                              info.videoDetails.lengthSeconds != "0"
+                                  ? filter
+                                  : undefined,
+                          highWaterMark,
+                          requestOptions,
+                      })
+                    : ytdl(id, { filter, highWaterMark, requestOptions }),
+            ),
     });
 };

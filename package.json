@@ -23,7 +23,6 @@
         "node-pre-gyp": "^0.17.0",
         "telegram": "^1.8.10",
         "ytdl-core": "^4.9.1",
-        "ytdl-core-telegram": "^2.0.6",
         "ytpl": "^2.2.3",
         "ytsr": "^3.5.3"
     },

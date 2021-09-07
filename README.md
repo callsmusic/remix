@@ -198,7 +198,7 @@ New languages, bug fixes and improvements following [our contribution guidelines
 -   [Painor](https://github.com/painor), creator of [GramJS](https://github.com/gram-js/gramjs) — a super cool MTProto client.
 -   [Knorpel Senf](https://github.com/KnorpelSenf), creator of [grammY](https://github.com/grammyjs) — a framework for Telegram bot API.
 -   [Tobias Kutscha](https://github.com/TimeForANinja), creator of [ytsr](https://github.com/TimeForANinja/node-ytsr) for searching YouTube and [ytpl](https://github.com/TimeForANinja/node-ytpl) for fetching YouTube playlists.
--   Me, [Roj](https://github.com/rojserbest), for creating [gram-tgcalls](https://github.com/tgcalls/gram-tgcalls) which connects GramJS to tgcallsjs and [ytdl-core-telegram](https://github.com/rojserbest/ytdl-core-telegram) — a [ytdl-core](https://github.com/fent/node-ytdl-core) wrapper dedicated to Telegram calls.
+-   Me, [Roj](https://github.com/rojserbest), for creating [gram-tgcalls](https://github.com/tgcalls/gram-tgcalls) — a helper lib which connects GramJS to tgcallsjs.
 -   A bunch of other special people which which can't be listed here.
 
 ## 📃 <a name="license"></a>License
