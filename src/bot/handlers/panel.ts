@@ -1,7 +1,7 @@
 import { Composer, Context, InlineKeyboard } from "grammy";
 import gramtgcalls from "../../userbot/gramtgcalls";
-import queues from "../../queues";
-import { stream, getOnFinish } from "../streamer";
+import queues from "../queues";
+import { stream, next } from "../streamer";
 import { loop } from "../cache";
 import i18n from "../i18n";
 
@@ -105,7 +105,7 @@ composer.callbackQuery(/^panel_(.+)$/, async ctx => {
             await updatePanel(ctx);
             break;
         case "skip":
-            switch (await getOnFinish(ctx.chat.id, true)()) {
+            switch (await next(ctx.chat.id, true)()) {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_skipped"),

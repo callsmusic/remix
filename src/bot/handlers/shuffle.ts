@@ -1,6 +1,6 @@
 import { Composer } from "grammy";
 import gramtgcalls from "../../userbot/gramtgcalls";
-import queues from "../../queues";
+import queues from "../queues";
 import { stream } from "../streamer";
 import i18n from "../i18n";
 

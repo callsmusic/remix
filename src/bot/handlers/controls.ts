@@ -1,7 +1,7 @@
 import { Composer } from "grammy";
 import gramtgcalls from "../../userbot/gramtgcalls";
 import i18n from "../i18n";
-import { stop, getOnFinish } from "../streamer";
+import { stop, next } from "../streamer";
 
 const composer = new Composer();
 
@@ -30,7 +30,7 @@ composer.command(["resume", "re", "res", "continue"], ctx => {
 });
 
 composer.command(["skip", "next"], async ctx => {
-    switch (await getOnFinish(ctx.chat.id, true)()) {
+    switch (await next(ctx.chat.id, true)()) {
         case true:
             return ctx.reply(i18n("skipped"));
         case false:

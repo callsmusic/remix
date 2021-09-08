@@ -1,8 +1,7 @@
-import { PassThrough } from "stream";
-import fluent from "fluent-ffmpeg";
 import { User, Message } from "@grammyjs/types";
 import { getFile, getMessageUrl } from "../helpers";
-import { stream } from "./base";
+import convert from "../convert";
+import { stream } from "./stream";
 
 export default async (message: Message) => {
     const chatId = message.chat.id,
@@ -14,11 +13,6 @@ export default async (message: Message) => {
         url: getMessageUrl(message),
         title: audio ? audio.title || "Audio file" : "Voice message",
         requester: message.from as User,
-        getReadable: async () =>
-            fluent(await getFile(fileId))
-                .format("s16le")
-                .audioChannels(1)
-                .audioFrequency(65000)
-                .pipe() as PassThrough,
+        getReadable: async () => convert(await getFile(fileId)),
     });
 };
