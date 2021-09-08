@@ -8,7 +8,7 @@ const composer = new Composer();
 
 export default composer;
 
-composer.command(["shuffle", "sh", "mix"], async (ctx) => {
+composer.command(["shuffle", "sh", "mix"], async ctx => {
     const result = queues.suffle(ctx.chat.id);
 
     if (result == false) {

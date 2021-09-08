@@ -66,14 +66,14 @@ const updatePanel = async (ctx: Context, answer?: boolean) => {
     }
 };
 
-composer.command(["menu", "control", "controls", "panel"], (ctx) =>
+composer.command(["menu", "control", "controls", "panel"], ctx =>
     ctx.reply(getPanelText(ctx.chat.id), {
         ...panelOther,
         reply_to_message_id: ctx.message?.message_id,
     }),
 );
 
-composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
+composer.callbackQuery(/^panel_(.+)$/, async ctx => {
     if (
         !ctx.chat?.id ||
         ctx.from.id != ctx.callbackQuery.message?.reply_to_message?.from?.id

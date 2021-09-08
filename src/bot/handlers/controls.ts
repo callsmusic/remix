@@ -7,7 +7,7 @@ const composer = new Composer();
 
 export default composer;
 
-composer.command("pause", (ctx) => {
+composer.command("pause", ctx => {
     switch (gramtgcalls(ctx.chat.id).pause()) {
         case true:
             return ctx.reply(i18n("paused"));
@@ -18,7 +18,7 @@ composer.command("pause", (ctx) => {
     }
 });
 
-composer.command(["resume", "re", "res", "continue"], (ctx) => {
+composer.command(["resume", "re", "res", "continue"], ctx => {
     switch (gramtgcalls(ctx.chat.id).resume()) {
         case true:
             return ctx.reply(i18n("resumed"));
@@ -29,7 +29,7 @@ composer.command(["resume", "re", "res", "continue"], (ctx) => {
     }
 });
 
-composer.command(["skip", "next"], async (ctx) => {
+composer.command(["skip", "next"], async ctx => {
     switch (await getOnFinish(ctx.chat.id, true)()) {
         case true:
             return ctx.reply(i18n("skipped"));
@@ -40,7 +40,7 @@ composer.command(["skip", "next"], async (ctx) => {
     }
 });
 
-composer.command(["leave", "stop"], async (ctx) => {
+composer.command(["leave", "stop"], async ctx => {
     switch (await stop(ctx.chat.id)) {
         case true:
             return ctx.reply(i18n("stopped"));
@@ -51,7 +51,7 @@ composer.command(["leave", "stop"], async (ctx) => {
     }
 });
 
-composer.command(["volume", "vol", "v"], async (ctx) => {
+composer.command(["volume", "vol", "v"], async ctx => {
     const number = Number(ctx.message?.text.split(/\s/)[1]);
     const valid = number >= 0 && number <= 200;
 
@@ -70,7 +70,7 @@ composer.command(["volume", "vol", "v"], async (ctx) => {
     await ctx.reply(i18n("not_in_call"));
 });
 
-composer.command(["mute", "m"], async (ctx) => {
+composer.command(["mute", "m"], async ctx => {
     switch (gramtgcalls(ctx.chat.id).mute()) {
         case true:
             return ctx.reply(i18n("muted"));
@@ -81,7 +81,7 @@ composer.command(["mute", "m"], async (ctx) => {
     }
 });
 
-composer.command(["unmute", "um"], async (ctx) => {
+composer.command(["unmute", "um"], async ctx => {
     switch (gramtgcalls(ctx.chat.id).unmute()) {
         case true:
             return ctx.reply(i18n("unmuted"));

@@ -7,7 +7,7 @@ const composer = new Composer();
 
 export default composer;
 
-composer.command(["stream", "s", "play", "p"], async (ctx) => {
+composer.command(["stream", "s", "play", "p"], async ctx => {
     const input =
         ctx.message?.reply_to_message?.audio ||
         ctx.message?.reply_to_message?.voice ||
