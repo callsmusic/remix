@@ -1,29 +1,21 @@
 import { videoInfo } from "ytdl-core";
 import ytdl from "ytdl-core";
-import fluent from "fluent-ffmpeg";
 import { User } from "@grammyjs/types";
 import env from "../../env";
-import { stream } from "./base";
-import { PassThrough, Readable } from "stream";
+import { stream } from "./stream";
+import convert from "../convert";
 
 const filter = "audioonly";
 const highWaterMark = 1 << 25;
 export const requestOptions = { Headers: { Cookie: env.COOKIES } };
 
-const convert = (input: Readable) =>
-    fluent(input)
-        .format("s16le")
-        .audioChannels(1)
-        .audioFrequency(65000)
-        .pipe() as PassThrough;
-
-export default async (
+export default async function (
     chatId: number,
     requester: User,
     id: string,
     title?: string,
     url?: string,
-) => {
+) {
     let info: videoInfo;
 
     if (!title || !url) {
@@ -52,4 +44,4 @@ export default async (
                     : ytdl(id, { filter, highWaterMark, requestOptions }),
             ),
     });
-};
+}

@@ -6,7 +6,7 @@ const composer = new Composer();
 
 export default composer;
 
-composer.command(["cache", "caches"], (ctx) => {
+composer.command(["cache", "caches"], ctx => {
     loop.delete(ctx.chat.id);
     admins.delete(ctx.chat.id);
     searches.delete(ctx.chat.id);

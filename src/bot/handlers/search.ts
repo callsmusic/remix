@@ -12,7 +12,7 @@ const composer = new Composer();
 
 export default composer;
 
-composer.command(["search", "find"], async (ctx) => {
+composer.command(["search", "find"], async ctx => {
     if (searches.has(ctx.chat.id)) {
         await ctx.reply(i18n("search_active"));
         return;
@@ -30,7 +30,7 @@ composer.command(["search", "find"], async (ctx) => {
             limit: 10,
             requestOptions: { headers: { Cookie: env.COOKIES } },
         })
-    ).items.filter((v) => v.type == "video") as (Item & { type: "video" })[];
+    ).items.filter(v => v.type == "video") as (Item & { type: "video" })[];
 
     if (!results) {
         await ctx.reply(i18n("no_results_found"));
@@ -62,7 +62,7 @@ composer.command(["search", "find"], async (ctx) => {
     searches.set(ctx.chat.id, { results, message });
 });
 
-composer.command("cancel", async (ctx) => {
+composer.command("cancel", async ctx => {
     const search = searches.get(ctx.chat.id);
 
     if (search) {
@@ -82,7 +82,7 @@ composer.command("cancel", async (ctx) => {
 });
 
 composer.filter(
-    (ctx) => {
+    ctx => {
         if (!ctx.chat || !ctx.message?.text) {
             return false;
         }
@@ -93,7 +93,7 @@ composer.filter(
 
         return false;
     },
-    async (ctx) => {
+    async ctx => {
         if (!ctx.chat) {
             return;
         }

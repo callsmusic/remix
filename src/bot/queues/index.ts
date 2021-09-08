@@ -21,7 +21,7 @@ export default new (class Queues {
 
     setNow(chatId: number, item: Item) {
         this.now.set(chatId, item);
-        this.nowHandlers.forEach((handler) => handler(chatId, item));
+        this.nowHandlers.forEach(handler => handler(chatId, item));
     }
 
     rmNow(chatId: number) {

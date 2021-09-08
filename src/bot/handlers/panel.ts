@@ -1,7 +1,7 @@
 import { Composer, Context, InlineKeyboard } from "grammy";
 import gramtgcalls from "../../userbot/gramtgcalls";
-import queues from "../../queues";
-import { stream, getOnFinish } from "../streamer";
+import queues from "../queues";
+import { stream, next } from "../streamer";
 import { loop } from "../cache";
 import i18n from "../i18n";
 
@@ -66,14 +66,14 @@ const updatePanel = async (ctx: Context, answer?: boolean) => {
     }
 };
 
-composer.command(["menu", "control", "controls", "panel"], (ctx) =>
+composer.command(["menu", "control", "controls", "panel"], ctx =>
     ctx.reply(getPanelText(ctx.chat.id), {
         ...panelOther,
         reply_to_message_id: ctx.message?.message_id,
     }),
 );
 
-composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
+composer.callbackQuery(/^panel_(.+)$/, async ctx => {
     if (
         !ctx.chat?.id ||
         ctx.from.id != ctx.callbackQuery.message?.reply_to_message?.from?.id
@@ -105,7 +105,7 @@ composer.callbackQuery(/^panel_(.+)$/, async (ctx) => {
             await updatePanel(ctx);
             break;
         case "skip":
-            switch (await getOnFinish(ctx.chat.id, true)()) {
+            switch (await next(ctx.chat.id, true)()) {
                 case true:
                     await ctx.answerCallbackQuery({
                         text: i18n("panel_skipped"),

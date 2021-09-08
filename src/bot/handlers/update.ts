@@ -5,7 +5,7 @@ const composer = new Composer();
 
 export default composer;
 
-composer.on("chat_member:new_chat_member", (ctx) => {
+composer.on("chat_member:new_chat_member", ctx => {
     const chat = ctx.chatMember.chat.id;
     const member = ctx.chatMember.new_chat_member;
 

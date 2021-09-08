@@ -1,10 +1,9 @@
-import { Api } from "telegram";
 import gramtgcalls from "../../userbot/gramtgcalls";
-import queues from "../../queues";
-import { Item } from "../../queues";
+import queues from "../queues";
+import { Item } from "../queues";
 import { loop } from "../cache";
 
-export const getOnFinish = (chatId: number, force?: boolean) => async () => {
+export const next = (chatId: number, force?: boolean) => async () => {
     if (loop.get(chatId) && !force) {
         const now = queues.getNow(chatId);
 
@@ -24,22 +23,6 @@ export const getOnFinish = (chatId: number, force?: boolean) => async () => {
     return await gramtgcalls(chatId).stop();
 };
 
-export async function stop(chatId: number) {
-    queues.clear(chatId);
-
-    try {
-        return await gramtgcalls(chatId).stop();
-    } catch (err) {
-        if (err instanceof Api.RpcError) {
-            if (err.errorMessage == "GROUPCALL_FORBIDDEN") {
-                return true;
-            }
-        }
-    }
-
-    return null;
-}
-
 export async function stream(chatId: number, item: Item, force?: boolean) {
     const finished = gramtgcalls(chatId).finished() != false;
 
@@ -52,7 +35,7 @@ export async function stream(chatId: number, item: Item, force?: boolean) {
                 : getReadableResult;
 
         await gramtgcalls(chatId).stream(readable, {
-            media: { onFinish: getOnFinish(chatId) },
+            media: { onFinish: next(chatId) },
         });
 
         queues.setNow(chatId, item);

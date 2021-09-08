@@ -1,6 +1,7 @@
 import audio from "./audio";
 import custom from "./custom";
 import youtube from "./youtube";
+import stop from "./stop";
 
-export * from "./base";
-export { audio, custom, youtube };
+export * from "./stream";
+export { audio, custom, youtube, stop };

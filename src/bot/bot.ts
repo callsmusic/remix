@@ -16,7 +16,7 @@ bot.api.config.use((prev, method, payload) => {
     });
 });
 
-bot.catch((errorAndContext) => {
+bot.catch(errorAndContext => {
     const { ctx, error } = errorAndContext;
 
     if (error instanceof Error) {

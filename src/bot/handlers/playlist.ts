@@ -9,7 +9,7 @@ const composer = new Composer();
 
 export default composer;
 
-composer.command(["playlist", "pl", "list"], async (ctx) => {
+composer.command(["playlist", "pl", "list"], async ctx => {
     const url =
         ctx.message?.reply_to_message?.text || ctx.message?.text.split(/\s/)[1];
 

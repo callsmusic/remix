@@ -1,12 +1,12 @@
 import { Composer } from "grammy";
 import i18n from "../i18n";
-import queues from "../../queues";
+import queues from "../queues";
 
 const composer = new Composer();
 
 export default composer;
 
-composer.command(["now", "ns", "cs", "np", "cp"], (ctx) => {
+composer.command(["now", "ns", "cs", "np", "cp"], ctx => {
     const now = queues.getNow(ctx.chat.id);
 
     if (now) {
