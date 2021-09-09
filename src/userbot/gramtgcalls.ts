@@ -1,4 +1,4 @@
-import GramTGCalls from "gram-tgcalls";
+import { GramTGCalls } from "gram-tgcalls";
 import { EditParams } from "gram-tgcalls/lib/types";
 import { client } from ".";
 
