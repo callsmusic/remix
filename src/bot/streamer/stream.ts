@@ -24,7 +24,7 @@ export const next = (chatId: number, force?: boolean) => async () => {
 };
 
 export async function stream(chatId: number, item: Item, force?: boolean) {
-    const finished = gramtgcalls(chatId).finished() != false;
+    const finished = gramtgcalls(chatId).audioFinished() != false;
 
     if (finished || force) {
         const getReadableResult = item.getReadable();
@@ -34,9 +34,14 @@ export async function stream(chatId: number, item: Item, force?: boolean) {
                 ? await getReadableResult
                 : getReadableResult;
 
-        await gramtgcalls(chatId).stream(readable, {
-            media: { onFinish: next(chatId) },
-        });
+        await gramtgcalls(chatId).stream(
+            {
+                readable,
+                options: { onFinish: next(chatId) },
+            },
+            undefined,
+            { join: { videoStopped: true } },
+        );
 
         queues.setNow(chatId, item);
 
