@@ -37,7 +37,7 @@ export async function stream(chatId: number, item: Item, force?: boolean) {
         await gramtgcalls(chatId).stream(
             {
                 readable,
-                options: { onFinish: next(chatId) },
+                listeners: { onFinish: next(chatId) },
             },
             undefined,
             { join: { videoStopped: true } },
