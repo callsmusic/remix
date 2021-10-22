@@ -15,4 +15,4 @@ jobs:
       run: npm install
     
     - name: Run ESLint
-      run: eslint src/**ts
+      run: npx eslint src/**ts
