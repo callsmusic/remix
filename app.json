@@ -1,45 +1,45 @@
 {
-    "name": "Calls Music Remix",
-    "logo": "https://i.ibb.co/BzB2GsS/Git-Lab-2.png",
-    "description": "An operational and exprimental Telegram music bot.",
-    "keywords": ["telegram", "music", "gram-tgcalls", "tgcallsjs", "gramjs"],
-    "repository": "https://github.com/callsmusic/remix",
-    "env": {
-        "BOT_TOKEN": {
-            "description": "Bot token from @BotFather.",
-            "required": true
-        },
-        "STRING_SESSION": {
-            "description": "GramJS string session. You can generate one at https://ssg.rojser.best.",
-            "required": true
-        },
-        "API_ID": {
-            "description": "App ID from https://my.telegram.org/apps.",
-            "required": true
-        },
-        "API_HASH": {
-            "description": "App hash from https://my.telegram.org/apps.",
-            "required": true
-        },
-        "LOCALE": {
-            "description": "An available bot language. Default: en.",
-            "required": false
-        },
-        "MAX_PLAYLIST_SIZE": {
-            "description": "Max YouTube playlist size. Default: 10.",
-            "required": false
-        },
-        "COOKIES": {
-            "description": "Cookies for YouTube requests. Default: none.",
-            "required": false
-        }
+  "name": "Calls Music Remix",
+  "logo": "https://i.ibb.co/BzB2GsS/Git-Lab-2.png",
+  "description": "An operational and exprimental Telegram music bot.",
+  "keywords": ["telegram", "music", "gram-tgcalls", "tgcallsjs", "gramjs"],
+  "repository": "https://github.com/callsmusic/remix",
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Bot token from @BotFather.",
+      "required": true
     },
-    "buildpacks": [
-        {
-            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-        },
-        {
-            "url": "heroku/nodejs"
-        }
-    ]
+    "STRING_SESSION": {
+      "description": "GramJS string session. You can generate one at https://ssg.rojser.best.",
+      "required": true
+    },
+    "API_ID": {
+      "description": "App ID from https://my.telegram.org/apps.",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "App hash from https://my.telegram.org/apps.",
+      "required": true
+    },
+    "LOCALE": {
+      "description": "An available bot language. Default: en.",
+      "required": false
+    },
+    "MAX_PLAYLIST_SIZE": {
+      "description": "Max YouTube playlist size. Default: 10.",
+      "required": false
+    },
+    "COOKIES": {
+      "description": "Cookies for YouTube requests. Default: none.",
+      "required": false
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+    },
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
 }
