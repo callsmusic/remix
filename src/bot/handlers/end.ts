@@ -1,8 +1,8 @@
-import { Composer } from "grammy";
-import { stop } from "../streamer";
+import { Composer } from 'grammy'
+import { stop } from '../streamer'
 
-const composer = new Composer();
+const composer = new Composer()
 
-export default composer;
+export default composer
 
-composer.on(":voice_chat_ended", ctx => stop(ctx.chat.id));
+composer.on(':voice_chat_ended', ctx => stop(ctx.chat.id))
