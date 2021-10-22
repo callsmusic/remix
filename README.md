@@ -6,8 +6,8 @@ An operational and exprimental Telegram music bot.
 
 ## 🎖 <a name="achievements"></a>Achievements
 
--   [Mentioned in Awesome grammY](https://github.com/grammyjs/awesome-grammY)
--   [Mentioned in Awesome tgcalls](https://github.com/tgcalls/awesome-tgcalls)
+- [Mentioned in Awesome grammY](https://github.com/grammyjs/awesome-grammY)
+- [Mentioned in Awesome tgcalls](https://github.com/tgcalls/awesome-tgcalls)
 
 ## ✨ <a name="features"></a>Features
 
@@ -62,13 +62,13 @@ npm start
 
 ## ⚒ <a name="configuring"></a>Configuring
 
--   `BOT_TOKEN`: Telegram bot token.
--   `STRING_SESSION`: A GramJS/Telethon string session. You can generate one [here](https://ssg.rojser.best/).
--   `API_ID`: Telegram app ID.
--   `API_HASH`: Telegram app hash.
--   `LOCALE`: An [available](#available-languages) bot language. Default: `en`.
--   `MAX_PLAYLIST_SIZE`: Max YouTube playlist size. Default: `10`.
--   `COOKIES`: Cookies for YouTube requests. Default: none.
+- `BOT_TOKEN`: Telegram bot token.
+- `STRING_SESSION`: A GramJS/Telethon string session. You can generate one [here](https://ssg.rojser.best/).
+- `API_ID`: Telegram app ID.
+- `API_HASH`: Telegram app hash.
+- `LOCALE`: An [available](#available-languages) bot language. Default: `en`.
+- `MAX_PLAYLIST_SIZE`: Max YouTube playlist size. Default: `10`.
+- `COOKIES`: Cookies for YouTube requests. Default: none.
 
 ## 📄 <a name="commands"></a>Commands
 
@@ -194,12 +194,12 @@ New languages, bug fixes and improvements following [our contribution guidelines
 
 ## ✨ <a name="credits"></a>Credits
 
--   [Andrew](https://github.com/AndrewLaneX), creator of [tgcallsjs](https://github.com/tgcallsjs) — a Node.js library for connecting to Telegram calls.
--   [Painor](https://github.com/painor), creator of [GramJS](https://github.com/gram-js/gramjs) — a super cool MTProto client.
--   [Knorpel Senf](https://github.com/KnorpelSenf), creator of [grammY](https://github.com/grammyjs) — a framework for Telegram bot API.
--   [Tobias Kutscha](https://github.com/TimeForANinja), creator of [ytsr](https://github.com/TimeForANinja/node-ytsr) for searching YouTube and [ytpl](https://github.com/TimeForANinja/node-ytpl) for fetching YouTube playlists.
--   Me, [Roj](https://github.com/rojserbest), for creating [gram-tgcalls](https://github.com/tgcalls/gram-tgcalls) — a helper lib which connects GramJS to tgcallsjs.
--   A bunch of other special people which which can't be listed here.
+- [Andrew](https://github.com/AndrewLaneX), creator of [tgcallsjs](https://github.com/tgcallsjs) — a Node.js library for connecting to Telegram calls.
+- [Painor](https://github.com/painor), creator of [GramJS](https://github.com/gram-js/gramjs) — a super cool MTProto client.
+- [Knorpel Senf](https://github.com/KnorpelSenf), creator of [grammY](https://github.com/grammyjs) — a framework for Telegram bot API.
+- [Tobias Kutscha](https://github.com/TimeForANinja), creator of [ytsr](https://github.com/TimeForANinja/node-ytsr) for searching YouTube and [ytpl](https://github.com/TimeForANinja/node-ytpl) for fetching YouTube playlists.
+- Me, [Roj](https://github.com/rojserbest), for creating [gram-tgcalls](https://github.com/tgcalls/gram-tgcalls) — a helper lib which connects GramJS to tgcallsjs.
+- A bunch of other special people which which can't be listed here.
 
 ## 📃 <a name="license"></a>License
 
