@@ -1,5 +1,5 @@
-FROM node:16-buster-slim
-RUN apt update && apt upgrade -y && apt install ffmpeg git -y
+FROM node:16-alpine
+RUN apk update && apk upgrade && apk add ffmpeg git && rm -rf /var/cache/apk/*
 COPY . /app
 WORKDIR /app
 RUN npm install
