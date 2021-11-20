@@ -12,7 +12,6 @@
   },
   "author": "Roj Serbest <roj@rojser.best>",
   "dependencies": {
-    "@types/i18n": "^0.13.1",
     "dotenv": "^10.0.0",
     "envalid": "^7.2.1",
     "fluent-ffmpeg": "^2.1.2",
@@ -28,6 +27,7 @@
   "devDependencies": {
     "@grammyjs/types": "^2.2.6",
     "@types/fluent-ffmpeg": "^2.1.18",
+    "@types/i18n": "^0.13.1",
     "@types/node": "^16.9.1",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
