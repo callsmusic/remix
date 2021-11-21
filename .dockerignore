@@ -1,0 +1,13 @@
+node_modules
+.github
+dist
+.dockerignore
+.eslintrc.yml
+.gitignore
+.prettierrc
+Dockerfile
+example.env
+LICENSE
+package-lock.json
+*.md
+.vscode
