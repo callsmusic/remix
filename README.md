@@ -11,7 +11,7 @@ An operational and exprimental Telegram music bot.
 
 ## ✨ <a name="features"></a>Features
 
-### 😉 Streams whatever you like
+### 😉 Streams whatever you like u
 
 You can stream audio files, voice messages, YouTube videos with any duration, YouTube lives, YouTube playlists and even custom inputs like radios or files in the place it is hosted!
 
