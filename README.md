@@ -45,7 +45,7 @@ Its responses and source code don't say anything referring to Calls Music. Excep
 2. Install dependencies and build:
 
 ```bash
-npm install
+npm install && npm run build
 ```
 
 3. Start:
