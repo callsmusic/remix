@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "callsmusicremix",
   "version": "1.0.0",
   "description": "An operational and exprimental Telegram music bot.",
@@ -10,7 +11,7 @@
     "test": "tsc --noEmit",
     "prettier": "prettier run --write **"
   },
-  "author": "Roj Serbest <roj@rojser.best>",
+  "author": "Roj <ez@roj.im>",
   "dependencies": {
     "dotenv": "^10.0.0",
     "envalid": "^7.2.2",
