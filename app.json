@@ -10,7 +10,7 @@
       "required": true
     },
     "STRING_SESSION": {
-      "description": "GramJS string session. You can generate one at https://ssg.rojser.best.",
+      "description": "GramJS string session. You can generate one at https://ssg.roj.im.",
       "required": true
     },
     "API_ID": {
