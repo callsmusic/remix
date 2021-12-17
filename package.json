@@ -17,17 +17,14 @@
     "envalid": "^7.2.2",
     "fluent-ffmpeg": "^2.1.2",
     "got": "^11.8.3",
-    "gram-tgcalls": "^2.1.9",
     "grammy": "^1.4.3",
     "i18n": "^0.13.3",
-    "telegram": "^2.0.8",
-    "ytdl-core": "^4.9.1",
+    "telegram": "^2.1.0",
     "ytpl": "^2.2.3",
     "ytsr": "^3.5.3"
   },
   "devDependencies": {
     "@grammyjs/types": "^2.3.1",
-    "@mapbox/node-pre-gyp": "^1.0.7",
     "@types/fluent-ffmpeg": "^2.1.20",
     "@types/i18n": "^0.13.1",
     "@types/node": "^16.11.11",
@@ -39,7 +36,9 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.2.0",
     "prettier": "^2.5.0",
-    "typescript": "^4.5.2"
+    "tgcalls-next": "^0.0.0-rc.2",
+    "typescript": "^4.5.2",
+    "ytdl-core": "^4.9.2"
   },
   "engines": {
     "node": "16.x"

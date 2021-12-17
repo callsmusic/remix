@@ -1,23 +1,23 @@
-import { GramTGCalls } from 'gram-tgcalls'
-import { EditParams } from 'gram-tgcalls/lib/types'
+import { TGCalls } from 'tgcalls-next'
+import { EditParams } from 'tgcalls-next/lib/types'
 import { client } from '.'
 
-class CustomGramTGCalls extends GramTGCalls {
+class CustomTGCalls extends TGCalls {
   public volume?: number
 
   editSelf(params: EditParams) {
     this.volume = params.volume
-    return super.editSelf(params)
+    return super.edit(params)
   }
 }
 
-const instances = new Map<number, CustomGramTGCalls>()
+const instances = new Map<number, CustomTGCalls>()
 
 export default (chatId: number) => {
   if (instances.has(chatId)) {
     return instances.get(chatId)!
   }
 
-  instances.set(chatId, new CustomGramTGCalls(client, chatId))
+  instances.set(chatId, new CustomTGCalls(client, chatId))
   return instances.get(chatId)!
 }
