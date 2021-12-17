@@ -28,8 +28,7 @@ export const next = (chatId: number, force?: boolean) => async () => {
 }
 
 export async function stream(chatId: number, item: Item, force?: boolean) {
-  const finished =
-    gramtgcalls(chatId).stopped || gramtgcalls(chatId).finished != false
+  const finished = gramtgcalls(chatId).finished != false
 
   if (finished || force) {
     const getReadableResult = item.getReadable()
