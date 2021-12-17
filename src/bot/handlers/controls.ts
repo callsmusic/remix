@@ -8,7 +8,7 @@ const composer = new Composer()
 export default composer
 
 composer.command('pause', ctx => {
-  switch (gramtgcalls(ctx.chat.id).pauseAudio()) {
+  switch (gramtgcalls(ctx.chat.id).pause()) {
     case true:
       return ctx.reply(i18n('paused'))
     case false:
@@ -19,7 +19,7 @@ composer.command('pause', ctx => {
 })
 
 composer.command(['resume', 're', 'res', 'continue'], ctx => {
-  switch (gramtgcalls(ctx.chat.id).resumeAudio()) {
+  switch (gramtgcalls(ctx.chat.id).resume()) {
     case true:
       return ctx.reply(i18n('resumed'))
     case false:
@@ -71,7 +71,7 @@ composer.command(['volume', 'vol', 'v'], async ctx => {
 })
 
 composer.command(['mute', 'm'], async ctx => {
-  switch (gramtgcalls(ctx.chat.id).muteAudio()) {
+  switch (gramtgcalls(ctx.chat.id).mute()) {
     case true:
       return ctx.reply(i18n('muted'))
     case false:
@@ -82,7 +82,7 @@ composer.command(['mute', 'm'], async ctx => {
 })
 
 composer.command(['unmute', 'um'], async ctx => {
-  switch (gramtgcalls(ctx.chat.id).unmuteAudio()) {
+  switch (gramtgcalls(ctx.chat.id).unmute()) {
     case true:
       return ctx.reply(i18n('unmuted'))
     case false:
