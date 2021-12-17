@@ -4,6 +4,10 @@ import { Item } from '../queues'
 import { loop } from '../cache'
 
 export const next = (chatId: number, force?: boolean) => async () => {
+  if (gramtgcalls(chatId).stopped) {
+    return
+  }
+
   if (loop.get(chatId) && !force) {
     const now = queues.getNow(chatId)
 
