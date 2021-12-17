@@ -5,7 +5,7 @@ import { loop } from '../cache'
 
 export const next = (chatId: number, force?: boolean) => async () => {
   if (gramtgcalls(chatId).stopped) {
-    return
+    return false
   }
 
   if (loop.get(chatId) && !force) {
