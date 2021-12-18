@@ -16,8 +16,8 @@ bot.api.config.use((prev, method, payload) => {
   })
 })
 
-bot.catch(errorAndContext => {
-  const { ctx, error } = errorAndContext
+bot.catch(({ ctx, error }) => {
+  console.error(error)
 
   if (error instanceof Error) {
     let { message } = error

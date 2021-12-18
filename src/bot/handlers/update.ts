@@ -5,9 +5,13 @@ const composer = new Composer()
 
 export default composer
 
-composer.on(':new_chat_members', ctx => {
-  const chat = ctx.chatMember!.chat.id
-  const member = ctx.chatMember!.new_chat_member
+composer.on('message', ctx => {
+  if (!ctx.chatMember) {
+    return
+  }
+
+  const chat = ctx.chatMember.chat.id
+  const member = ctx.chatMember.new_chat_member
 
   if (admins.get(chat) == undefined) {
     return
