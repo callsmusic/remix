@@ -4,13 +4,14 @@ import { User } from '@grammyjs/types'
 import env from '../../env'
 import { stream } from './stream'
 import convert from '../convert'
+import { Context } from '../context'
 
 const filter = 'audioonly'
 const highWaterMark = 1 << 25
 export const requestOptions = { Headers: { Cookie: env.COOKIES } }
 
 export default async function (
-  chatId: number,
+  ctx: Context & { chat: NonNullable<Context['chat']> },
   requester: User,
   id: string,
   title?: string,
@@ -26,7 +27,7 @@ export default async function (
     url = info.videoDetails.video_url
   }
 
-  return await stream(chatId, {
+  return await stream(ctx, {
     url,
     title,
     requester,

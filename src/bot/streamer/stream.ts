@@ -1,34 +1,40 @@
 import gramtgcalls from '../../userbot/gramtgcalls'
-import queues from '../queues'
+import { queues } from '../queues'
 import { Item } from '../queues'
-import { loop } from '../cache'
+import { Context } from '../context'
 
-export const next = (chatId: number, force?: boolean) => async () => {
-  if (gramtgcalls(chatId).stopped) {
-    return false
-  }
+export const next =
+  (ctx: Context & { chat: NonNullable<Context['chat']> }, force?: boolean) =>
+  async () => {
+    if (gramtgcalls(ctx.chat.id).stopped) {
+      return false
+    }
 
-  if (loop.get(chatId) && !force) {
-    const now = queues.getNow(chatId)
+    if (ctx.session.loop && !force) {
+      const now = queues.getNow(ctx.chat.id)
 
-    if (now) {
-      await stream(chatId, now)
+      if (now) {
+        await stream(ctx, now)
+        return true
+      }
+    }
+
+    const item = queues.get(ctx.chat.id)
+
+    if (item) {
+      await stream(ctx, item, true)
       return true
     }
+
+    return await gramtgcalls(ctx.chat.id).stop()
   }
 
-  const item = queues.get(chatId)
-
-  if (item) {
-    await stream(chatId, item, true)
-    return true
-  }
-
-  return await gramtgcalls(chatId).stop()
-}
-
-export async function stream(chatId: number, item: Item, force?: boolean) {
-  const finished = gramtgcalls(chatId).finished != false
+export async function stream(
+  ctx: Context & { chat: NonNullable<Context['chat']> },
+  item: Item,
+  force?: boolean
+) {
+  const finished = gramtgcalls(ctx.chat.id).finished != false
 
   if (finished || force) {
     const getReadableResult = item.getReadable()
@@ -38,15 +44,15 @@ export async function stream(chatId: number, item: Item, force?: boolean) {
         ? await getReadableResult
         : getReadableResult
 
-    await gramtgcalls(chatId).stream(readable, {
-      listeners: { onFinish: next(chatId) }
+    await gramtgcalls(ctx.chat.id).stream(readable, {
+      listeners: { onFinish: next(ctx) }
     })
 
-    queues.setNow(chatId, item)
+    queues.setNow(ctx.chat.id, item)
 
     return null
   } else {
-    const position = queues.push(chatId, item)
+    const position = queues.push(ctx.chat.id, item)
     return position
   }
 }

@@ -1,14 +1,22 @@
-import { User, Message } from '@grammyjs/types'
-import { getMessageUrl } from '../helpers'
+import { User } from '@grammyjs/types'
+import { getMessageUrl } from '../helpers/message'
 import i18n from '../i18n'
 import convert from '../convert'
 import { stream } from './stream'
+import { Context } from '../context'
 
-export default async (input: string, message: Message) => {
-  return await stream(message.chat.id, {
-    url: getMessageUrl(message),
+export default async (
+  ctx: Context & {
+    chat: NonNullable<Context['chat']>
+    from: NonNullable<Context['from']>
+    message: NonNullable<Context['message']>
+  },
+  input: string
+) => {
+  return await stream(ctx, {
+    url: getMessageUrl(ctx.message),
     title: i18n('custom_input'),
-    requester: message.from as User,
+    requester: ctx.from as User,
     getReadable: () => convert(input)
   })
 }

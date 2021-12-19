@@ -1,21 +1,20 @@
-import ytdl from 'ytdl-core'
-import { Composer } from 'grammy'
+import { Composer } from '../composer'
 import i18n from '../i18n'
 import { audio, custom, youtube } from '../streamer'
 
-const composer = new Composer()
+const composer = new Composer().on('message')
 
 export default composer
 
 composer.command(['stream', 's', 'play', 'p'], async ctx => {
   const input =
-    ctx.message?.reply_to_message?.audio ||
-    ctx.message?.reply_to_message?.voice ||
-    ctx.message?.reply_to_message?.text ||
-    ctx.message?.text.split(/\s/)[1]
+    ctx.message.reply_to_message?.audio ||
+    ctx.message.reply_to_message?.voice ||
+    ctx.message.reply_to_message?.text ||
+    ctx.message.text.split(/\s/)[1]
 
   const isCustomInput = typeof input === 'string' && 'custom'.includes(input)
-  const customInput = ctx.message?.text.split(/\s/)[2]
+  const customInput = ctx.message.text.split(/\s/)[2]
 
   if (!input || (isCustomInput && !customInput)) {
     await ctx.reply(i18n('no_input'))
@@ -25,9 +24,9 @@ composer.command(['stream', 's', 'play', 'p'], async ctx => {
   const result =
     typeof input === 'string'
       ? isCustomInput
-        ? await custom(customInput!, ctx.message!)
-        : await youtube(ctx.chat.id, ctx.from!, input)
-      : await audio(ctx.message?.reply_to_message!)
+        ? await custom(ctx, customInput!)
+        : await youtube(ctx, ctx.from!, input)
+      : await audio(ctx)
 
   if (result == null) {
     await ctx.reply(i18n('streaming'))

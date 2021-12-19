@@ -11,7 +11,7 @@ export function magnitude(value: number) {
   return mag
 }
 
-export default function (value: number) {
+export function humanize(value: number) {
   const mag = magnitude(value)
 
   if (mag <= 3) return String(value)

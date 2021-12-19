@@ -10,7 +10,7 @@ export interface Item {
 
 export type NowHandler = (chatId: number, now: Item) => Promise<void>
 
-export default new (class Queues {
+class Queues {
   queues: Map<number, Item[]> = new Map()
   now: Map<number, Item> = new Map()
   nowHandlers: NowHandler[] = []
@@ -111,4 +111,6 @@ export default new (class Queues {
     this.queues.set(chatId, items)
     return this.get(chatId)!
   }
-})()
+}
+
+export const queues = new Queues()

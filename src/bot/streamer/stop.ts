@@ -1,6 +1,6 @@
 import { Api } from 'telegram'
 import gramtgcalls from '../../userbot/gramtgcalls'
-import queues from '../queues'
+import { queues } from '../queues'
 
 export default async function stop(chatId: number) {
   queues.clear(chatId)

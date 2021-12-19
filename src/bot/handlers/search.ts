@@ -1,24 +1,24 @@
-import { Composer } from 'grammy'
+import { Composer } from '../composer'
 import ytsr from 'ytsr'
 import { Item } from 'ytsr'
 import env from '../../env'
 import { youtube } from '../streamer'
 import { numberEmojis } from '../constants'
-import { humanize, truncate } from '../helpers'
-import { searches } from '../cache'
+import { truncate } from '../helpers/text'
+import { humanize } from '../helpers/humanize'
 import i18n from '../i18n'
 
-const composer = new Composer()
+const composer = new Composer().on('message')
 
 export default composer
 
 composer.command(['search', 'find'], async ctx => {
-  if (searches.has(ctx.chat.id)) {
+  if (ctx.session.search) {
     await ctx.reply(i18n('search_active'))
     return
   }
 
-  const query = ctx.message?.text.split(' ').slice(1).join(' ')
+  const query = ctx.msg.text.split(' ').slice(1).join(' ')
 
   if (!query) {
     await ctx.reply(i18n('no_query'))
@@ -59,18 +59,18 @@ composer.command(['search', 'find'], async ctx => {
 
   text += i18n('search_footer')
   const message = await ctx.reply(text, { disable_web_page_preview: true })
-  searches.set(ctx.chat.id, { results, message })
+  ctx.session.search = { results, message }
 })
 
 composer.command('cancel', async ctx => {
-  const search = searches.get(ctx.chat.id)
+  const search = ctx.session.search
 
   if (search) {
     try {
-      await ctx.api.deleteMessage(ctx.chat!.id, search.message.message_id)
+      await ctx.api.deleteMessage(ctx.chat.id, search.message.message_id)
     } catch (err) {}
 
-    searches.delete(ctx.chat.id)
+    ctx.session.search = undefined
     await ctx.reply(i18n('search_canceled'))
     return
   }
@@ -79,44 +79,24 @@ composer.command('cancel', async ctx => {
 })
 
 composer.filter(
-  ctx => {
-    if (!ctx.chat || !ctx.message?.text) {
-      return false
-    }
-
-    if (searches.get(ctx.chat.id) && Number(ctx.message.text)) {
-      return true
-    }
-
-    return false
-  },
+  ctx => !!(ctx.session.search && Number(ctx.message.text)),
   async ctx => {
-    if (!ctx.chat) {
-      return
-    }
-
-    const search = searches.get(ctx.chat!.id)
+    const search = ctx.session.search
 
     if (!search) {
       return
     }
 
-    const item = search.results[Number(ctx.message!.text) - 1]
+    const item = search.results[Number(ctx.msg.text) - 1]
 
     if (item) {
-      const result = await youtube(
-        ctx.chat!.id,
-        ctx.from!,
-        item.id,
-        item.title,
-        item.url
-      )
+      const result = await youtube(ctx, ctx.from, item.id, item.title, item.url)
 
       try {
-        await ctx.api.deleteMessage(ctx.chat!.id, search.message.message_id)
+        await ctx.api.deleteMessage(ctx.chat.id, search.message.message_id)
       } catch (err) {}
 
-      searches.delete(ctx.chat!.id)
+      ctx.session.search = undefined
 
       if (result == null) {
         await ctx.reply(i18n('streaming'))

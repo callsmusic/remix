@@ -1,6 +1,5 @@
-import { Composer } from 'grammy'
-import gramtgcalls from '../../userbot/gramtgcalls'
-import queues from '../queues'
+import { Composer } from '../composer'
+import { queues } from '../queues'
 import { stream } from '../streamer'
 import i18n from '../i18n'
 
@@ -17,5 +16,5 @@ composer.command(['shuffle', 'sh', 'mix'], async ctx => {
   }
 
   await ctx.reply(i18n('shuffling'))
-  await stream(ctx.chat.id, result, true)
+  await stream(ctx, result, true)
 })

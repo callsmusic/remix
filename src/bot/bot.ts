@@ -1,9 +1,13 @@
 import { Bot } from 'grammy'
+import { Context } from './context'
+import { session } from './session'
 import env from '../env'
 import errors from './errors'
 import i18n from './i18n'
 
-const bot = new Bot(env.BOT_TOKEN)
+const bot = new Bot<Context>(env.BOT_TOKEN)
+
+bot.use(session)
 
 const isSafe = (s: string) => {
   return !s.includes(bot.token)

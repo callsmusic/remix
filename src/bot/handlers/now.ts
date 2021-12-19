@@ -1,6 +1,6 @@
-import { Composer } from 'grammy'
+import { Composer } from '../composer'
 import i18n from '../i18n'
-import queues from '../queues'
+import { queues } from '../queues'
 
 const composer = new Composer()
 

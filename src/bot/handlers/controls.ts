@@ -1,9 +1,9 @@
-import { Composer } from 'grammy'
+import { Composer } from '../composer'
 import gramtgcalls from '../../userbot/gramtgcalls'
 import i18n from '../i18n'
 import { stop, next } from '../streamer'
 
-const composer = new Composer()
+const composer = new Composer().on('message')
 
 export default composer
 
@@ -30,7 +30,7 @@ composer.command(['resume', 're', 'res', 'continue'], ctx => {
 })
 
 composer.command(['skip', 'next'], async ctx => {
-  switch (await next(ctx.chat.id, true)()) {
+  switch (await next(ctx, true)()) {
     case true:
       return ctx.reply(i18n('skipped'))
     case false:
@@ -52,7 +52,7 @@ composer.command(['leave', 'stop'], async ctx => {
 })
 
 composer.command(['volume', 'vol', 'v'], async ctx => {
-  const number = Number(ctx.message?.text.split(/\s/)[1])
+  const number = Number(ctx.message.text.split(/\s/)[1])
   const valid = number >= 0 && number <= 200
 
   if (!valid) {

@@ -1,5 +1,4 @@
-import { Composer } from 'grammy'
-import { admins } from '../cache'
+import { Composer } from '../composer'
 import controls from './controls'
 import now from './now'
 import panel from './panel'
@@ -16,9 +15,8 @@ const composer = new Composer()
 export default composer
 
 composer
-  .filter(ctx =>
-    Boolean((ctx.chat || ctx.chatMember?.chat)?.type.includes('group'))
-  )
+  .on('message')
+  .filter(ctx => !!(ctx.chat || ctx.chatMember?.chat)?.type.includes('group'))
   .use(stream)
   .use(playlist)
   .use(now)
@@ -33,7 +31,7 @@ composer
 
     const chatId = ctx.chat.id
 
-    if (admins.get(chatId) == undefined) {
+    if (!ctx.session.admins) {
       const members = (await ctx.api.getChatAdministrators(chatId)).filter(
         member =>
           (member.status == 'creator' ||
@@ -41,17 +39,19 @@ composer
               member.can_manage_voice_chats)) &&
           !member.is_anonymous
       )
-      admins.set(chatId, [])
+
+      ctx.session.admins = []
 
       for (const member of members) {
-        admins.get(chatId)!.push(member.user.id)
+        ctx.session.admins.push(member.user.id)
       }
     }
 
-    return admins.get(chatId)!.includes(ctx.from.id)
+    return ctx.session.admins.includes(ctx.from.id)
   })
-  .use(controls)
   .use(panel)
   .use(shuffle)
   .use(cache)
   .use(loop)
+  .on('message')
+  .use(controls)
