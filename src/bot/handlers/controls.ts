@@ -1,6 +1,7 @@
 import { tgcalls } from '../../userbot'
-import { stop, next } from '../streamer'
+import { stream, stop, next } from '../streamer'
 import { Composer } from '../composer'
+import { queues } from '../queues'
 import { __ } from '../i18n'
 
 const composer = new Composer().on('message')
@@ -90,4 +91,26 @@ composer.command(['unmute', 'um'], async ctx => {
     case null:
       return ctx.reply(__('not_in_call'))
   }
+})
+
+composer.command(['shuffle', 'sh', 'mix'], async ctx => {
+  const result = queues.suffle(ctx.chat.id)
+
+  if (result == false) {
+    await ctx.reply(__('no_enough_items'))
+    return
+  }
+
+  await ctx.reply(__('shuffling'))
+  await stream(ctx, result, true)
+})
+
+composer.command(['loop', 'repeat'], ctx => {
+  if (ctx.session.loop) {
+    ctx.session.loop = false
+    return ctx.reply(__('loop_off'))
+  }
+
+  ctx.session.loop = true
+  return ctx.reply(__('loop_on'))
 })
