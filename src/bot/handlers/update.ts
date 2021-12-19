@@ -16,7 +16,7 @@ composer.on('message').filter(
     const chat = ctx.chatMember.chat.id
     const member = ctx.chatMember.new_chat_member
 
-    if (!ctx.session.admins) {
+    if (ctx.session.admins.length == 0) {
       return
     }
 

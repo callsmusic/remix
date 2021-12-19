@@ -31,7 +31,7 @@ composer
 
     const chatId = ctx.chat.id
 
-    if (!ctx.session.admins) {
+    if (ctx.session.admins.length == 0) {
       const members = (await ctx.api.getChatAdministrators(chatId)).filter(
         member =>
           (member.status == 'creator' ||
