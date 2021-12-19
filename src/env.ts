@@ -9,6 +9,6 @@ export default cleanEnv(process.env, {
   API_ID: num(),
   API_HASH: str(),
   LOCALE: str({ default: 'en' }),
-  MAX_PLAYLIST_SIZE: num({ default: 10 }),
-  COOKIES: str({ default: '' })
+  COOKIES: str({ default: '' }),
+  MAX_PLAYLIST_SIZE: num({ default: 10 })
 })
