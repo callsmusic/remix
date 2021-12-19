@@ -1,7 +1,7 @@
 import { Composer } from '../composer'
-import { queues } from '../queues'
 import { stream } from '../streamer'
-import i18n from '../i18n'
+import { queues } from '../queues'
+import { __ } from '../i18n'
 
 const composer = new Composer()
 
@@ -11,10 +11,10 @@ composer.command(['shuffle', 'sh', 'mix'], async ctx => {
   const result = queues.suffle(ctx.chat.id)
 
   if (result == false) {
-    await ctx.reply(i18n('no_enough_items'))
+    await ctx.reply(__('no_enough_items'))
     return
   }
 
-  await ctx.reply(i18n('shuffling'))
+  await ctx.reply(__('shuffling'))
   await stream(ctx, result, true)
 })

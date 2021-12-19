@@ -1,7 +1,7 @@
 import { tgcalls } from '../../userbot'
 import { stop, next } from '../streamer'
 import { Composer } from '../composer'
-import i18n from '../i18n'
+import { __ } from '../i18n'
 
 const composer = new Composer().on('message')
 
@@ -10,44 +10,44 @@ export default composer
 composer.command('pause', ctx => {
   switch (tgcalls(ctx.chat.id).pause()) {
     case true:
-      return ctx.reply(i18n('paused'))
+      return ctx.reply(__('paused'))
     case false:
-      return ctx.reply(i18n('not_streaming'))
+      return ctx.reply(__('not_streaming'))
     case null:
-      return ctx.reply(i18n('not_in_call'))
+      return ctx.reply(__('not_in_call'))
   }
 })
 
 composer.command(['resume', 're', 'res', 'continue'], ctx => {
   switch (tgcalls(ctx.chat.id).resume()) {
     case true:
-      return ctx.reply(i18n('resumed'))
+      return ctx.reply(__('resumed'))
     case false:
-      return ctx.reply(i18n('not_paused'))
+      return ctx.reply(__('not_paused'))
     case null:
-      return ctx.reply(i18n('not_in_call'))
+      return ctx.reply(__('not_in_call'))
   }
 })
 
 composer.command(['skip', 'next'], async ctx => {
   switch (await next(ctx, true)()) {
     case true:
-      return ctx.reply(i18n('skipped'))
+      return ctx.reply(__('skipped'))
     case false:
-      return ctx.reply(i18n('not_streaming'))
+      return ctx.reply(__('not_streaming'))
     case null:
-      return ctx.reply(i18n('not_in_call'))
+      return ctx.reply(__('not_in_call'))
   }
 })
 
 composer.command(['leave', 'stop'], async ctx => {
   switch (await stop(ctx.chat.id)) {
     case true:
-      return ctx.reply(i18n('stopped'))
+      return ctx.reply(__('stopped'))
     case false:
-      return ctx.reply(i18n('not_streaming'))
+      return ctx.reply(__('not_streaming'))
     case null:
-      return ctx.reply(i18n('not_in_call'))
+      return ctx.reply(__('not_in_call'))
   }
 })
 
@@ -56,38 +56,38 @@ composer.command(['volume', 'vol', 'v'], async ctx => {
   const valid = number >= 0 && number <= 200
 
   if (!valid) {
-    await ctx.reply(i18n('invalid_volume'))
+    await ctx.reply(__('invalid_volume'))
     return
   }
 
   const volume = Math.round(number * 100) || 1
 
   if (await tgcalls(ctx.chat.id).editSelf({ volume })) {
-    await ctx.reply(i18n('volume_set', { amount: String(number) }))
+    await ctx.reply(__('volume_set', { amount: String(number) }))
     return
   }
 
-  await ctx.reply(i18n('not_in_call'))
+  await ctx.reply(__('not_in_call'))
 })
 
 composer.command(['mute', 'm'], async ctx => {
   switch (tgcalls(ctx.chat.id).mute()) {
     case true:
-      return ctx.reply(i18n('muted'))
+      return ctx.reply(__('muted'))
     case false:
-      return ctx.reply(i18n('already_muted'))
+      return ctx.reply(__('already_muted'))
     case null:
-      return ctx.reply(i18n('not_in_call'))
+      return ctx.reply(__('not_in_call'))
   }
 })
 
 composer.command(['unmute', 'um'], async ctx => {
   switch (tgcalls(ctx.chat.id).unmute()) {
     case true:
-      return ctx.reply(i18n('unmuted'))
+      return ctx.reply(__('unmuted'))
     case false:
-      return ctx.reply(i18n('not_muted'))
+      return ctx.reply(__('not_muted'))
     case null:
-      return ctx.reply(i18n('not_in_call'))
+      return ctx.reply(__('not_in_call'))
   }
 })

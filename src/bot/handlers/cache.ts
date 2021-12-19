@@ -1,5 +1,5 @@
 import { Composer } from '../composer'
-import i18n from '../i18n'
+import { __ } from '../i18n'
 
 const composer = new Composer()
 
@@ -9,5 +9,5 @@ composer.command(['cache', 'caches'], ctx => {
   ctx.session.admins = []
   ctx.session.search = undefined
   ctx.session.loop = false
-  return ctx.reply(i18n('caches_deleted'))
+  return ctx.reply(__('caches_deleted'))
 })

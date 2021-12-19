@@ -1,14 +1,14 @@
 import { Composer } from '../composer'
 import controls from './controls'
-import now from './now'
-import panel from './panel'
 import playlist from './playlist'
 import shuffle from './shuffle'
 import search from './search'
 import stream from './stream'
 import update from './update'
 import cache from './cache'
+import panel from './panel'
 import loop from './loop'
+import now from './now'
 
 const composer = new Composer()
 

@@ -1,10 +1,9 @@
-import { videoInfo } from 'ytdl-core'
-import ytdl from 'ytdl-core'
 import { User } from '@grammyjs/types'
+import ytdl, { videoInfo } from 'ytdl-core'
 import env from '../../env'
-import { stream } from './stream'
 import convert from '../convert'
 import { Context } from '../context'
+import { stream } from './stream'
 
 const filter = 'audioonly'
 const highWaterMark = 1 << 25

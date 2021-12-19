@@ -9,5 +9,5 @@ i18n.configure({
 
 i18n.setLocale(env.LOCALE)
 
-export default (key: string, replacements?: i18n.Replacements) =>
+export const __ = (key: string, replacements?: i18n.Replacements) =>
   replacements ? i18n.__(key, replacements) : i18n.__(key)

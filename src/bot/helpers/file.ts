@@ -1,6 +1,6 @@
 import got from 'got'
 import env from '../../env'
-import bot from '../bot'
+import { bot } from '..'
 
 export async function getFile(fileId: string) {
   return got.stream(

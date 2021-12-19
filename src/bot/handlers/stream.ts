@@ -1,6 +1,6 @@
-import { Composer } from '../composer'
-import i18n from '../i18n'
 import { audio, custom, youtube } from '../streamer'
+import { Composer } from '../composer'
+import { __ } from '../i18n'
 
 const composer = new Composer().on('message')
 
@@ -17,7 +17,7 @@ composer.command(['stream', 's', 'play', 'p'], async ctx => {
   const customInput = ctx.message.text.split(/\s/)[2]
 
   if (!input || (isCustomInput && !customInput)) {
-    await ctx.reply(i18n('no_input'))
+    await ctx.reply(__('no_input'))
     return
   }
 
@@ -29,9 +29,9 @@ composer.command(['stream', 's', 'play', 'p'], async ctx => {
       : await audio(ctx)
 
   if (result == null) {
-    await ctx.reply(i18n('streaming'))
+    await ctx.reply(__('streaming'))
     return
   }
 
-  await ctx.reply(i18n('queued_at', { position: String(result) }))
+  await ctx.reply(__('queued_at', { position: String(result) }))
 })

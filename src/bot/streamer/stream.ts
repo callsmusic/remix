@@ -1,6 +1,5 @@
 import { tgcalls } from '../../userbot'
-import { queues } from '../queues'
-import { Item } from '../queues'
+import { queues, Item } from '../queues'
 import { Context } from '../context'
 
 export const next =

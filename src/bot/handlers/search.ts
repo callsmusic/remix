@@ -1,12 +1,11 @@
 import { Composer } from '../composer'
-import ytsr from 'ytsr'
-import { Item } from 'ytsr'
+import ytsr, { Item } from 'ytsr'
 import env from '../../env'
-import { youtube } from '../streamer'
-import { numberEmojis } from '../constants'
 import { truncate } from '../helpers/text'
 import { humanize } from '../helpers/humanize'
-import i18n from '../i18n'
+import { numberEmojis } from '../constants'
+import { youtube } from '../streamer'
+import { __ } from '../i18n'
 
 const composer = new Composer().on('message')
 
@@ -14,14 +13,14 @@ export default composer
 
 composer.command(['search', 'find'], async ctx => {
   if (ctx.session.search) {
-    await ctx.reply(i18n('search_active'))
+    await ctx.reply(__('search_active'))
     return
   }
 
   const query = ctx.msg.text.split(' ').slice(1).join(' ')
 
   if (!query) {
-    await ctx.reply(i18n('no_query'))
+    await ctx.reply(__('no_query'))
     return
   }
 
@@ -33,19 +32,19 @@ composer.command(['search', 'find'], async ctx => {
   ).items.filter(v => v.type == 'video') as (Item & { type: 'video' })[]
 
   if (!results) {
-    await ctx.reply(i18n('no_results_found'))
+    await ctx.reply(__('no_results_found'))
     return
   }
 
   let text = ''
 
-  text += i18n('search_header', { query }) + '\n\n'
+  text += __('search_header', { query }) + '\n\n'
 
   for (let i = 0; i < results.length; i++) {
     const result = results[i]
 
     text +=
-      i18n('search_result', {
+      __('search_result', {
         numberEmoji: numberEmojis.get(i + 1)!,
         title: truncate(result.title),
         url: result.url,
@@ -57,7 +56,7 @@ composer.command(['search', 'find'], async ctx => {
       }) + '\n\n'
   }
 
-  text += i18n('search_footer')
+  text += __('search_footer')
   const message = await ctx.reply(text, { disable_web_page_preview: true })
   ctx.session.search = { results, message }
 })
@@ -71,11 +70,11 @@ composer.command('cancel', async ctx => {
     } catch (err) {}
 
     ctx.session.search = undefined
-    await ctx.reply(i18n('search_canceled'))
+    await ctx.reply(__('search_canceled'))
     return
   }
 
-  await ctx.reply(i18n('search_not_active'))
+  await ctx.reply(__('search_not_active'))
 })
 
 composer.filter(
@@ -99,11 +98,11 @@ composer.filter(
       ctx.session.search = undefined
 
       if (result == null) {
-        await ctx.reply(i18n('streaming'))
+        await ctx.reply(__('streaming'))
         return
       }
 
-      await ctx.reply(i18n('queued_at', { position: String(result) }))
+      await ctx.reply(__('queued_at', { position: String(result) }))
     }
   }
 )

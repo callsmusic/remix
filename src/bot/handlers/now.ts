@@ -1,6 +1,6 @@
 import { Composer } from '../composer'
-import i18n from '../i18n'
 import { queues } from '../queues'
+import { __ } from '../i18n'
 
 const composer = new Composer()
 
@@ -13,7 +13,7 @@ composer.command(['now', 'ns', 'cs', 'np', 'cp'], ctx => {
     const { title, url, requester } = now
 
     return ctx.reply(
-      i18n('ns', {
+      __('ns', {
         title,
         titleUrl: url,
         requester: requester.first_name,
@@ -22,5 +22,5 @@ composer.command(['now', 'ns', 'cs', 'np', 'cp'], ctx => {
     )
   }
 
-  return ctx.reply(i18n('not_streaming'))
+  return ctx.reply(__('not_streaming'))
 })

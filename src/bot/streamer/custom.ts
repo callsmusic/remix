@@ -1,9 +1,9 @@
 import { User } from '@grammyjs/types'
 import { getMessageUrl } from '../helpers/message'
-import i18n from '../i18n'
-import convert from '../convert'
-import { stream } from './stream'
 import { Context } from '../context'
+import { stream } from './stream'
+import convert from '../convert'
+import { __ } from '../i18n'
 
 export default async (
   ctx: Context & {
@@ -15,7 +15,7 @@ export default async (
 ) => {
   return await stream(ctx, {
     url: getMessageUrl(ctx.message),
-    title: i18n('custom_input'),
+    title: __('custom_input'),
     requester: ctx.from as User,
     getReadable: () => convert(input)
   })

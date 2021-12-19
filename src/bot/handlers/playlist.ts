@@ -2,8 +2,8 @@ import ytpl from 'ytpl'
 import { Composer } from '../composer'
 import { User } from '@grammyjs/types'
 import env from '../../env'
-import i18n from '../i18n'
 import { youtube } from '../streamer'
+import { __ } from '../i18n'
 
 const composer = new Composer().on('message')
 
@@ -35,8 +35,8 @@ composer.command(['playlist', 'pl', 'list'], async ctx => {
     if (i == '0') {
       await ctx.reply(
         result == null
-          ? i18n('streaming_queuing', { X: String(items.length) })
-          : i18n('queuing', { X: String(items.length) })
+          ? __('streaming_queuing', { X: String(items.length) })
+          : __('queuing', { X: String(items.length) })
       )
     }
   }
