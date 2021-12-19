@@ -12,7 +12,7 @@ composer.command(['cache', 'caches'], ctx => {
   return ctx.reply(__('caches_deleted'))
 })
 
-composer.on('message').filter(
+composer.filter(
   (
     ctx
   ): ctx is typeof ctx & {
