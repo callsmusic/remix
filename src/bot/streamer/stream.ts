@@ -1,4 +1,4 @@
-import gramtgcalls from '../../userbot/gramtgcalls'
+import { tgcalls } from '../../userbot'
 import { queues } from '../queues'
 import { Item } from '../queues'
 import { Context } from '../context'
@@ -6,7 +6,7 @@ import { Context } from '../context'
 export const next =
   (ctx: Context & { chat: NonNullable<Context['chat']> }, force?: boolean) =>
   async () => {
-    if (gramtgcalls(ctx.chat.id).stopped) {
+    if (tgcalls(ctx.chat.id).stopped) {
       return false
     }
 
@@ -26,7 +26,7 @@ export const next =
       return true
     }
 
-    return await gramtgcalls(ctx.chat.id).stop()
+    return await tgcalls(ctx.chat.id).stop()
   }
 
 export async function stream(
@@ -34,7 +34,7 @@ export async function stream(
   item: Item,
   force?: boolean
 ) {
-  const finished = gramtgcalls(ctx.chat.id).finished != false
+  const finished = tgcalls(ctx.chat.id).finished != false
 
   if (finished || force) {
     const getReadableResult = item.getReadable()
@@ -44,7 +44,7 @@ export async function stream(
         ? await getReadableResult
         : getReadableResult
 
-    await gramtgcalls(ctx.chat.id).stream(readable, {
+    await tgcalls(ctx.chat.id).stream(readable, {
       listeners: { onFinish: next(ctx) }
     })
 

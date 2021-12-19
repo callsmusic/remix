@@ -1,4 +1,4 @@
-import userbot from './userbot'
-import bot from './bot'
+import { start as startBot } from './bot'
+import { start as startUserbot } from './userbot'
 
-Promise.all([userbot(), bot()])
+Promise.all([startBot(), startUserbot()])

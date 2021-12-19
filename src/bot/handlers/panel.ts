@@ -1,9 +1,9 @@
 import { InlineKeyboard } from 'grammy'
+import { tgcalls } from '../../userbot'
+import { stream, next } from '../streamer'
 import { Composer } from '../composer'
 import { Context } from '../context'
-import gramtgcalls from '../../userbot/gramtgcalls'
 import { queues } from '../queues'
-import { stream, next } from '../streamer'
 import i18n from '../i18n'
 
 const composer = new Composer()
@@ -94,7 +94,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
   },
   async ctx => {
     const command = ctx.match[1]
-    const current = gramtgcalls(ctx.chat.id).volume
+    const current = tgcalls(ctx.chat.id).volume
 
     switch (command) {
       case 'update':
@@ -136,7 +136,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         }
         break
       case 'pause':
-        switch (gramtgcalls(ctx.chat.id).pause()) {
+        switch (tgcalls(ctx.chat.id).pause()) {
           case true:
             await ctx.answerCallbackQuery({
               text: i18n('panel_paused')
@@ -154,7 +154,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         }
         break
       case 'resume':
-        switch (gramtgcalls(ctx.chat.id).resume()) {
+        switch (tgcalls(ctx.chat.id).resume()) {
           case true:
             await ctx.answerCallbackQuery({
               text: i18n('panel_resumed')
@@ -172,7 +172,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         }
         break
       case 'mute':
-        switch (gramtgcalls(ctx.chat.id).mute()) {
+        switch (tgcalls(ctx.chat.id).mute()) {
           case true:
             await ctx.answerCallbackQuery({
               text: i18n('panel_muted')
@@ -190,7 +190,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         }
         break
       case 'unmute':
-        switch (gramtgcalls(ctx.chat.id).unmute()) {
+        switch (tgcalls(ctx.chat.id).unmute()) {
           case true:
             await ctx.answerCallbackQuery({
               text: i18n('panel_unmuted')
@@ -210,7 +210,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
       case 'volinc':
         const increment = getIncrement(current)
 
-        if (await gramtgcalls(ctx.chat.id).editSelf({ volume: increment })) {
+        if (await tgcalls(ctx.chat.id).editSelf({ volume: increment })) {
           await ctx.answerCallbackQuery({
             text: i18n('panel_volume_set', {
               amount: String(Math.round(increment / 100))
@@ -225,7 +225,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
       case 'voldec':
         const decrement = getDecrement(current)
 
-        if (await gramtgcalls(ctx.chat.id).editSelf({ volume: decrement })) {
+        if (await tgcalls(ctx.chat.id).editSelf({ volume: decrement })) {
           await ctx.answerCallbackQuery({
             text: i18n('panel_volume_set', {
               amount: String(Math.round(decrement / 100))
