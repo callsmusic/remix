@@ -1,4 +1,5 @@
 import { Composer } from '../composer'
+import chatMemberUpdated from './chat_member_updated'
 import controls from './controls'
 import playlist from './playlist'
 import search from './search'
@@ -10,6 +11,8 @@ import now from './now'
 const composer = new Composer()
 
 export default composer
+
+composer.use(chatMemberUpdated)
 
 composer
   .on('message')
