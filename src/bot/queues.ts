@@ -15,26 +15,18 @@ class Queues {
   now: Map<number, Item> = new Map()
   nowHandlers: NowHandler[] = []
 
-  addNowHandler=(handler: NowHandler) =>
-    this.nowHandlers.push(handler)
-  
+  addNowHandler = (handler: NowHandler) => this.nowHandlers.push(handler)
 
   setNow(chatId: number, item: Item) {
     this.now.set(chatId, item)
     this.nowHandlers.forEach(handler => handler(chatId, item))
   }
 
-  rmNow=(chatId: number) =>
-     this.now.delete(chatId)
-  
+  rmNow = (chatId: number) => this.now.delete(chatId)
 
-  getNow=(chatId: number) =>
-     this.now.get(chatId)
-  
+  getNow = (chatId: number) => this.now.get(chatId)
 
-  getNext=(chatId: number) =>
-     this.queues.get(chatId)?.[0]
-  
+  getNext = (chatId: number) => this.queues.get(chatId)?.[0]
 
   push(chatId: number, item: Item) {
     const queue = this.queues.get(chatId)

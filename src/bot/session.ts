@@ -8,8 +8,6 @@ export interface Session {
   loop: boolean
 }
 
-export const initial =(): Session =>
-  ( { admins: [], loop: false })
-
+export const initial = (): Session => ({ admins: [], loop: false })
 
 export const session = session_({ initial })
