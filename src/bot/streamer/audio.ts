@@ -4,7 +4,7 @@ import convert from "../convert";
 import { stream } from "./stream";
 import { Context } from "../context";
 
-export default async (
+export default (
   ctx: Context & {
     chat: NonNullable<Context["chat"]>;
     from: NonNullable<Context["from"]>;
@@ -15,7 +15,7 @@ export default async (
     voice = ctx.message.voice || ctx.message.reply_to_message?.voice,
     fileId = String((audio || voice)?.file_id);
 
-  return await stream(ctx, {
+  return stream(ctx, {
     url: getMessageUrl(ctx.message),
     title: audio ? audio.title || "Audio File" : "Voice Message",
     requester: ctx.from,
