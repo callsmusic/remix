@@ -27,9 +27,7 @@ composer
     if (!ctx.chat?.type.includes('group') || !ctx.from) {
       return false
     }
-
     const chatId = ctx.chat.id
-
     if (ctx.session.admins.length == 0) {
       const members = (await ctx.api.getChatAdministrators(chatId)).filter(
         member =>
@@ -38,14 +36,11 @@ composer
               member.can_manage_voice_chats)) &&
           !member.is_anonymous
       )
-
       ctx.session.admins = []
-
       for (const member of members) {
         ctx.session.admins.push(member.user.id)
       }
     }
-
     return ctx.session.admins.includes(ctx.from.id)
   })
   .use(panel)

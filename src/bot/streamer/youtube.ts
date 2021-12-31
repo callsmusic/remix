@@ -17,7 +17,6 @@ export default async function (
   url?: string
 ) {
   let info: videoInfo
-
   if (!title || !url) {
     info = await ytdl.getInfo(id, {
       requestOptions
@@ -25,7 +24,6 @@ export default async function (
     title = info.videoDetails.title
     url = info.videoDetails.video_url
   }
-
   return await stream(ctx, {
     url,
     title,

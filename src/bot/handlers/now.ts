@@ -8,10 +8,8 @@ export default composer
 
 composer.command(['now', 'ns', 'cs', 'np', 'cp'], ctx => {
   const now = queues.getNow(ctx.chat.id)
-
   if (now) {
     const { title, url, requester } = now
-
     return ctx.reply(
       __('ns', {
         title,
@@ -21,6 +19,5 @@ composer.command(['now', 'ns', 'cs', 'np', 'cp'], ctx => {
       })
     )
   }
-
   return ctx.reply(__('not_streaming'))
 })

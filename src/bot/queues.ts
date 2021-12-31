@@ -38,67 +38,52 @@ class Queues {
 
   push(chatId: number, item: Item) {
     const queue = this.queues.get(chatId)
-
     if (queue) {
       queue.push(item)
       return queue.length
     }
-
     this.queues.set(chatId, [item])
     return 1
   }
 
   get(chatId: number) {
     const queue = this.queues.get(chatId)
-
     this.rmNow(chatId)
-
     if (queue) {
       const item = queue.shift()
-
       if (item) {
         this.setNow(chatId, item)
       }
-
       return item
     }
   }
 
   getAll(chatId: number) {
     const queue = this.queues.get(chatId)
-
     if (queue) {
       return queue
     }
-
     return []
   }
 
   clear(chatId: number) {
     this.rmNow(chatId)
-
     if (this.queues.has(chatId)) {
       this.queues.set(chatId, [])
       return true
     }
-
     return false
   }
 
   suffle(chatId: number) {
     const now = this.getNow(chatId)
-
     if (!now || this.getAll(chatId).length == 0) {
       return false
     }
-
     this.push(chatId, now)
-
     const items = this.getAll(chatId)
-
     let currentIndex = items.length,
       randomIndex
-
     while (currentIndex != 0) {
       randomIndex = Math.floor(Math.random() * currentIndex)
       currentIndex--
@@ -107,7 +92,6 @@ class Queues {
         items[currentIndex]
       ]
     }
-
     this.queues.set(chatId, items)
     return this.get(chatId)!
   }

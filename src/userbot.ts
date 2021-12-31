@@ -31,7 +31,6 @@ export function tgcalls(chatId: number) {
   if (instances.has(chatId)) {
     return instances.get(chatId)!
   }
-
   instances.set(chatId, new CustomTGCalls(client, chatId))
   return instances.get(chatId)!
 }

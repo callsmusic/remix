@@ -23,25 +23,20 @@ bot.api.config.use((prev, method, payload) => {
 
 bot.catch(({ ctx, error }) => {
   console.error(error)
-
   if (error instanceof Error) {
     let { message } = error
     message = message.toLocaleLowerCase()
-
     for (let key in errors) {
       let [toInclude, toReply] = errors[key]
       toInclude = toInclude.toLocaleLowerCase()
-
       if (message.includes(toInclude)) {
         return ctx.reply(toReply)
       }
     }
-
     if (isSafe(error.message)) {
       return ctx.reply(__('error_with_message', { message: error.message }))
     }
   }
-
   return ctx.reply(__('error'))
 })
 

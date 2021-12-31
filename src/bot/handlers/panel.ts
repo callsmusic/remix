@@ -29,13 +29,10 @@ const panelOther = {
 const getPanelText = (chatId: number, loop: boolean) => {
   const nowItem = queues.getNow(chatId)
   const nextItem = queues.getNext(chatId)
-
   const now = nowItem?.title || __('nothing_now')
   const next = nextItem?.title || __('nothing_next')
-
   const nowUrl = nowItem?.url || ''
   const nextUrl = nextItem?.url || ''
-
   return __('panel', {
     now,
     nowEmoji: loop ? '🔁' : '🎵',
@@ -95,21 +92,18 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
   async ctx => {
     const command = ctx.match[1]
     const current = tgcalls(ctx.chat.id).volume
-
     switch (command) {
       case 'update':
         await updatePanel(ctx, true)
         break
       case 'shuffle':
         const result = queues.suffle(ctx.chat.id)
-
         if (result == false) {
           await ctx.answerCallbackQuery({
             text: __('panel_no_enough_items')
           })
           return
         }
-
         await ctx.answerCallbackQuery({
           text: __('panel_shuffling')
         })
@@ -209,7 +203,6 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         break
       case 'volinc':
         const increment = getIncrement(current)
-
         if (await tgcalls(ctx.chat.id).editSelf({ volume: increment })) {
           await ctx.answerCallbackQuery({
             text: __('panel_volume_set', {
@@ -224,7 +217,6 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         break
       case 'voldec':
         const decrement = getDecrement(current)
-
         if (await tgcalls(ctx.chat.id).editSelf({ volume: decrement })) {
           await ctx.answerCallbackQuery({
             text: __('panel_volume_set', {

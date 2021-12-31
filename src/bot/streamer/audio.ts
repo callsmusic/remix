@@ -14,7 +14,6 @@ export default (
   const audio = ctx.message.audio || ctx.message.reply_to_message?.audio,
     voice = ctx.message.voice || ctx.message.reply_to_message?.voice,
     fileId = String((audio || voice)?.file_id)
-
   return stream(ctx, {
     url: getMessageUrl(ctx.message),
     title: audio ? audio.title || 'Audio File' : 'Voice Message',
