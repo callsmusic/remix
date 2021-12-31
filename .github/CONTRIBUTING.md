@@ -2,7 +2,7 @@
 
 - Fork the repository.
 - Clone your forked repository.
-- Open the `locales` directory.
+- Open the `locales/` directory.
 
 ## Modifying an already existing language
 
