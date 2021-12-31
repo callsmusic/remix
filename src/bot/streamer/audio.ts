@@ -17,7 +17,7 @@ export default async (
 
   return await stream(ctx, {
     url: getMessageUrl(ctx.message),
-    title: audio ? audio.title || "Audio file" : "Voice message",
+    title: audio ? audio.title || "Audio File" : "Voice Message",
     requester: ctx.from,
     getReadable: async () => convert(await getFile(fileId)),
   });
