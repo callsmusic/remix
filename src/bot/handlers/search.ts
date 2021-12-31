@@ -57,7 +57,9 @@ composer.command('cancel', async ctx => {
   if (search) {
     try {
       await ctx.api.deleteMessage(ctx.chat.id, search.message.message_id)
-    } catch (_err) {}
+    } catch (_err) {
+      //
+    }
     ctx.session.search = undefined
     await ctx.reply(__('search_canceled'))
     return
@@ -77,7 +79,9 @@ composer.filter(
       const result = await youtube(ctx, ctx.from, item.id, item.title, item.url)
       try {
         await ctx.api.deleteMessage(ctx.chat.id, search.message.message_id)
-      } catch (_err) {}
+      } catch (_err) {
+        //
+      }
       ctx.session.search = undefined
       if (result == null) {
         await ctx.reply(__('streaming'))
