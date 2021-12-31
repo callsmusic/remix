@@ -13,16 +13,16 @@ export function humanize(value: number) {
   const mag = magnitude(value)
   if (mag <= 3) return String(value)
   if (mag > 3 && mag <= 6) {
-    return String(value).substr(0, mag - 3) + 'K'
+    return String(value).substring(0, mag - 3) + 'K'
   }
   if (mag > 6 && mag <= 9) {
-    return String(value).substr(0, mag - 6) + 'M'
+    return String(value).substring(0, mag - 6) + 'M'
   }
   if (mag > 9 && mag <= 12) {
-    return String(value).substr(0, mag - 9) + 'B'
+    return String(value).substring(0, mag - 9) + 'B'
   }
   if (mag > 12 && mag <= 15) {
-    return String(value).substr(0, mag - 12) + 'T'
+    return String(value).substring(0, mag - 12) + 'T'
   }
   return String(value)
 }

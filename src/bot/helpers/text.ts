@@ -1,3 +1,3 @@
 export const truncate = (string: string, number = 70) => {
-  return string.substr(0, number - 1) + (string.length > number ? '...' : '')
+  return string.substring(0, number - 1) + (string.length > number ? '...' : '')
 }
