@@ -1,4 +1,4 @@
-# 🎵 [Calls Music](https://github.com/callsmusic) Remix
+# 🎵 Remix
 
 An operational and exprimental Telegram music bot.
 
@@ -11,13 +11,13 @@ An operational and exprimental Telegram music bot.
 
 ## ✨ <a name="features"></a>Features
 
-### 😉 Streams whatever you like
+### 😉 Streams Whatever You Like
 
 You can stream audio files, voice messages, YouTube videos with any duration,
 YouTube lives, YouTube playlists and even custom inputs like radios or files in
 the place it is hosted!
 
-### 📊 Streams in multiple places
+### 📊 Streams in Multiple Places at Once
 
 Allows you to stream different things in multiple chats simultaneously. Each
 chat will have its own song queue.
@@ -27,7 +27,7 @@ chat will have its own song queue.
 Starts streaming your inputs while downloading and converting them. Also, it
 doesn't make produce files.
 
-### 😎 Has cool controls
+### 😎 Has a Lot of Controls
 
 Lets you adjust volume, loop, pause, resume, mute, unmute. Also, it has a
 control panel.
@@ -36,7 +36,7 @@ control panel.
 
 Restricts control and sensitive commands to admins.
 
-### 🗣 Speaks different languages
+### 🗣 Speaks Different Languages
 
 Remix is multilingual and speaks [various languages](#available-languages),
 thanks to the translators.
@@ -88,8 +88,11 @@ link/ID and streams/queues it.
 Custom inputs should be passed like this:
 
 ```text
-/stream custom your_custom_input
+/stream custom <your_custom_input>
 ```
+
+> You can replace `<your_custom_input>` with a valid Ffmpeg input, for example:
+> URL to a media file with audio, or a radio stream.
 
 ### 🔍 search
 
@@ -199,24 +202,6 @@ Join [our chats](https://callsmusic.me).
 
 New languages, bug fixes and improvements following
 [our contribution guidelines](./CONTRIBUTING.md) are warmly welcomed!
-
-## ✨ <a name="credits"></a>Credits
-
-- [Andrew](https://github.com/AndrewLaneX), creator of
-  [tgcallsjs](https://github.com/tgcallsjs) — a Node.js library for connecting
-  to Telegram calls.
-- [Painor](https://github.com/painor), creator of
-  [GramJS](https://github.com/gram-js/gramjs) — a super cool MTProto client.
-- [Knorpel Senf](https://github.com/KnorpelSenf), creator of
-  [grammY](https://github.com/grammyjs) — a framework for Telegram bot API.
-- [Tobias Kutscha](https://github.com/TimeForANinja), creator of
-  [ytsr](https://github.com/TimeForANinja/node-ytsr) for searching YouTube and
-  [ytpl](https://github.com/TimeForANinja/node-ytpl) for fetching YouTube
-  playlists.
-- Me, [Roj](https://github.com/roj1512), for creating
-  [gram-tgcalls](https://github.com/tgcalls/gram-tgcalls) — a helper lib which
-  connects GramJS to tgcallsjs.
-- A bunch of other special people which which can't be listed here.
 
 ## 📃 <a name="license"></a>License
 
