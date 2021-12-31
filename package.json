@@ -1,9 +1,11 @@
 {
+  "author": "Roj <ez@roj.im>",
+  "license": "AGPL-3.0",
   "private": true,
-  "name": "callsmusicremix",
-  "version": "1.0.0",
-  "description": "An operational and exprimental Telegram music bot.",
-  "main": "dist",
+  "main": "dist/index.js",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "start": "node dist",
     "build": "tsc",
@@ -11,7 +13,6 @@
     "test": "tsc --noEmit",
     "prettier": "prettier run --write **"
   },
-  "author": "Roj <ez@roj.im>",
   "dependencies": {
     "dotenv": "^10.0.0",
     "envalid": "^7.2.2",
@@ -32,8 +33,5 @@
     "@types/node": "^16.11.11",
     "prettier": "^2.5.0",
     "typescript": "^4.5.2"
-  },
-  "engines": {
-    "node": "16.x"
   }
 }
