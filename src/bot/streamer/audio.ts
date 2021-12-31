@@ -18,6 +18,6 @@ export default (
     url: getMessageUrl(ctx.message),
     title: audio ? audio.title || 'Audio File' : 'Voice Message',
     requester: ctx.from,
-    getReadable: async () => convert(await getFile(fileId))
+    getReadable: async () => convert(await getFile(fileId)),
   })
 }

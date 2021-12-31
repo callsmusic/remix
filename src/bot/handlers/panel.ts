@@ -23,7 +23,7 @@ const panelOther = {
     .text('🔉', 'panel_voldec')
     .text('🔊', 'panel_volinc')
     .row()
-    .text('🔄', 'panel_update')
+    .text('🔄', 'panel_update'),
 }
 
 const getPanelText = (chatId: number, loop: boolean) => {
@@ -38,7 +38,7 @@ const getPanelText = (chatId: number, loop: boolean) => {
     nowEmoji: loop ? '🔁' : '🎵',
     next,
     nowUrl,
-    nextUrl
+    nextUrl,
   })
 }
 
@@ -72,7 +72,7 @@ const updatePanel = async (
 composer.on('message').command(['menu', 'control', 'controls', 'panel'], ctx =>
   ctx.reply(getPanelText(ctx.chat.id, ctx.session.loop), {
     ...panelOther,
-    reply_to_message_id: ctx.message.message_id
+    reply_to_message_id: ctx.message.message_id,
   })
 )
 
@@ -100,12 +100,12 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         const result = queues.suffle(ctx.chat.id)
         if (result == false) {
           await ctx.answerCallbackQuery({
-            text: __('panel_no_enough_items')
+            text: __('panel_no_enough_items'),
           })
           return
         }
         await ctx.answerCallbackQuery({
-          text: __('panel_shuffling')
+          text: __('panel_shuffling'),
         })
         await stream(ctx, result, true)
         await updatePanel(ctx)
@@ -114,18 +114,18 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         switch (await next(ctx, true)()) {
           case true:
             await ctx.answerCallbackQuery({
-              text: __('panel_skipped')
+              text: __('panel_skipped'),
             })
             await updatePanel(ctx)
             break
           case false:
             await ctx.answerCallbackQuery({
-              text: __('panel_not_streaming')
+              text: __('panel_not_streaming'),
             })
             break
           case null:
             await ctx.answerCallbackQuery({
-              text: __('panel_not_in_call')
+              text: __('panel_not_in_call'),
             })
         }
         break
@@ -133,17 +133,17 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         switch (tgcalls(ctx.chat.id).pause()) {
           case true:
             await ctx.answerCallbackQuery({
-              text: __('panel_paused')
+              text: __('panel_paused'),
             })
             break
           case false:
             await ctx.answerCallbackQuery({
-              text: __('panel_not_streaming')
+              text: __('panel_not_streaming'),
             })
             break
           case null:
             await ctx.answerCallbackQuery({
-              text: __('panel_not_in_call')
+              text: __('panel_not_in_call'),
             })
         }
         break
@@ -151,17 +151,17 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         switch (tgcalls(ctx.chat.id).resume()) {
           case true:
             await ctx.answerCallbackQuery({
-              text: __('panel_resumed')
+              text: __('panel_resumed'),
             })
             break
           case false:
             await ctx.answerCallbackQuery({
-              text: __('panel_not_paused')
+              text: __('panel_not_paused'),
             })
             break
           case null:
             await ctx.answerCallbackQuery({
-              text: __('panel_not_in_call')
+              text: __('panel_not_in_call'),
             })
         }
         break
@@ -169,17 +169,17 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         switch (tgcalls(ctx.chat.id).mute()) {
           case true:
             await ctx.answerCallbackQuery({
-              text: __('panel_muted')
+              text: __('panel_muted'),
             })
             break
           case false:
             await ctx.answerCallbackQuery({
-              text: __('panel_already_muted')
+              text: __('panel_already_muted'),
             })
             break
           case null:
             await ctx.answerCallbackQuery({
-              text: __('panel_not_in_call')
+              text: __('panel_not_in_call'),
             })
         }
         break
@@ -187,17 +187,17 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         switch (tgcalls(ctx.chat.id).unmute()) {
           case true:
             await ctx.answerCallbackQuery({
-              text: __('panel_unmuted')
+              text: __('panel_unmuted'),
             })
             break
           case false:
             await ctx.answerCallbackQuery({
-              text: __('panel_not_muted')
+              text: __('panel_not_muted'),
             })
             break
           case null:
             await ctx.answerCallbackQuery({
-              text: __('panel_not_in_call')
+              text: __('panel_not_in_call'),
             })
         }
         break
@@ -206,12 +206,12 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         if (await tgcalls(ctx.chat.id).editSelf({ volume: increment })) {
           await ctx.answerCallbackQuery({
             text: __('panel_volume_set', {
-              amount: String(Math.round(increment / 100))
-            })
+              amount: String(Math.round(increment / 100)),
+            }),
           })
         } else {
           await ctx.answerCallbackQuery({
-            text: __('panel_not_in_call')
+            text: __('panel_not_in_call'),
           })
         }
         break
@@ -220,12 +220,12 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         if (await tgcalls(ctx.chat.id).editSelf({ volume: decrement })) {
           await ctx.answerCallbackQuery({
             text: __('panel_volume_set', {
-              amount: String(Math.round(decrement / 100))
-            })
+              amount: String(Math.round(decrement / 100)),
+            }),
           })
         } else {
           await ctx.answerCallbackQuery({
-            text: __('panel_not_in_call')
+            text: __('panel_not_in_call'),
           })
         }
     }

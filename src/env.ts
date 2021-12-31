@@ -10,5 +10,5 @@ export default cleanEnv(process.env, {
   API_HASH: str(),
   LOCALE: str({ default: 'en' }),
   COOKIES: str({ default: '' }),
-  MAX_PLAYLIST_SIZE: num({ default: 10 })
+  MAX_PLAYLIST_SIZE: num({ default: 10 }),
 })

@@ -15,7 +15,7 @@ const isSafe = (s: string) => !s.includes(bot.token)
 bot.api.config.use((prev, method, payload) =>
   prev(method, {
     parse_mode: 'HTML',
-    ...payload
+    ...payload,
   })
 )
 
@@ -43,5 +43,5 @@ bot.use(handlers)
 export const start = () =>
   bot.start({
     drop_pending_updates: true,
-    allowed_updates: ['message', 'callback_query', 'chat_member']
+    allowed_updates: ['message', 'callback_query', 'chat_member'],
   })

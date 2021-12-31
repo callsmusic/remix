@@ -12,7 +12,7 @@ export const client = new TelegramClient(
   env.API_ID,
   env.API_HASH,
   {
-    connectionRetries: 10
+    connectionRetries: 10,
   }
 )
 

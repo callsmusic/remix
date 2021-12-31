@@ -13,7 +13,7 @@ export const numberEmojis = new Map([
   [7, '7️⃣'],
   [8, '8️⃣'],
   [9, '9️⃣'],
-  [10, '🔟']
+  [10, '🔟'],
 ])
 
 export const panelOther = {
@@ -29,5 +29,5 @@ export const panelOther = {
     .text('🔉', 'panel_voldec')
     .text('🔊', 'panel_volinc')
     .row()
-    .text('🔄', 'panel_update')
+    .text('🔄', 'panel_update'),
 }

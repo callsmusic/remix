@@ -19,7 +19,7 @@ export default async function (
   let info: videoInfo
   if (!title || !url) {
     info = await ytdl.getInfo(id, {
-      requestOptions
+      requestOptions,
     })
     title = info.videoDetails.title
     url = info.videoDetails.video_url
@@ -35,9 +35,9 @@ export default async function (
               filter:
                 info.videoDetails.lengthSeconds != '0' ? filter : undefined,
               highWaterMark,
-              requestOptions
+              requestOptions,
             })
           : ytdl(id, { filter, highWaterMark, requestOptions })
-      )
+      ),
   })
 }

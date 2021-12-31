@@ -17,5 +17,5 @@ export default (
     url: getMessageUrl(ctx.message),
     title: __('custom_input'),
     requester: ctx.from as User,
-    getReadable: () => convert(input)
+    getReadable: () => convert(input),
   })

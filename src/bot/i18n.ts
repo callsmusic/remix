@@ -4,7 +4,7 @@ import env from '../env'
 i18n.configure({
   directory: 'locales',
   defaultLocale: 'en',
-  retryInDefaultLocale: true
+  retryInDefaultLocale: true,
 })
 
 i18n.setLocale(env.LOCALE)

@@ -24,7 +24,7 @@ composer.command(['search', 'find'], async ctx => {
   const results = (
     await ytsr(query, {
       limit: 10,
-      requestOptions: { headers: { Cookie: env.COOKIES } }
+      requestOptions: { headers: { Cookie: env.COOKIES } },
     })
   ).items.filter(v => v.type == 'video') as (Item & { type: 'video' })[]
   if (!results) {
@@ -44,7 +44,7 @@ composer.command(['search', 'find'], async ctx => {
         duration: result.isLive ? 'Live' : result.duration || 'N/A',
         views: result.views ? humanize(result.views) : 'N/A',
         uploadTime: result.uploadedAt || 'N/A',
-        uploader: result.author?.name || 'N/A'
+        uploader: result.author?.name || 'N/A',
       }) + '\n\n'
   }
   text += __('search_footer')

@@ -17,7 +17,7 @@ composer.command(['playlist', 'pl', 'list'], async ctx => {
   }
   const items = (
     await ytpl(url, {
-      requestOptions: { headers: { Cookie: env.COOKIES } }
+      requestOptions: { headers: { Cookie: env.COOKIES } },
     })
   ).items.slice(0, env.MAX_PLAYLIST_SIZE)
   for (let i in items) {

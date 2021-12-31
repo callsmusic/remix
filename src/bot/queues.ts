@@ -81,7 +81,7 @@ class Queues {
       currentIndex--
       ;[items[currentIndex], items[randomIndex]] = [
         items[randomIndex],
-        items[currentIndex]
+        items[currentIndex],
       ]
     }
     this.queues.set(chatId, items)
