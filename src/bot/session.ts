@@ -8,8 +8,8 @@ export interface Session {
   loop: boolean
 }
 
-export function initial(): Session {
-  return { admins: [], loop: false }
-}
+export const initial =(): Session =>
+  ( { admins: [], loop: false })
+
 
 export const session = session_({ initial })

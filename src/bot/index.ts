@@ -10,16 +10,14 @@ export const bot = new Bot<Context>(env.BOT_TOKEN)
 
 bot.use(session)
 
-const isSafe = (s: string) => {
-  return !s.includes(bot.token)
-}
+const isSafe = (s: string) => !s.includes(bot.token)
 
-bot.api.config.use((prev, method, payload) => {
-  return prev(method, {
+bot.api.config.use((prev, method, payload) =>
+  prev(method, {
     parse_mode: 'HTML',
     ...payload
   })
-})
+)
 
 bot.catch(({ ctx, error }) => {
   console.error(error)

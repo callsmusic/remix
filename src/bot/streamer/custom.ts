@@ -12,11 +12,10 @@ export default (
     message: NonNullable<Context['message']>
   },
   input: string
-) => {
-  return stream(ctx, {
+) =>
+  stream(ctx, {
     url: getMessageUrl(ctx.message),
     title: __('custom_input'),
     requester: ctx.from as User,
     getReadable: () => convert(input)
   })
-}
