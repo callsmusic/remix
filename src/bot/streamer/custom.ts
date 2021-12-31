@@ -5,7 +5,7 @@ import { stream } from './stream'
 import convert from '../convert'
 import { __ } from '../i18n'
 
-export default async (
+export default (
   ctx: Context & {
     chat: NonNullable<Context['chat']>
     from: NonNullable<Context['from']>
@@ -13,7 +13,7 @@ export default async (
   },
   input: string
 ) => {
-  return await stream(ctx, {
+  return stream(ctx, {
     url: getMessageUrl(ctx.message),
     title: __('custom_input'),
     requester: ctx.from as User,
