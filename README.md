@@ -4,12 +4,12 @@ An operational and exprimental Telegram music bot.
 
 ---
 
-## 🎖 <a name="achievements"></a>Achievements
+## 🎖 <a id="achievements"></a>Achievements
 
 - [Mentioned in Awesome grammY](https://github.com/grammyjs/awesome-grammY)
 - [Mentioned in Awesome tgcalls](https://github.com/tgcalls/awesome-tgcalls)
 
-## ✨ <a name="features"></a>Features
+## ✨ <a id="features"></a>Features
 
 ### 😉 Streams Whatever You Like
 
@@ -46,7 +46,7 @@ thanks to the translators.
 Its responses and source code don't say anything referring to Calls Music.
 Except some places like [`package.json`](./package.json).
 
-## 🚀 <a name="running"></a>Running
+## 🚀 <a id="running"></a>Running
 
 1. Copy `example.env` to `.env` and fill it with your credentials.
 2. Install dependencies and build:
@@ -61,11 +61,11 @@ npm install && npm run build
 npm start
 ```
 
-## ☁️ <a name="cloud"></a>Cloud platforms
+## ☁️ <a id="cloud"></a>Cloud platforms
 
 [![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/callsmusic/remix)
 
-## ⚒ <a name="configuring"></a>Configuring
+## ⚒ <a id="configuring"></a>Configuring
 
 - `BOT_TOKEN`: Telegram bot token.
 - `STRING_SESSION`: A GramJS/Telethon string session. You can generate one
@@ -76,7 +76,7 @@ npm start
 - `MAX_PLAYLIST_SIZE`: Max YouTube playlist size. Default: `10`.
 - `COOKIES`: Cookies for YouTube requests. Default: none.
 
-## 📄 <a name="commands"></a>Commands
+## 📄 <a id="commands"></a>Commands
 
 ### 🎶 stream
 
@@ -178,7 +178,7 @@ Clears the queue and stops streaming.
 
 Deletes caches.
 
-## 🗣 <a name="available-languages"></a>Available languages
+## 🗣 <a id="available-languages"></a>Available languages
 
 ```text
 bn    Bengali
@@ -194,16 +194,16 @@ si    Sinhalese
 tr    Turkish
 ```
 
-## 🛫 <a name="support"></a>Support
+## 🛫 <a id="support"></a>Support
 
 Join [our chats](https://callsmusic.me).
 
-## 💜 <a name="contributing"></a>Contributing
+## 💜 <a id="contributing"></a>Contributing
 
 New languages, bug fixes and improvements following
 [our contribution guidelines](./CONTRIBUTING.md) are warmly welcomed!
 
-## 📃 <a name="license"></a>License
+## 📃 <a id="license"></a>License
 
 Remix is licenced under the GNU Affero General Public License v3.0. Read more
 [here](./LICENSE).
