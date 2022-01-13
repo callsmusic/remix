@@ -9,5 +9,5 @@ export function chunkSubstr(string: string, size: number) {
     chunks[i] = string.substring(o, size);
   }
 
-  return chunks;
+  return chunks.filter((chunk) => chunk);
 }
