@@ -116,6 +116,12 @@ Streams a YouTube playlist.
 
 Displays the currently streamed item.
 
+### 📝 lyrics
+
+#### _Aliases: ly_
+
+Sends the lyrics of the currently streamed item.
+
 ### 🎛 panel [👮🏻‍♀️]
 
 #### _Aliases: menu, control, controls_

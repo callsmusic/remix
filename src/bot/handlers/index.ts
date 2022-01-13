@@ -4,6 +4,7 @@ import controls from './controls'
 import playlist from './playlist'
 import search from './search'
 import stream from './stream'
+import lyrics from './lyrics'
 import cache from './cache'
 import panel from './panel'
 import now from './now'
@@ -21,6 +22,7 @@ composer
   .use(playlist)
   .use(now)
   .use(search)
+  .use(lyrics)
 
 composer
   .filter(async ctx => {

@@ -55,5 +55,7 @@
   "streaming": "▶️ | <b>Streaming...</b>",
   "streaming_queuing": "🎶 | <b>Streaming and queuing {{X}} items...</b>",
   "unmuted": "🔈 | <b>Unmuted.</b>",
-  "volume_set": "🔈 | <b>Volume set to {{amount}}%.</b>"
+  "volume_set": "🔈 | <b>Volume set to {{amount}}%.</b>",
+  "lyrics_not_found": "❌ | <b>Lyrics not found.</b>",
+  "lyrics": "<b>{{title}}</b> #lyrics\n\n{{lyrics}}"
 }
