@@ -14,25 +14,25 @@
     "prettier": "prettier run --write **"
   },
   "dependencies": {
-    "dotenv": "^10.0.0",
+    "dotenv": "^11.0.0",
     "envalid": "^7.2.2",
     "fluent-ffmpeg": "^2.1.2",
-    "got": "^11.8.3",
-    "grammy": "^1.4.3",
-    "i18n": "^0.13.3",
+    "got": "^12.0.1",
+    "grammy": "^1.6.1",
+    "i18n": "^0.13.4",
     "lyrics-searcher": "^1.0.58",
-    "telegram": "^2.1.0",
+    "telegram": "^2.3.0",
     "tgcalls-next": "^0.0.0-rc.2",
-    "ytdl-core": "^4.9.2",
+    "ytdl-core": "^4.10.0",
     "ytpl": "^2.2.3",
-    "ytsr": "^3.5.3"
+    "ytsr": "^3.6.0"
   },
   "devDependencies": {
-    "@grammyjs/types": "^2.3.1",
+    "@grammyjs/types": "^2.5.1",
     "@types/fluent-ffmpeg": "^2.1.20",
-    "@types/i18n": "^0.13.1",
-    "@types/node": "^16.11.11",
-    "prettier": "^2.5.0",
-    "typescript": "^4.5.2"
+    "@types/i18n": "^0.13.2",
+    "@types/node": "^17.0.8",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4"
   }
 }
