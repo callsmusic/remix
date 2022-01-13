@@ -14,7 +14,7 @@ composer.command(['ly', 'lyrics'], async ctx => {
     return
   }
   try {
-    const lyrics = await lyricsSearcher(title, '')
+    const lyrics = await lyricsSearcher(title, 'a')
     await ctx.reply(__('lyrics', { lyrics, title }))
   } catch (err) {
     await ctx.reply(__('lyrics_not_found'))
