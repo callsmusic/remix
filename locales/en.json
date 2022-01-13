@@ -57,5 +57,5 @@
   "unmuted": "🔈 | <b>Unmuted.</b>",
   "volume_set": "🔈 | <b>Volume set to {{amount}}%.</b>",
   "lyrics_not_found": "❌ | <b>Lyrics not found.</b>",
-  "lyrics": "Lyrics of <b>{{title}}</b>\n\n{{lyrics}}"
+  "lyrics": "<b>{{title}}</b> #lyrics\n\n{{lyrics}}"
 }
