@@ -1,8 +1,10 @@
 import { Readable } from 'stream'
 import { User } from '@grammyjs/types'
 
+export type Readables = { audio?: Readable; video?: Readable }
+
 export interface Item {
-  getReadable: () => Promise<Readable> | Readable
+  getReadables: () => Promise<Readables> | Readables
   url: string
   title: string
   requester: User

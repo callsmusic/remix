@@ -28,8 +28,8 @@ export default async function (
     url,
     title,
     requester,
-    getReadable: () =>
-      convert(
+    getReadables: () => ({
+      audio: convert(
         info
           ? ytdl.downloadFromInfo(info, {
               filter:
@@ -39,5 +39,6 @@ export default async function (
             })
           : ytdl(id, { filter, highWaterMark, requestOptions })
       ),
+    }),
   })
 }

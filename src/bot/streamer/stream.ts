@@ -30,12 +30,12 @@ export async function stream(
 ) {
   const finished = tgcalls(ctx.chat.id).finished != false
   if (finished || force) {
-    const getReadableResult = item.getReadable()
-    const readable =
-      getReadableResult instanceof Promise
-        ? await getReadableResult
-        : getReadableResult
-    await tgcalls(ctx.chat.id, () => next(ctx)).stream({ audio: readable })
+    const getReadablesResult = item.getReadables()
+    const readables =
+      getReadablesResult instanceof Promise
+        ? await getReadablesResult
+        : getReadablesResult
+    await tgcalls(ctx.chat.id, () => next(ctx)).stream(readables)
     queues.setNow(ctx.chat.id, item)
     return null
   } else {
