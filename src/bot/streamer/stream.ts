@@ -35,9 +35,7 @@ export async function stream(
       getReadableResult instanceof Promise
         ? await getReadableResult
         : getReadableResult
-    await tgcalls(ctx.chat.id).stream(readable, {
-      listeners: { onFinish: next(ctx) },
-    })
+    await tgcalls(ctx.chat.id, () => next(ctx)).stream({ audio: readable })
     queues.setNow(ctx.chat.id, item)
     return null
   } else {

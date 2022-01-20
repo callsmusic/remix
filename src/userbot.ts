@@ -1,7 +1,7 @@
 import { TelegramClient } from 'telegram'
 import { Logger } from 'telegram/extensions'
 import { StringSession } from 'telegram/sessions'
-import { TGCalls } from 'tgcalls-next'
+import { GramTGCalls } from 'tgcalls-next'
 import { EditParams } from 'tgcalls-next/lib/types'
 import env from './env'
 
@@ -16,7 +16,7 @@ export const client = new TelegramClient(
   }
 )
 
-class CustomTGCalls extends TGCalls {
+class CustomTGCalls extends GramTGCalls {
   public volume?: number
 
   editSelf(params: EditParams) {
@@ -27,12 +27,16 @@ class CustomTGCalls extends TGCalls {
 
 const instances = new Map<number, CustomTGCalls>()
 
-export function tgcalls(chatId: number) {
+export function tgcalls(chatId: number, onFinish?: () => void) {
   if (instances.has(chatId)) {
     return instances.get(chatId)!
   }
-  instances.set(chatId, new CustomTGCalls(client, chatId))
-  return instances.get(chatId)!
+  const tgcalls = new CustomTGCalls(client, chatId)
+  if (onFinish) {
+    tgcalls.on('finish', onFinish)
+  }
+  instances.set(chatId, tgcalls)
+  return tgcalls!
 }
 
 export const start = () => client.start({ botAuthToken: '' })
