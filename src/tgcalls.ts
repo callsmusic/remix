@@ -5,9 +5,9 @@ import { client } from './userbot'
 class TGCalls extends GramTGCalls {
   volume?: number
 
-  edit = (params: EditParams, participant?: Api.TypeEntityLike) => {
+  edit(params: EditParams, participant?: Api.TypeEntityLike) {
     this.volume = params.volume
-    return super.editParticipant(params, participant)
+    return super.edit(params, participant)
   }
 }
 
