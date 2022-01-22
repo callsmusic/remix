@@ -1,4 +1,4 @@
-import { tgcalls } from '../../userbot'
+import { tgcalls } from '../../tgcalls'
 import { stream, stop, next } from '../streamer'
 import { Composer } from '../composer'
 import { queues } from '../queues'
@@ -60,7 +60,7 @@ composer.command(['volume', 'vol', 'v'], async ctx => {
     return
   }
   const volume = Math.round(number * 100) || 1
-  if (await tgcalls(ctx.chat.id).editSelf({ volume })) {
+  if (await tgcalls(ctx.chat.id).edit({ volume })) {
     await ctx.reply(__('volume_set', { amount: String(number) }))
     return
   }
