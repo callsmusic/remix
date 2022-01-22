@@ -1,5 +1,5 @@
 import { Api } from 'telegram'
-import { tgcalls } from '../../userbot'
+import { tgcalls } from '../../tgcalls'
 import { queues } from '../queues'
 
 export default async function stop(chatId: number) {

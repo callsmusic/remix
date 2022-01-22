@@ -1,5 +1,5 @@
 import { InlineKeyboard } from 'grammy'
-import { tgcalls } from '../../userbot'
+import { tgcalls } from '../../tgcalls'
 import { stream, next } from '../streamer'
 import { Composer } from '../composer'
 import { Context } from '../context'
@@ -91,7 +91,8 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
   },
   async ctx => {
     const command = ctx.match[1]
-    const current = tgcalls(ctx.chat.id).volume
+    const instance = tgcalls(ctx.chat.id)
+    const current = instance.volume
     switch (command) {
       case 'update':
         await updatePanel(ctx, true)
@@ -130,7 +131,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         }
         break
       case 'pause':
-        switch (tgcalls(ctx.chat.id).pause()) {
+        switch (instance.pause()) {
           case true:
             await ctx.answerCallbackQuery({
               text: __('panel_paused'),
@@ -148,7 +149,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         }
         break
       case 'resume':
-        switch (tgcalls(ctx.chat.id).resume()) {
+        switch (instance.resume()) {
           case true:
             await ctx.answerCallbackQuery({
               text: __('panel_resumed'),
@@ -166,7 +167,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         }
         break
       case 'mute':
-        switch (tgcalls(ctx.chat.id).mute()) {
+        switch (instance.mute()) {
           case true:
             await ctx.answerCallbackQuery({
               text: __('panel_muted'),
@@ -184,7 +185,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         }
         break
       case 'unmute':
-        switch (tgcalls(ctx.chat.id).unmute()) {
+        switch (instance.unmute()) {
           case true:
             await ctx.answerCallbackQuery({
               text: __('panel_unmuted'),
@@ -203,7 +204,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         break
       case 'volinc':
         const increment = getIncrement(current)
-        if (await tgcalls(ctx.chat.id).editSelf({ volume: increment })) {
+        if (await instance.edit({ volume: increment })) {
           await ctx.answerCallbackQuery({
             text: __('panel_volume_set', {
               amount: String(Math.round(increment / 100)),
@@ -217,7 +218,7 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         break
       case 'voldec':
         const decrement = getDecrement(current)
-        if (await tgcalls(ctx.chat.id).editSelf({ volume: decrement })) {
+        if (await instance.edit({ volume: decrement })) {
           await ctx.answerCallbackQuery({
             text: __('panel_volume_set', {
               amount: String(Math.round(decrement / 100)),

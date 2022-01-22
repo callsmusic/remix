@@ -1,11 +1,12 @@
-import { tgcalls } from '../../userbot'
+import { tgcalls } from '../../tgcalls'
 import { queues, Item } from '../queues'
 import { Context } from '../context'
 
 export const next =
   (ctx: Context & { chat: NonNullable<Context['chat']> }, force?: boolean) =>
   async () => {
-    if (tgcalls(ctx.chat.id).stopped) {
+    const instance = tgcalls(ctx.chat.id)
+    if (instance.stopped) {
       return false
     }
     if (ctx.session.loop && !force) {
@@ -20,7 +21,7 @@ export const next =
       await stream(ctx, item, true)
       return true
     }
-    return await tgcalls(ctx.chat.id).stop()
+    return await instance.stop()
   }
 
 export async function stream(
@@ -28,14 +29,11 @@ export async function stream(
   item: Item,
   force?: boolean
 ) {
-  const finished = tgcalls(ctx.chat.id).finished != false
+  const instance = tgcalls(ctx.chat.id)
+  const finished = instance.finished != false
   if (finished || force) {
-    const getReadablesResult = item.getReadables()
-    const readables =
-      getReadablesResult instanceof Promise
-        ? await getReadablesResult
-        : getReadablesResult
-    await tgcalls(ctx.chat.id, () => next(ctx)).stream(readables)
+    await instance.stream(await item.getReadables())
+    instance.once('finish', () => next(ctx))
     queues.setNow(ctx.chat.id, item)
     return null
   } else {
