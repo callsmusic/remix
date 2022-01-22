@@ -7,7 +7,7 @@ An operational and exprimental Telegram music bot.
 ## 🎖 <a id="achievements"></a>Achievements
 
 - [Mentioned in Awesome grammY](https://github.com/grammyjs/awesome-grammY)
-- [Mentioned in Awesome tgcalls](https://github.com/tgcalls/awesome-tgcalls)
+- [Mentioned in Awesome Telegram Calls](https://github.com/tgcalls/awesome-tgcalls)
 
 ## ✨ <a id="features"></a>Features
 
