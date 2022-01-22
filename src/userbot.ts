@@ -28,15 +28,20 @@ class CustomTGCalls extends GramTGCalls {
 const instances = new Map<number, CustomTGCalls>()
 
 export function tgcalls(chatId: number, onFinish?: () => void) {
-  if (instances.has(chatId)) {
-    return instances.get(chatId)!
+  const current = instances.get(chatId)
+  if (current) {
+    if (onFinish) {
+      current.removeAllListeners()
+      current.on('finish', onFinish)
+    }
+    return current
   }
   const tgcalls = new CustomTGCalls(client, chatId)
   if (onFinish) {
     tgcalls.on('finish', onFinish)
   }
   instances.set(chatId, tgcalls)
-  return tgcalls!
+  return tgcalls
 }
 
 export const start = () => client.start({ botAuthToken: '' })
