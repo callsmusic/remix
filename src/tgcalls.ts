@@ -7,7 +7,7 @@ class TGCalls extends GramTGCalls {
 
   edit = (params: EditParams, participant?: Api.TypeEntityLike) => {
     this.volume = params.volume
-    return super.edit(params, participant)
+    return super.editParticipant(params, participant)
   }
 }
 
