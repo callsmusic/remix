@@ -30,6 +30,9 @@ export async function stream(
   force?: boolean
 ) {
   const instance = tgcalls(ctx.chat.id)
+  if (!instance.listenerCount('call-discarded')) {
+    instance.on('call-discarded', () => queues.clear(ctx.chat.id))
+  }
   const finished = instance.finished != false
   if (finished || force) {
     await instance.stream(await item.getReadables())
