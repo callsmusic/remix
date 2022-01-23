@@ -22,7 +22,7 @@
     "i18n": "^0.13.4",
     "lyrics-searcher": "^1.0.58",
     "telegram": "^2.4.3",
-    "tgcalls-next": "^0.0.0-rc.17",
+    "tgcalls-next": "^0.0.0-rc.18",
     "ytdl-core": "^4.10.0",
     "ytpl": "^2.2.3",
     "ytsr": "^3.6.0"
