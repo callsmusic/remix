@@ -4,12 +4,12 @@ An operational and exprimental Telegram music bot.
 
 ---
 
-## 🎖 <a id="achievements"></a>Achievements
+## 🎖 Achievements
 
 - [Mentioned in Awesome grammY](https://github.com/grammyjs/awesome-grammY)
 - [Mentioned in Awesome Telegram Calls](https://github.com/tgcalls/awesome-tgcalls)
 
-## ✨ <a id="features"></a>Features
+## ✨ Features
 
 ### 😉 Streams Whatever You Like
 
@@ -46,7 +46,7 @@ thanks to the translators.
 Its responses and source code don't say anything referring to Calls Music.
 Except some places like [`package.json`](./package.json).
 
-## 🚀 <a id="running"></a>Running
+## 🚀 Running
 
 1. Copy `example.env` to `.env` and fill it with your credentials.
 2. Install dependencies and build:
@@ -61,11 +61,11 @@ npm install && npm run build
 npm start
 ```
 
-## ☁️ <a id="cloud"></a>Cloud platforms
+## ☁️ Cloud platforms
 
 [![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/roj1512/remix)
 
-## ⚒ <a id="configuring"></a>Configuring
+## ⚒ Configuring
 
 - `BOT_TOKEN`: Telegram bot token.
 - `STRING_SESSION`: A GramJS/Telethon string session. You can generate one
@@ -76,7 +76,7 @@ npm start
 - `MAX_PLAYLIST_SIZE`: Max YouTube playlist size. Default: `10`.
 - `COOKIES`: Cookies for YouTube requests. Default: none.
 
-## 📄 <a id="commands"></a>Commands
+## 📄 Commands
 
 ### 🎶 stream
 
@@ -184,7 +184,7 @@ Clears the queue and stops streaming.
 
 Deletes caches.
 
-## 🗣 <a id="available-languages"></a>Available languages
+## 🗣 Available languages
 
 ```text
 bn    Bengali
@@ -200,16 +200,16 @@ si    Sinhalese
 tr    Turkish
 ```
 
-## 🛫 <a id="support"></a>Support
+## 🛫 Support
 
 Join [our chats](https://callsmusic.me).
 
-## 💜 <a id="contributing"></a>Contributing
+## 💜 Contributing
 
 New languages, bug fixes and improvements following
 [our contribution guidelines](./CONTRIBUTING.md) are warmly welcomed!
 
-## 📃 <a id="license"></a>License
+## 📃 License
 
 Remix is licenced under the GNU Affero General Public License v3.0. Read more
 [here](./LICENSE).
