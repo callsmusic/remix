@@ -17,7 +17,7 @@ composer.use(chatMemberUpdated)
 
 composer
   .on('message')
-  .filter(ctx => !!(ctx.chat || ctx.chatMember?.chat)?.type.includes('group'))
+  .filter(ctx => !!ctx.chat?.type.includes('group'))
   .use(stream)
   .use(playlist)
   .use(now)
