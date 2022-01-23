@@ -100,10 +100,6 @@ composer.command(['shuffle', 'sh', 'mix'], async ctx => {
 })
 
 composer.command(['loop', 'repeat'], ctx => {
-  if (ctx.session.loop) {
-    ctx.session.loop = false
-    return ctx.reply(__('loop_off'))
-  }
-  ctx.session.loop = true
-  return ctx.reply(__('loop_on'))
+  ctx.session.loop = !ctx.session.loop
+  return ctx.reply(__(`loop_${ctx.session.loop ? 'on' : 'off'}`))
 })
