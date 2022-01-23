@@ -6,7 +6,6 @@ const composer = new Composer()
 export default composer
 
 composer.on('chat_member', ctx => {
-  const chat = ctx.chatMember.chat.id
   const member = ctx.chatMember.new_chat_member
   if (ctx.session.admins.length == 0) {
     return
