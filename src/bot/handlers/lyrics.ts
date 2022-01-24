@@ -1,4 +1,5 @@
 import lyricsSearcher from 'lyrics-searcher'
+import escape from 'escape-html'
 import { Composer } from '../composer'
 import { queues } from '../queues'
 import { chunkSubstr } from '../helpers/text'
@@ -20,7 +21,10 @@ composer.command(['ly', 'lyrics'], async ctx => {
     await ctx.reply(ctx.t('lyrics.not-found'))
     return
   }
-  const chunks = chunkSubstr(ctx.t('lyrics.lyrics', { lyrics, title }), 4096)
+  const chunks = chunkSubstr(
+    ctx.t('lyrics.lyrics', { lyrics: escape(lyrics), title: escape(title) }),
+    4096
+  )
   for (const chunk of chunks) {
     await ctx.reply(chunk)
   }

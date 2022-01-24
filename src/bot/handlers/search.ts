@@ -1,3 +1,4 @@
+import escape from 'escape-html';
 import { Composer } from '../composer'
 import ytsr, { Item } from 'ytsr'
 import env from '../../env'
@@ -37,13 +38,13 @@ composer.command(['search', 'find'], async ctx => {
     text +=
       ctx.t('search.result', {
         numberEmoji: numberEmojis.get(i + 1)!,
-        title: truncate(result.title),
+        title: escape(truncate(result.title)),
         url: result.url,
         durationEmoji: result.isLive ? '🔴' : '🕓',
         duration: result.isLive ? 'Live' : result.duration || 'N/A',
         views: result.views ? humanize(result.views) : 'N/A',
         uploadTime: result.uploadedAt || 'N/A',
-        uploader: result.author?.name || 'N/A',
+        uploader: escape(result.author?.name || 'N/A'),
       }) + '\n\n'
   }
   text += ctx.t('search.footer')

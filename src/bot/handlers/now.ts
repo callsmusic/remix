@@ -1,3 +1,4 @@
+import escape from 'escape-html'
 import { Composer } from '../composer'
 import { queues } from '../queues'
 
@@ -11,9 +12,9 @@ composer.command(['now', 'ns', 'cs', 'np', 'cp'], ctx => {
     const { title, url, requester } = now
     return ctx.reply(
       ctx.t('now', {
-        title,
+        title: escape(title),
         titleUrl: url,
-        requester: requester.first_name,
+        requester: escape(requester.first_name),
         requesterUrl: `tg://user?id=${requester.id}`,
       })
     )

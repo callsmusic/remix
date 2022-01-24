@@ -1,4 +1,5 @@
 import { InlineKeyboard } from 'grammy'
+import escape from 'escape-html'
 import { tgcalls } from '../../tgcalls'
 import { stream, next } from '../streamer'
 import { Composer } from '../composer'
@@ -37,9 +38,9 @@ const getPanelText = (
   const nowUrl = nowItem?.url || ''
   const nextUrl = nextItem?.url || ''
   return ctx.t('panel.text', {
-    now,
+    now: escape(now),
     nowEmoji: ctx.session.loop ? '🔁' : '🎵',
-    next,
+    next: escape(next),
     nowUrl,
     nextUrl,
   })
