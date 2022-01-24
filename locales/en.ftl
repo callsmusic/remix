@@ -95,7 +95,9 @@ volume =
 
 lyrics =
     .not-found = {-error(t: "Lyrics not found.")}
-    .lyrics    = <b>{$title}</b> #lyrics\n\n{$lyrics}
+    .lyrics    = <b>{$title}</b> #lyrics
+    
+    {$lyrics}
 
 search =
     .canceled         = {-ok(t: "Search canceled.")},
@@ -105,7 +107,12 @@ search =
     .header           = <b>🔍 | Search results for {$query}...</b>
     .no-query         = {-response(e: "❔", t: "What do you want to search for?")}
     .footer           = <i>Reply the number of the result you want to stream or /cancel.</i>
-    .result           = {$numberEmoji} <b><a href="{$url}">{$title}</a></b>\n  ├ {$durationEmoji} {$duration}\n  ├ 👁 {$views}\n  ├ 📅 {$uploadTime}\n  └ 👤 {$uploader}
+    .result           = 
+        {$numberEmoji} <b><a href="{$url}">{$title}</a></b>
+        {"  "}├ {$durationEmoji} {$duration}
+        {"  "}├ 👁 {$views}
+        {"  "}├ 📅 {$uploadTime}
+        {"  "}└ 👤 {$uploader}
 
 stream =
     .streaming = {-response(e: "▶️", t: "Streaming...")}
