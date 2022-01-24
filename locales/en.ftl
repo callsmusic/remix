@@ -29,7 +29,7 @@ shuffle =
 
 cache = {-response(e: "🗑", t: "Caches deleted")}
 
-now = 🎵 | Currently streaming <b><a href=\"{$titleUrl}\">{$title}</a></b> by <b><a href=\"{$requesterUrl}\">{$requester}</a></b>...
+now = 🎵 | Currently streaming <b><a href="{$titleUrl}">{$title}</a></b> by <b><a href="{$requesterUrl}">{$requester}</a></b>...
 
 panel = 
     .text = {$nowEmoji} | <b><a href="{$nowUrl}">{$now}</a></b>
@@ -105,7 +105,7 @@ search =
     .header           = <b>🔍 | Search results for {$query}...</b>
     .no-query         = {-response(e: "❔", t: "What do you want to search for?")}
     .footer           = <i>Reply the number of the result you want to stream or /cancel.</i>
-    .result           = {$numberEmoji} <b><a href=\"{$url}\">{$title}</a></b>\n  ├ {$durationEmoji} {$duration}\n  ├ 👁 {$views}\n  ├ 📅 {$uploadTime}\n  └ 👤 {$uploader}
+    .result           = {$numberEmoji} <b><a href="{$url}">{$title}</a></b>\n  ├ {$durationEmoji} {$duration}\n  ├ 👁 {$views}\n  ├ 📅 {$uploadTime}\n  └ 👤 {$uploader}
 
 stream =
     .streaming = {-response(e: "▶️", t: "Streaming...")}
