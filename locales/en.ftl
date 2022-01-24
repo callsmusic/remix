@@ -11,10 +11,12 @@ not-streaming   = {-not-streaming}
 raw-not-in-call = {-raw-not-in-call}
 
 errors =
-    .unknown      = {-error(t: "An error occurred.")}
-    .file-too-big = {-error(t: "This file is too big.")}
-    .no-assistant = {-error(t: "My assistant is not here.")}
-    .error        = {-error(t: "An error occurred:")} {$message}
+    .no-call        = {-error(t: "No active call.")}
+    .no-video-found = {-error(t: "No video found.")}
+    .unknown        = {-error(t: "An error occurred.")}
+    .file-too-big   = {-error(t: "This file is too big.")}
+    .no-assistant   = {-error(t: "My assistant is not here.")}
+    .error          = {-error(t: "An error occurred:")} {$message}
 
 inputs =
     .audio-file    = Audio File
