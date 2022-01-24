@@ -1,9 +1,7 @@
 import { TelegramClient } from 'telegram'
-import { Logger } from 'telegram/extensions'
 import { StringSession } from 'telegram/sessions'
+import { LogLevel } from 'telegram/extensions/Logger'
 import env from './env'
-
-Logger.setLevel('none')
 
 export const client = new TelegramClient(
   new StringSession(env.STRING_SESSION),
@@ -13,5 +11,7 @@ export const client = new TelegramClient(
     connectionRetries: 10,
   }
 )
+
+client.setLogLevel(LogLevel.NONE)
 
 export const start = () => client.start({ botAuthToken: '' })
