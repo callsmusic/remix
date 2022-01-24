@@ -1,4 +1,4 @@
-import escape from 'escape-html';
+import escape from 'escape-html'
 import { Composer } from '../composer'
 import ytsr, { Item } from 'ytsr'
 import env from '../../env'
