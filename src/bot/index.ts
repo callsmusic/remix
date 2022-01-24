@@ -5,7 +5,7 @@ import { session } from './session'
 import handlers from './handlers'
 import errors from './errors'
 import { fluent, load } from './fluent'
-import { useFluent } from '@moebius/grammy-fluent/dist/types'
+import { useFluent } from '@moebius/grammy-fluent'
 
 export const bot = new Bot<Context>(env.BOT_TOKEN)
 
