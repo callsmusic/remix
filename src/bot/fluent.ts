@@ -8,7 +8,7 @@ export const load = () =>
   fluent.addTranslation({
     locales: env.LOCALE,
     filePath: join(
-      dirname(dirname(dirname(__dirname))),
+      dirname(dirname(__dirname)),
       'locales',
       `/${env.LOCALE}.ftl`
     ),
