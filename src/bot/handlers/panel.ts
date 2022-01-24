@@ -1,10 +1,10 @@
 import { InlineKeyboard } from 'grammy'
+import escape from 'escape-html'
 import { tgcalls } from '../../tgcalls'
 import { stream, next } from '../streamer'
 import { Composer } from '../composer'
 import { Context } from '../context'
 import { queues } from '../queues'
-import { __ } from '../i18n'
 
 const composer = new Composer()
 
@@ -26,17 +26,21 @@ const panelOther = {
     .text('🔄', 'panel_update'),
 }
 
-const getPanelText = (chatId: number, loop: boolean) => {
-  const nowItem = queues.getNow(chatId)
-  const nextItem = queues.getNext(chatId)
-  const now = nowItem?.title || __('nothing_now')
-  const next = nextItem?.title || __('nothing_next')
+const getPanelText = (
+  ctx: Context & {
+    chat: NonNullable<Context['chat']>
+  }
+) => {
+  const nowItem = queues.getNow(ctx.chat.id)
+  const nextItem = queues.getNext(ctx.chat.id)
+  const now = nowItem?.title || ctx.t('panel.nothing-now')
+  const next = nextItem?.title || ctx.t('panel.nothing-next')
   const nowUrl = nowItem?.url || ''
   const nextUrl = nextItem?.url || ''
-  return __('panel', {
-    now,
-    nowEmoji: loop ? '🔁' : '🎵',
-    next,
+  return ctx.t('panel.text', {
+    now: escape(now),
+    nowEmoji: ctx.session.loop ? '🔁' : '🎵',
+    next: escape(next),
     nowUrl,
     nextUrl,
   })
@@ -57,20 +61,17 @@ const updatePanel = async (
   answer?: boolean
 ) => {
   try {
-    await ctx.editMessageText(
-      getPanelText(ctx.chat.id, ctx.session.loop),
-      panelOther
-    )
+    await ctx.editMessageText(getPanelText(ctx), panelOther)
   } catch (_err) {
   } finally {
     if (answer) {
-      await ctx.answerCallbackQuery({ text: __('panel_updated') })
+      await ctx.answerCallbackQuery({ text: ctx.t('panel.updated') })
     }
   }
 }
 
 composer.on('message').command(['menu', 'control', 'controls', 'panel'], ctx =>
-  ctx.reply(getPanelText(ctx.chat.id, ctx.session.loop), {
+  ctx.reply(getPanelText(ctx), {
     ...panelOther,
     reply_to_message_id: ctx.message.message_id,
   })
@@ -101,118 +102,62 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         const result = queues.suffle(ctx.chat.id)
         if (result == false) {
           await ctx.answerCallbackQuery({
-            text: __('panel_no_enough_items'),
+            text: ctx.t('panel.no-enough-items'),
           })
           return
         }
         await ctx.answerCallbackQuery({
-          text: __('panel_shuffling'),
+          text: ctx.t('panel.shuffling'),
         })
         await stream(ctx, result, true)
         await updatePanel(ctx)
         break
       case 'skip':
-        switch (await next(ctx, true)()) {
-          case true:
-            await ctx.answerCallbackQuery({
-              text: __('panel_skipped'),
-            })
-            await updatePanel(ctx)
-            break
-          case false:
-            await ctx.answerCallbackQuery({
-              text: __('panel_not_streaming'),
-            })
-            break
-          case null:
-            await ctx.answerCallbackQuery({
-              text: __('panel_not_in_call'),
-            })
-        }
+        await ctx.answerCallbackQuery({
+          text: ctx.t('panel.skip', {
+            result: String(await next(ctx, true)()),
+          }),
+        })
         break
       case 'pause':
-        switch (instance.pause()) {
-          case true:
-            await ctx.answerCallbackQuery({
-              text: __('panel_paused'),
-            })
-            break
-          case false:
-            await ctx.answerCallbackQuery({
-              text: __('panel_not_streaming'),
-            })
-            break
-          case null:
-            await ctx.answerCallbackQuery({
-              text: __('panel_not_in_call'),
-            })
-        }
+        await ctx.answerCallbackQuery({
+          text: ctx.t('panel.pause', {
+            result: String(instance.pause()),
+          }),
+        })
         break
       case 'resume':
-        switch (instance.resume()) {
-          case true:
-            await ctx.answerCallbackQuery({
-              text: __('panel_resumed'),
-            })
-            break
-          case false:
-            await ctx.answerCallbackQuery({
-              text: __('panel_not_paused'),
-            })
-            break
-          case null:
-            await ctx.answerCallbackQuery({
-              text: __('panel_not_in_call'),
-            })
-        }
+        await ctx.answerCallbackQuery({
+          text: ctx.t('panel.resume', {
+            result: String(instance.resume()),
+          }),
+        })
         break
       case 'mute':
-        switch (instance.mute()) {
-          case true:
-            await ctx.answerCallbackQuery({
-              text: __('panel_muted'),
-            })
-            break
-          case false:
-            await ctx.answerCallbackQuery({
-              text: __('panel_already_muted'),
-            })
-            break
-          case null:
-            await ctx.answerCallbackQuery({
-              text: __('panel_not_in_call'),
-            })
-        }
+        await ctx.answerCallbackQuery({
+          text: ctx.t('panel.mute', {
+            result: String(instance.mute()),
+          }),
+        })
         break
       case 'unmute':
-        switch (instance.unmute()) {
-          case true:
-            await ctx.answerCallbackQuery({
-              text: __('panel_unmuted'),
-            })
-            break
-          case false:
-            await ctx.answerCallbackQuery({
-              text: __('panel_not_muted'),
-            })
-            break
-          case null:
-            await ctx.answerCallbackQuery({
-              text: __('panel_not_in_call'),
-            })
-        }
+        await ctx.answerCallbackQuery({
+          text: ctx.t('panel.unmute', {
+            result: String(instance.unmute()),
+          }),
+        })
         break
       case 'volinc':
         const increment = getIncrement(current)
         if (await instance.edit({ volume: increment })) {
           await ctx.answerCallbackQuery({
-            text: __('panel_volume_set', {
+            text: ctx.t('panel.volume', {
               amount: String(Math.round(increment / 100)),
             }),
           })
         } else {
           await ctx.answerCallbackQuery({
-            text: __('panel_not_in_call'),
+            text: ctx.t('raw-not-in-call'),
           })
         }
         break
@@ -220,13 +165,13 @@ composer.callbackQuery(/^panel_(.+)$/).filter(
         const decrement = getDecrement(current)
         if (await instance.edit({ volume: decrement })) {
           await ctx.answerCallbackQuery({
-            text: __('panel_volume_set', {
+            text: ctx.t('panel.volume', {
               amount: String(Math.round(decrement / 100)),
             }),
           })
         } else {
           await ctx.answerCallbackQuery({
-            text: __('panel_not_in_call'),
+            text: ctx.t('raw-not-in-call'),
           })
         }
     }

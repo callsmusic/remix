@@ -3,7 +3,6 @@ import { Composer } from '../composer'
 import { User } from '@grammyjs/types'
 import env from '../../env'
 import { youtube } from '../streamer'
-import { __ } from '../i18n'
 
 const composer = new Composer().on('message')
 
@@ -31,8 +30,8 @@ composer.command(['playlist', 'pl', 'list'], async ctx => {
     if (i == '0') {
       await ctx.reply(
         result == null
-          ? __('streaming_queuing', { X: String(items.length) })
-          : __('queuing', { X: String(items.length) })
+          ? ctx.t('playlist.streaming-queuing', { x: String(items.length) })
+          : ctx.t('playlist.queuing', { x: String(items.length) })
       )
     }
   }

@@ -1,5 +1,4 @@
 import { Composer } from '../composer'
-import { __ } from '../i18n'
 
 const composer = new Composer()
 

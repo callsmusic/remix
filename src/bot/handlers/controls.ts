@@ -2,104 +2,67 @@ import { tgcalls } from '../../tgcalls'
 import { stream, stop, next } from '../streamer'
 import { Composer } from '../composer'
 import { queues } from '../queues'
-import { __ } from '../i18n'
 
 const composer = new Composer().on('message')
 
 export default composer
 
 composer.command('pause', ctx => {
-  switch (tgcalls(ctx.chat.id).pause()) {
-    case true:
-      return ctx.reply(__('paused'))
-    case false:
-      return ctx.reply(__('not_streaming'))
-    case null:
-      return ctx.reply(__('not_in_call'))
-  }
+  const result = String(tgcalls(ctx.chat.id).pause())
+  return ctx.reply(ctx.t('pause', { result: String(result) }))
 })
 
 composer.command(['resume', 're', 'res', 'continue'], ctx => {
-  switch (tgcalls(ctx.chat.id).resume()) {
-    case true:
-      return ctx.reply(__('resumed'))
-    case false:
-      return ctx.reply(__('not_paused'))
-    case null:
-      return ctx.reply(__('not_in_call'))
-  }
+  const result = String(tgcalls(ctx.chat.id).resume())
+  return ctx.reply(ctx.t('resume', { result }))
 })
 
 composer.command(['skip', 'next'], async ctx => {
-  switch (await next(ctx, true)()) {
-    case true:
-      return ctx.reply(__('skipped'))
-    case false:
-      return ctx.reply(__('not_streaming'))
-    case null:
-      return ctx.reply(__('not_in_call'))
-  }
+  const result = String(await next(ctx, true)())
+  await ctx.reply(ctx.t('skip', { result }))
 })
 
 composer.command(['leave', 'stop'], async ctx => {
-  switch (await stop(ctx.chat.id)) {
-    case true:
-      return ctx.reply(__('stopped'))
-    case false:
-      return ctx.reply(__('not_streaming'))
-    case null:
-      return ctx.reply(__('not_in_call'))
-  }
+  const result = String(await stop(ctx.chat.id))
+  await ctx.reply(ctx.t('stop', { result }))
 })
 
 composer.command(['volume', 'vol', 'v'], async ctx => {
   const number = Number(ctx.message.text.split(/\s/)[1])
   const valid = number >= 0 && number <= 200
   if (!valid) {
-    await ctx.reply(__('invalid_volume'))
+    await ctx.reply(ctx.t('volume.invalid'))
     return
   }
   const volume = Math.round(number * 100) || 1
   if (await tgcalls(ctx.chat.id).edit({ volume })) {
-    await ctx.reply(__('volume_set', { amount: String(number) }))
+    await ctx.reply(ctx.t('volume.set', { amount: String(number) }))
     return
   }
-  await ctx.reply(__('not_in_call'))
+  await ctx.reply(ctx.t('not-in-call'))
 })
 
 composer.command(['mute', 'm'], async ctx => {
-  switch (tgcalls(ctx.chat.id).mute()) {
-    case true:
-      return ctx.reply(__('muted'))
-    case false:
-      return ctx.reply(__('already_muted'))
-    case null:
-      return ctx.reply(__('not_in_call'))
-  }
+  const result = String(tgcalls(ctx.chat.id).mute())
+  return ctx.reply(ctx.t('mute', { result }))
 })
 
 composer.command(['unmute', 'um'], async ctx => {
-  switch (tgcalls(ctx.chat.id).unmute()) {
-    case true:
-      return ctx.reply(__('unmuted'))
-    case false:
-      return ctx.reply(__('not_muted'))
-    case null:
-      return ctx.reply(__('not_in_call'))
-  }
+  const result = String(tgcalls(ctx.chat.id).unmute())
+  return ctx.reply(ctx.t('unmute', { result }))
 })
 
 composer.command(['shuffle', 'sh', 'mix'], async ctx => {
   const result = queues.suffle(ctx.chat.id)
   if (result == false) {
-    await ctx.reply(__('no_enough_items'))
+    await ctx.reply(ctx.t('shuffle.no-enough-items'))
     return
   }
-  await ctx.reply(__('shuffling'))
+  await ctx.reply(ctx.t('shuffle.shuffling'))
   await stream(ctx, result, true)
 })
 
 composer.command(['loop', 'repeat'], ctx => {
   ctx.session.loop = !ctx.session.loop
-  return ctx.reply(__(`loop_${ctx.session.loop ? 'on' : 'off'}`))
+  return ctx.reply(ctx.t('loop', { result: String(ctx.session.loop) }))
 })

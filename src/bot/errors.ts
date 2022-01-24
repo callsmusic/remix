@@ -1,8 +1,8 @@
-import { __ } from './i18n'
+import { Context } from './context'
 
-export default [
-  ['No active group call', __('no_call')],
-  ['No video id found', __('no_video_found')],
-  ['Too big', __('file_too_big')],
-  ['Could not find the input entity for', __('assistant_not_in_group')],
+export default (ctx: Context) => [
+  ['No active group call', ctx.t('errors.no-call')],
+  ['No video id found', ctx.t('errors.no-video-found')],
+  ['Too big', ctx.t('errors.file-too-big')],
+  ['Could not find the input entity for', ctx.t('errors.no-assistant')],
 ]

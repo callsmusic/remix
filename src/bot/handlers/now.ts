@@ -1,6 +1,6 @@
+import escape from 'escape-html'
 import { Composer } from '../composer'
 import { queues } from '../queues'
-import { __ } from '../i18n'
 
 const composer = new Composer()
 
@@ -11,13 +11,13 @@ composer.command(['now', 'ns', 'cs', 'np', 'cp'], ctx => {
   if (now) {
     const { title, url, requester } = now
     return ctx.reply(
-      __('ns', {
-        title,
+      ctx.t('now', {
+        title: escape(title),
         titleUrl: url,
-        requester: requester.first_name,
+        requester: escape(requester.first_name),
         requesterUrl: `tg://user?id=${requester.id}`,
       })
     )
   }
-  return ctx.reply(__('not_streaming'))
+  return ctx.reply(ctx.t('not-streaming'))
 })
