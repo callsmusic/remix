@@ -27,7 +27,7 @@ shuffle =
     .shuffling      = {-response(e: "🔀", t: "Shuffling...")}
     .no-enough-items = {-error(t: "No enough items to shuffle.")}
 
-cache = {-response(e: "🗑", t: "Caches deleted")}
+cache = {-response(e: "🗑", t: "Caches deleted.")}
 
 now = 🎵 | Currently streaming <b><a href="{$titleUrl}">{$title}</a></b> by <b><a href="{$requesterUrl}">{$requester}</a></b>...
 
@@ -80,10 +80,9 @@ panel =
         *[null] {-raw-not-in-call}
     }
 
-    .volume = Volume set to {$amount}.
-
+    .shuffling       = Shuffling...
+    .volume          = Volume set to {$amount}.
     .no-enough-items = No enough items to shuffle.
-    .shuffling = Shuffling...
 
 playlist =
     .queuing           = 🎶 | <b>Queuing {$x} items...</b>
