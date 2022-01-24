@@ -3,7 +3,6 @@ import { getMessageUrl } from '../helpers/message'
 import { Context } from '../context'
 import { stream } from './stream'
 import convert from '../convert'
-import { __ } from '../i18n'
 
 export default (
   ctx: Context & {
@@ -15,7 +14,7 @@ export default (
 ) =>
   stream(ctx, {
     url: getMessageUrl(ctx.message),
-    title: __('custom_input'),
+    title: ctx.t('inputs.custom'),
     requester: ctx.from as User,
     getReadables: () => ({ audio: convert(input) }),
   })

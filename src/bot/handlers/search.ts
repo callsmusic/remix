@@ -5,7 +5,6 @@ import { truncate } from '../helpers/text'
 import { humanize } from '../helpers/humanize'
 import { numberEmojis } from '../constants'
 import { youtube } from '../streamer'
-import { __ } from '../i18n'
 
 const composer = new Composer().on('message')
 
@@ -13,12 +12,12 @@ export default composer
 
 composer.command(['search', 'find'], async ctx => {
   if (ctx.session.search) {
-    await ctx.reply(__('search_active'))
+    await ctx.reply(ctx.t('search.active'))
     return
   }
   const query = ctx.msg.text.split(' ').slice(1).join(' ')
   if (!query) {
-    await ctx.reply(__('no_query'))
+    await ctx.reply(ctx.t('search.no-query'))
     return
   }
   const results = (
@@ -28,15 +27,15 @@ composer.command(['search', 'find'], async ctx => {
     })
   ).items.filter(v => v.type == 'video') as (Item & { type: 'video' })[]
   if (!results) {
-    await ctx.reply(__('no_results_found'))
+    await ctx.reply(ctx.t('search.no-results-found'))
     return
   }
   let text = ''
-  text += __('search_header', { query }) + '\n\n'
+  text += ctx.t('search.header', { query }) + '\n\n'
   for (let i = 0; i < results.length; i++) {
     const result = results[i]
     text +=
-      __('search_result', {
+      ctx.t('search.result', {
         numberEmoji: numberEmojis.get(i + 1)!,
         title: truncate(result.title),
         url: result.url,
@@ -47,7 +46,7 @@ composer.command(['search', 'find'], async ctx => {
         uploader: result.author?.name || 'N/A',
       }) + '\n\n'
   }
-  text += __('search_footer')
+  text += ctx.t('search.footer')
   const message = await ctx.reply(text, { disable_web_page_preview: true })
   ctx.session.search = { results, message }
 })
@@ -61,10 +60,10 @@ composer.command('cancel', async ctx => {
       //
     }
     ctx.session.search = undefined
-    await ctx.reply(__('search_canceled'))
+    await ctx.reply(ctx.t('search.canceled'))
     return
   }
-  await ctx.reply(__('search_not_active'))
+  await ctx.reply(ctx.t('search.not-active'))
 })
 
 composer.filter(
@@ -84,10 +83,10 @@ composer.filter(
       }
       ctx.session.search = undefined
       if (result == null) {
-        await ctx.reply(__('streaming'))
+        await ctx.reply(ctx.t('stream.streaming'))
         return
       }
-      await ctx.reply(__('queued_at', { position: String(result) }))
+      await ctx.reply(ctx.t('stream.queued-at', { position: String(result) }))
     }
   }
 )
