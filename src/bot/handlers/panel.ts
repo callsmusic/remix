@@ -32,8 +32,8 @@ const getPanelText = (
 ) => {
   const nowItem = queues.getNow(ctx.chat.id)
   const nextItem = queues.getNext(ctx.chat.id)
-  const now = nowItem?.title || ctx.t('nothing-now')
-  const next = nextItem?.title || ctx.t('nothing-next')
+  const now = nowItem?.title || ctx.t('panel.nothing-now')
+  const next = nextItem?.title || ctx.t('panel.nothing-next')
   const nowUrl = nowItem?.url || ''
   const nextUrl = nextItem?.url || ''
   return ctx.t('panel.text', {

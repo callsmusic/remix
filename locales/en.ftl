@@ -32,7 +32,8 @@ cache = {-response(e: "🗑", t: "Caches deleted")}
 now = 🎵 | Currently streaming <b><a href=\"{$titleUrl}\">{$title}</a></b> by <b><a href=\"{$requesterUrl}\">{$requester}</a></b>...
 
 panel = 
-    .text = {$nowEmoji} | <b><a href="{$nowUrl}">{$now}</a></b>\n➡️ | <b><a href="{$nextUrl}">{$next}</a></b>
+    .text = {$nowEmoji} | <b><a href="{$nowUrl}">{$now}</a></b>
+    ➡️ | <b><a href="{$nextUrl}">{$next}</a></b>
     .updated = Updated.
     .nothing-now   = Nothing streaming now
     .nothing-next  = Nothing streaming next
