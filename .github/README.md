@@ -63,7 +63,7 @@ npm start
 
 ## ☁️ Cloud platforms
 
-[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/roj1512/remix)
+[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Supportiii/remix)
 
 ## ⚒ Configuring
 
