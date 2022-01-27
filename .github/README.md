@@ -187,9 +187,10 @@ Deletes caches.
 ## 🗣 Available languages
 
 ```text
-ckb   Central Kurdish
-en    English
-id    Indonesian
+ckb Central Kurdish
+de  German
+en  English
+id  Indonesian
 ```
 
 ## 🛫 Support
