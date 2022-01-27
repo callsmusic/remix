@@ -187,17 +187,9 @@ Deletes caches.
 ## 🗣 Available languages
 
 ```text
-bn    Bengali
 ckb   Central Kurdish
-de    German
 en    English
-es    Spanish
-fa    Farsi
 id    Indonesian
-ml    Malayalam
-pt_BR Brazilian Portuguese
-si    Sinhalese
-tr    Turkish
 ```
 
 ## 🛫 Support
