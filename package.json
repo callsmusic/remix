@@ -33,7 +33,7 @@
     "@grammyjs/types": "^2.5.1",
     "@types/escape-html": "^1.0.1",
     "@types/fluent-ffmpeg": "^2.1.20",
-    "@types/node": "^17.0.13",
+    "@types/node": "^17.0.14",
     "prettier": "^2.5.1",
     "typescript": "^4.5.5"
   }
