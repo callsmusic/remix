@@ -30,7 +30,7 @@
     "ytsr": "^3.6.0"
   },
   "devDependencies": {
-    "@grammyjs/types": "^2.5.1",
+    "@grammyjs/types": "^2.6.0",
     "@types/escape-html": "^1.0.1",
     "@types/fluent-ffmpeg": "^2.1.20",
     "@types/node": "^17.0.13",
