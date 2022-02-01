@@ -21,7 +21,7 @@
     "escape-html": "^1.0.3",
     "fluent-ffmpeg": "^2.1.2",
     "got": "^11.8.3",
-    "grammy": "^1.6.2",
+    "grammy": "^1.7.0",
     "lyrics-searcher": "^1.0.58",
     "telegram": "^2.4.6",
     "tgcalls-next": "^0.0.0-rc.18",
