@@ -25,7 +25,7 @@
     "lyrics-searcher": "^1.0.58",
     "telegram": "^2.4.6",
     "tgcalls-next": "^0.0.0-rc.18",
-    "ytdl-core": "^4.10.0",
+    "ytdl-core": "^4.10.1",
     "ytpl": "^2.2.3",
     "ytsr": "^3.6.0"
   },
