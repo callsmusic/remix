@@ -61,7 +61,7 @@ npm install && npm run build
 npm start
 ```
 
-## ☁️ Cloud platforms
+## ☁️ Cloud Platforms
 
 [![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/roj1512/remix)
 
@@ -184,7 +184,7 @@ Clears the queue and stops streaming.
 
 Deletes caches.
 
-## 🗣 Available languages
+## 🗣 Available Languages
 
 ```text
 ckb Central Kurdish
@@ -201,7 +201,7 @@ Join [our chats](https://callsmusic.me).
 ## 💜 Contributing
 
 New languages, bug fixes and improvements following
-[our contribution guidelines](./CONTRIBUTING.md) are warmly welcomed!
+[the Contribution Guide](./CONTRIBUTING.md) are warmly welcomed!
 
 ## 📃 License
 
