@@ -13,7 +13,7 @@
 
 ## Adding a new language
 
-- Google your language code and create `your_iso_language_code.json`.
+- Google your language code and create `your_iso_language_code.ftl`.
 - Copy translations of another language (one which you are comfortable translating from).
 - Translate all of the strings to that language.
 - Set "authors" to ["your name"].
