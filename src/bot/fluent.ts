@@ -10,6 +10,7 @@ export const load = () =>
     filePath: join(
       dirname(dirname(__dirname)),
       'locales',
+      env.LOCALE,
       `/${env.LOCALE}.ftl`
     ),
   })
