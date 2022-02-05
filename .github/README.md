@@ -187,11 +187,11 @@ Deletes caches.
 ## 🗣 Available Languages
 
 ```text
-ckb Central Kurdish
-de  German
-en  English
-id  Indonesian
-si  Sinhalese
+ku Kurdish
+de German
+en English
+id Indonesian
+si Sinhalese
 ```
 
 ## 🛫 Support
