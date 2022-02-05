@@ -1,23 +1,6 @@
 # Translations
 
-- Fork the repository.
-- Clone your forked repository.
-- Open the `locales/` directory.
-
-## Modifying an already existing language
-
-- Open the translation file you want to modify.
-- Make your changes.
-- Add your name to "authors".
-- Commit with a message like "Modify [language name] translations".
-
-## Adding a new language
-
-- Google your language code and create `your_iso_language_code.ftl`.
-- Copy translations of another language (one which you are comfortable translating from).
-- Translate all of the strings to that language.
-- Set "authors" to ["your name"].
-- Commit with a message like "Add [language name] translations".
+Join [Remix's Crowdin](https://crowdin.com/project/cm-remix). If your language is missing, tell us in [our chat](https://t.me/callsmusicchat).
 
 # Other contributions
 
