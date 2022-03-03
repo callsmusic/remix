@@ -17,7 +17,7 @@
     "@moebius/fluent": "^0.3.0",
     "@moebius/grammy-fluent": "^0.4.1",
     "dotenv": "^16.0.0",
-    "envalid": "^7.2.2",
+    "envalid": "^7.3.0",
     "escape-html": "^1.0.3",
     "fluent-ffmpeg": "^2.1.2",
     "got": "^11.8.3",
