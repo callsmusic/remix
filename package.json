@@ -26,7 +26,7 @@
     "telegram": "^2.5.2",
     "tgcalls-next": "^0.0.0-rc.18",
     "ytdl-core": "^4.10.1",
-    "ytpl": "^2.2.3",
+    "ytpl": "^2.3.0",
     "ytsr": "^3.6.0"
   },
   "devDependencies": {
