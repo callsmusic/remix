@@ -1,25 +1,20 @@
 name: Prettier
 
-on:
-  pull_request:
-  push:
-    branches:
-    - main
+on: push
 
 jobs:
   prettier:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
       with:
         ref: ${{ github.head_ref }}
 
-    - name: Format files
+    - name: Format
       uses: creyD/prettier_action@v3.3
       with:
         prettier_options: --write **
-        commit_message: "Format files"
+        commit_message: "Format"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
