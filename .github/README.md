@@ -1,6 +1,6 @@
 # 🎵 Remix
 
-An operational and exprimental Telegram music bot.
+An operational and experimental Telegram music bot.
 
 ---
 
@@ -205,5 +205,5 @@ New languages, bug fixes and improvements following
 
 ## 📃 License
 
-Remix is licenced under the GNU Affero General Public License v3.0. Read more
+Remix is licensed under the GNU Affero General Public License v3.0. Read more
 [here](./LICENSE).
