@@ -1,6 +1,6 @@
 # 🎵 Remix
 
-An operational and exprimental Telegram music bot.
+An operational and experimental Telegram music bot.
 
 ---
 
@@ -38,13 +38,13 @@ Restricts control and sensitive commands to admins.
 
 ### 🗣 Speaks Different Languages
 
-Remix is multilingual and speaks [various languages](#available-languages),
+Remix is multilingual and speaks [various languages](#-available-languages),
 thanks to the translators.
 
 ### 🗑 Clean
 
 Its responses and source code don't say anything referring to Calls Music.
-Except some places like [`package.json`](./package.json).
+Except some places like [`package.json`](/package.json).
 
 ## 🚀 Running
 
@@ -72,7 +72,7 @@ npm start
   [here](https://ssg.roj.im).
 - `API_ID`: Telegram app ID.
 - `API_HASH`: Telegram app hash.
-- `LOCALE`: An [available](#available-languages) bot language. Default: `en`.
+- `LOCALE`: An [available](#-available-languages) bot language. Default: `en`.
 - `MAX_PLAYLIST_SIZE`: Max YouTube playlist size. Default: `10`.
 - `COOKIES`: Cookies for YouTube requests. Default: none.
 
@@ -205,5 +205,5 @@ New languages, bug fixes and improvements following
 
 ## 📃 License
 
-Remix is licenced under the GNU Affero General Public License v3.0. Read more
-[here](./LICENSE).
+Remix is licensed under the GNU Affero General Public License v3.0. Read more
+[here](/LICENSE).
