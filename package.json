@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@grammyjs/types": "^2.7.0",
-    "@types/escape-html": "^1.0.1",
+    "@types/escape-html": "^1.0.2",
     "@types/fluent-ffmpeg": "^2.1.20",
     "@types/node": "^17.0.24",
     "prettier": "^2.6.2",
