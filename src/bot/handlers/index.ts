@@ -35,7 +35,7 @@ composer
         member =>
           (member.status == 'creator' ||
             (member.status == 'administrator' &&
-              member.can_manage_voice_chats)) &&
+              member.can_manage_video_chats)) &&
           !member.is_anonymous
       )
       ctx.session.admins = []
