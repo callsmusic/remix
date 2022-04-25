@@ -4,7 +4,7 @@
   "private": true,
   "main": "dist/index.js",
   "engines": {
-    "node": "17.x"
+    "node": ">17.x"
   },
   "scripts": {
     "start": "node dist",
