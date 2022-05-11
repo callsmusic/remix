@@ -16,7 +16,7 @@
   "dependencies": {
     "@moebius/fluent": "^0.3.0",
     "@moebius/grammy-fluent": "^0.4.1",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.1",
     "envalid": "^7.3.1",
     "escape-html": "^1.0.3",
     "fluent-ffmpeg": "^2.1.2",
