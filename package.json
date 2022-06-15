@@ -23,7 +23,7 @@
     "got": "^11.8.3",
     "grammy": "^1.8.3",
     "lyrics-searcher": "^1.0.58",
-    "telegram": "^2.8.4",
+    "telegram": "^2.8.6",
     "tgcalls-next": "^0.0.0-rc.18",
     "ytdl-core": "^4.11.0",
     "ytpl": "^2.3.0",
