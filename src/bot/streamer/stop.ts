@@ -1,6 +1,6 @@
 import { Api } from 'telegram'
-import { tgcalls } from '../../tgcalls'
-import { queues } from '../queues'
+import { tgcalls } from '../../tgcalls.js'
+import { queues } from '../queues.js'
 
 export default async function stop(chatId: number) {
   queues.clear(chatId)

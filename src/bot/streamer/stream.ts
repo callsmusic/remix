@@ -1,6 +1,6 @@
-import { tgcalls } from '../../tgcalls'
-import { queues, Item } from '../queues'
-import { Context } from '../context'
+import { tgcalls } from '../../tgcalls.js'
+import { queues, Item } from '../queues.js'
+import { Context } from '../context.js'
 
 export const next =
   (ctx: Context & { chat: NonNullable<Context['chat']> }, force?: boolean) =>

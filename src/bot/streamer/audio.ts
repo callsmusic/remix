@@ -1,8 +1,8 @@
-import { getFile } from '../helpers/file'
-import { getMessageUrl } from '../helpers/message'
-import convert from '../convert'
-import { stream } from './stream'
-import { Context } from '../context'
+import { getFile } from '../helpers/file.js'
+import { getMessageUrl } from '../helpers/message.js'
+import convert from '../convert.js'
+import { stream } from './stream.js'
+import { Context } from '../context.js'
 
 export default (
   ctx: Context & {

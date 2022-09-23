@@ -1,16 +1,16 @@
-import { join, dirname } from 'path'
-import { Fluent } from '@moebius/fluent'
-import env from '../env'
+import { dirname, join } from "path";
+import { Fluent } from "@moebius/fluent";
+import env from "../env.js";
 
-export const fluent = new Fluent()
+export const fluent = new Fluent();
 
 export const load = () =>
   fluent.addTranslation({
     locales: env.LOCALE,
     filePath: join(
-      dirname(dirname(__dirname)),
-      'locales',
+      dirname(new URL(import.meta.url).pathname),
+      "../../locales",
       env.LOCALE,
-      `messages.ftl`
+      `messages.ftl`,
     ),
-  })
+  });

@@ -1,8 +1,8 @@
 import { User } from '@grammyjs/types'
-import { getMessageUrl } from '../helpers/message'
-import { Context } from '../context'
-import { stream } from './stream'
-import convert from '../convert'
+import { getMessageUrl } from '../helpers/message.js'
+import { Context } from '../context.js'
+import { stream } from './stream.js'
+import convert from '../convert.js'
 
 export default (
   ctx: Context & {
